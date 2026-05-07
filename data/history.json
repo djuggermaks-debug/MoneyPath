@@ -1,0 +1,11 @@
+[
+  {
+    "instrument": "OIL",
+    "date": "2026-05-07 17:01",
+    "signal": "нейтральный",
+    "strength": 0,
+    "price_at_signal": 0.0,
+    "key_factor": "rate limit",
+    "price_change_4h": null
+  }
+]
