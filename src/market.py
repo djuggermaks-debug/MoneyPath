@@ -1,39 +1,29 @@
-import yfinance as yf
-import pandas as pd
+import requests
+import csv
+import io
+from datetime import datetime, timezone
 
 
 SYMBOLS = {
-    "OIL":  "BZ=F",
-    "GAS":  "NG=F",
-    "GOLD": "GC=F",
-    "BTC":  "BTC-USD",
+    "OIL":  "cb.f",    # Brent crude (Stooq)
+    "GAS":  "ng.f",    # Natural Gas
+    "GOLD": "gc.f",    # Gold
+    "BTC":  "btc.v",   # Bitcoin
 }
+
+STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
+STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=15"  # 15-min history
 
 
 def get_market_data(instrument_key):
-    symbol = SYMBOLS.get(instrument_key, "BZ=F")
+    symbol = SYMBOLS.get(instrument_key, "cb.f")
 
-    ticker = yf.Ticker(symbol)
-    df = ticker.history(period="5d", interval="15m")
+    price = _get_price(symbol)
+    candles = _get_candles(symbol)
+    indicators = _calculate_indicators(candles)
 
-    if df.empty:
-        print(f"yfinance: нет данных для {symbol}")
-        return {"price": {}, "indicators": {}, "position": None}
-
-    current = df.iloc[-1]
-    prev_close = df.iloc[-2]["Close"] if len(df) > 1 else current["Close"]
-    change_pct = round((current["Close"] - prev_close) / prev_close * 100, 2)
-
-    price = {
-        "symbol": symbol,
-        "mid": round(float(current["Close"]), 3),
-        "change_pct": change_pct,
-    }
-
-    indicators = _calculate_indicators(df)
-
-    print(f"yfinance цена: {price}")
-    print(f"yfinance индикаторы: {indicators}")
+    print(f"Stooq цена: {price}")
+    print(f"Stooq свечей: {len(candles)}")
 
     return {
         "price": price,
@@ -42,23 +32,61 @@ def get_market_data(instrument_key):
     }
 
 
-def _calculate_indicators(df):
-    closes = df["Close"].dropna().tolist()
-    highs  = df["High"].dropna().tolist()
-    lows   = df["Low"].dropna().tolist()
+def _get_price(symbol):
+    resp = requests.get(STOOQ_URL.format(symbol=symbol), timeout=10)
+    reader = csv.DictReader(io.StringIO(resp.text))
+    row = next(reader, {})
 
-    if len(closes) < 14:
-        return {}
+    close = row.get("Close", "N/D")
+    if close == "N/D" or not close:
+        return {"symbol": symbol, "mid": None, "change_pct": None}
 
-    rsi = _rsi(closes, 14)
-    support, resistance = _support_resistance(highs, lows)
-    pivot = _pivot_points(df)
+    open_price = float(row.get("Open", close))
+    close_price = float(close)
+    change_pct = round((close_price - open_price) / open_price * 100, 2) if open_price else 0
 
     return {
-        "rsi": round(rsi, 1),
-        "support": round(support, 2),
+        "symbol": symbol,
+        "mid": round(close_price, 3),
+        "change_pct": change_pct,
+    }
+
+
+def _get_candles(symbol):
+    resp = requests.get(STOOQ_HIST.format(symbol=symbol), timeout=10)
+    reader = csv.DictReader(io.StringIO(resp.text))
+    candles = []
+    for row in reader:
+        try:
+            candles.append({
+                "open":  float(row["Open"]),
+                "high":  float(row["High"]),
+                "low":   float(row["Low"]),
+                "close": float(row["Close"]),
+            })
+        except (ValueError, KeyError):
+            continue
+    return candles
+
+
+def _calculate_indicators(candles):
+    if len(candles) < 14:
+        return {}
+
+    closes = [c["close"] for c in candles]
+    highs  = [c["high"]  for c in candles]
+    lows   = [c["low"]   for c in candles]
+
+    rsi        = _rsi(closes, 14)
+    support    = min(lows[-50:])
+    resistance = max(highs[-50:])
+    pivot      = _pivot(candles)
+
+    return {
+        "rsi":        round(rsi, 1),
+        "support":    round(support, 2),
         "resistance": round(resistance, 2),
-        "pivot": round(pivot, 2),
+        "pivot":      round(pivot, 2),
     }
 
 
@@ -77,21 +105,8 @@ def _rsi(closes, period=14):
     return 100 - (100 / (1 + avg_gain / avg_loss))
 
 
-def _support_resistance(highs, lows, lookback=50):
-    recent_highs = highs[-lookback:]
-    recent_lows  = lows[-lookback:]
-
-    resistance = max(recent_highs)
-    support    = min(recent_lows)
-
-    return support, resistance
-
-
-def _pivot_points(df):
-    # Берём вчерашнюю дневную свечу для расчёта пивота
-    daily = df["Close"].resample("1D").ohlc().dropna()
-    if len(daily) < 2:
+def _pivot(candles):
+    if len(candles) < 2:
         return 0.0
-    yesterday = daily.iloc[-2]
-    pivot = (yesterday["high"] + yesterday["low"] + yesterday["close"]) / 3
-    return float(pivot)
+    prev = candles[-2]
+    return (prev["high"] + prev["low"] + prev["close"]) / 3
