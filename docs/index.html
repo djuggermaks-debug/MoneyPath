@@ -328,6 +328,34 @@
         </div>`;
     }
 
+    // Счётчик для дайджеста: 06:00 UTC (09:00 EEST) пн–пт
+    function getNextDigestUpdate() {
+      const now = new Date();
+      const day = now.getUTCDay();
+      const h   = now.getUTCHours();
+      const m   = now.getUTCMinutes();
+      const s   = now.getUTCSeconds();
+
+      // найти следующий рабочий день в 06:00 UTC
+      let target = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 0, 0));
+      // если сегодня уже после 06:00 — берём следующий день
+      if (h > 6 || (h === 6 && (m > 0 || s > 0))) target.setUTCDate(target.getUTCDate() + 1);
+      // пропускаем выходные
+      while (target.getUTCDay() === 0 || target.getUTCDay() === 6) target.setUTCDate(target.getUTCDate() + 1);
+
+      const secsLeft = Math.floor((target - now) / 1000);
+      return { secs: secsLeft };
+    }
+
+    function fmtLong(secs) {
+      const h = Math.floor(secs / 3600);
+      const m = Math.floor((secs % 3600) / 60);
+      const s = secs % 60;
+      if (h > 0) return `${h} ч ${m} мин`;
+      if (m > 0) return `${m} мин ${s} сек`;
+      return `${s} сек`;
+    }
+
     // Счётчик для нефти (OIL): каждые 30 мин, 07:00–20:00 UTC, пн–пт
     function getNextOilUpdate() {
       const now = new Date();
@@ -381,8 +409,28 @@
       }
     }
 
-    tickTimer();
-    setInterval(tickTimer, 1000);
+    function tickDigestTimer() {
+      const timerEl = document.getElementById("oil-timer");
+      if (!timerEl || active !== "DIGEST") return;
+
+      timerEl.style.display = "flex";
+      const dot   = document.getElementById("timer-dot");
+      const text  = document.getElementById("timer-text");
+      const count = document.getElementById("timer-count");
+      const info  = getNextDigestUpdate();
+
+      dot.className    = "timer-dot active";
+      text.textContent = "📰 Следующий дайджест через";
+      count.textContent = fmtLong(info.secs);
+    }
+
+    function tickAll() {
+      if (active === "DIGEST") tickDigestTimer();
+      else tickTimer();
+    }
+
+    tickAll();
+    setInterval(tickAll, 1000);
 
     loadAlerts();
   </script>
