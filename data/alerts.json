@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260507174102",
+    "timestamp": "2026-05-07T17:41:02.769042+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Ожидания прогресса в мирном соглашении между США и Ираном и его влияние на мировые поставки нефти.",
+    "action": "Категорически не рекомендовано открывать позиции без актуальных данных о текущей цене, уровнях поддержки и сопротивления. Необходимо дождаться появления валидных рыночных данных.",
+    "risk": "Принятие торговых решений при полном отсутствии актуальных ценовых данных и технических индикаторов является крайне рискованным и спекулятивным.",
+    "reasoning": "Рынок нефти Brent продолжает откат на фоне новостей о возможном прогрессе в мирном соглашении между США и Ираном. Ожидания увеличения поставок иранской нефти создают сильное медвежье давление на цены. Однако, критическое отсутствие текущих рыночных данных (цена, RSI, уровни поддержки/сопротивления) не позволяет дать точную рекомендацию по точкам входа.",
+    "price": 0.0,
+    "change_pct": 0.0,
+    "rsi": null,
+    "support": null,
+    "resistance": null,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin pulls back as markets eye Iran progress, Strategy sales",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-81k-as-markets-watch-iran-progress-strategy-sales-4666250"
+      },
+      {
+        "title": "Stocks dip as oil prices continue pullback on hopes of US-Iran peace deal",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/asian-stocks-hit-record-high-dollar-wobbles-on-peace-deal-hopes-4666114"
+      }
+    ]
+  },
+  {
     "id": "20260507173444",
     "timestamp": "2026-05-07T17:34:44.095622+00:00",
     "instrument": "OIL",
