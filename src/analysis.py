@@ -1,11 +1,12 @@
 import os
 import json
-import google.generativeai as genai
+import requests
+
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 
 def analyze(instrument_name, news_articles, market_data, history):
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    api_key = os.environ["GEMINI_API_KEY"]
 
     price = market_data.get("price", {})
     indicators = market_data.get("indicators", {})
@@ -58,8 +59,13 @@ def analyze(instrument_name, news_articles, market_data, history):
   "risk": "главный риск прямо сейчас"
 }}"""
 
-    response = model.generate_content(prompt)
-    text = response.text.strip()
+    resp = requests.post(
+        f"{GEMINI_URL}?key={api_key}",
+        json={"contents": [{"parts": [{"text": prompt}]}]},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
     if "```" in text:
         text = text.split("```")[1]
