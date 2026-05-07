@@ -181,9 +181,7 @@
         a.resistance ? `<div class="alert-stat"><span class="s-label">Сопротивление </span><span class="s-val">${a.resistance}</span></div>` : "",
       ].filter(Boolean).join("");
 
-      const news = a.top_news?.length
-        ? `<div class="alert-news">${a.top_news.map(n => `<a href="${n.link}" target="_blank">[${n.source}] ${n.title}</a>`).join("")}</div>`
-        : "";
+      const news = "";
 
       const position = a.position
         ? `<div class="alert-text">⚠️ Позиция: ${a.position.direction} с ${a.position.level} | P&L: ${a.position.upl}</div>`
