@@ -2,108 +2,82 @@ import os
 import requests
 
 
-# Capital.com API docs: https://open-api.capital.com/
-# Для demo: https://demo-api-capital.backend-capital.com/api/v1
-# Для live: https://api-capital.backend-capital.com/api/v1
+BASE_URL = "https://api.twelvedata.com"
 
-BASE_URL = "https://api-capital.backend-capital.com/api/v1"
+# Символы для Twelve Data
+SYMBOLS = {
+    "OIL":  "BRENT",
+    "GAS":  "NATURAL GAS",
+    "GOLD": "XAU/USD",
+    "BTC":  "BTC/USD",
+}
 
 
-class CapitalClient:
-    def __init__(self):
-        self.api_key = os.environ["CAPITAL_API_KEY"]
-        self.email = os.environ["CAPITAL_EMAIL"]
-        self.password = os.environ["CAPITAL_PASSWORD"]
-        self.cst = None
-        self.security_token = None
+def get_market_data(instrument_key):
+    api_key = os.environ["TWELVE_DATA_KEY"]
+    symbol = SYMBOLS.get(instrument_key, "BRENT")
 
-    def _headers(self):
-        return {
-            "X-CAP-API-KEY": self.api_key,
-            "CST": self.cst,
-            "X-SECURITY-TOKEN": self.security_token,
-            "Content-Type": "application/json",
-        }
+    price = _get_price(symbol, api_key)
+    candles = _get_candles(symbol, api_key)
+    indicators = _calculate_indicators(candles)
 
-    def authenticate(self):
-        resp = requests.post(
-            f"{BASE_URL}/session",
-            json={"identifier": self.email, "password": self.password, "encryptedPassword": False},
-            headers={"X-CAP-API-KEY": self.api_key, "Content-Type": "application/json"},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        self.cst = resp.headers.get("CST")
-        self.security_token = resp.headers.get("X-SECURITY-TOKEN")
+    return {
+        "price": price,
+        "indicators": indicators,
+        "position": None,  # позиции добавим позже
+    }
 
-    def get_price(self, epic):
-        resp = requests.get(
-            f"{BASE_URL}/markets/{epic}",
-            headers=self._headers(),
-            timeout=10,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        snapshot = data.get("snapshot", {})
-        return {
-            "epic": epic,
-            "bid": snapshot.get("bid"),
-            "offer": snapshot.get("offer"),
-            "mid": round((snapshot.get("bid", 0) + snapshot.get("offer", 0)) / 2, 3),
-            "change_pct": snapshot.get("percentageChange"),
-        }
 
-    def get_candles(self, epic, resolution="MINUTE_30", count=48):
-        # resolution: MINUTE, MINUTE_5, MINUTE_15, MINUTE_30, HOUR, HOUR_4, DAY
-        resp = requests.get(
-            f"{BASE_URL}/prices/{epic}",
-            params={"resolution": resolution, "max": count},
-            headers=self._headers(),
-            timeout=10,
-        )
-        resp.raise_for_status()
-        return resp.json().get("prices", [])
+def _get_price(symbol, api_key):
+    resp = requests.get(
+        f"{BASE_URL}/price",
+        params={"symbol": symbol, "apikey": api_key},
+        timeout=10,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    price = float(data.get("price", 0))
 
-    def get_positions(self):
-        resp = requests.get(
-            f"{BASE_URL}/positions",
-            headers=self._headers(),
-            timeout=10,
-        )
-        resp.raise_for_status()
-        return resp.json().get("positions", [])
+    # Изменение за день
+    quote = requests.get(
+        f"{BASE_URL}/quote",
+        params={"symbol": symbol, "apikey": api_key},
+        timeout=10,
+    ).json()
+    change_pct = round(float(quote.get("percent_change", 0)), 2)
 
-    def get_market_data(self, epic):
-        self.authenticate()
-        price = self.get_price(epic)
-        candles = self.get_candles(epic)
-        positions = self.get_positions()
+    return {
+        "symbol": symbol,
+        "mid": round(price, 3),
+        "change_pct": change_pct,
+    }
 
-        active_position = next(
-            (p for p in positions if p.get("market", {}).get("epic") == epic), None
-        )
 
-        indicators = _calculate_indicators(candles)
-
-        return {
-            "price": price,
-            "indicators": indicators,
-            "position": active_position,
-        }
+def _get_candles(symbol, api_key, interval="30min", count=48):
+    resp = requests.get(
+        f"{BASE_URL}/time_series",
+        params={
+            "symbol": symbol,
+            "interval": interval,
+            "outputsize": count,
+            "apikey": api_key,
+        },
+        timeout=10,
+    )
+    resp.raise_for_status()
+    return resp.json().get("values", [])
 
 
 def _calculate_indicators(candles):
     if len(candles) < 14:
         return {}
 
-    closes = []
-    for c in candles:
-        mid = c.get("closePrice", {})
-        val = (mid.get("bid", 0) + mid.get("ask", 0)) / 2
-        closes.append(val)
+    closes = [float(c["close"]) for c in candles]
+    closes.reverse()  # Twelve Data отдаёт от новых к старым
 
     rsi = _rsi(closes, 14)
-    support, resistance = _support_resistance(closes)
+    support = min(closes[-48:])
+    resistance = max(closes[-48:])
 
     return {
         "rsi": round(rsi, 1),
@@ -124,10 +98,4 @@ def _rsi(closes, period=14):
 
     if avg_loss == 0:
         return 100.0
-    rs = avg_gain / avg_loss
-    return 100 - (100 / (1 + rs))
-
-
-def _support_resistance(closes, lookback=48):
-    recent = closes[-lookback:]
-    return min(recent), max(recent)
+    return 100 - (100 / (1 + avg_gain / avg_loss))

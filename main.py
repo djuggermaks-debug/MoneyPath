@@ -5,7 +5,7 @@ import os
 from datetime import datetime, timezone
 
 from src.news import fetch_all
-from src.market import CapitalClient
+from src.market import get_market_data
 from src.analysis import analyze
 # from src.notifier import send_alert  # включить когда будет нужна почта
 from src import memory
@@ -68,8 +68,7 @@ def main():
         print("Новостей нет. Пропускаем анализ.")
         sys.exit(0)
 
-    capital = CapitalClient()
-    market_data = capital.get_market_data(instrument["epic"])
+    market_data = get_market_data(instrument_key)
     current_price = market_data["price"].get("mid", 0)
 
     history = memory.load_history(instrument_key)

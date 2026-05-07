@@ -29,14 +29,12 @@ jobs:
 
       - name: Run analysis
         env:
-          CAPITAL_API_KEY: ${{ secrets.CAPITAL_API_KEY }}
-          CAPITAL_EMAIL: ${{ secrets.CAPITAL_EMAIL }}
-          CAPITAL_PASSWORD: ${{ secrets.CAPITAL_PASSWORD }}
+          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          # EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          # EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          # EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python main.py
 
       - name: Save history to repo
