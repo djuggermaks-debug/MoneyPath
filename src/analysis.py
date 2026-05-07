@@ -60,6 +60,7 @@ def analyze(instrument_name, news_articles, market_data, history):
 }}"""
 
     import time
+    resp = None
     for attempt in range(3):
         resp = requests.post(
             f"{GEMINI_URL}?key={api_key}",
@@ -67,11 +68,15 @@ def analyze(instrument_name, news_articles, market_data, history):
             timeout=30,
         )
         if resp.status_code == 429:
-            print(f"Gemini rate limit, ждём 15 сек... (попытка {attempt + 1}/3)")
-            time.sleep(15)
+            wait = 30 * (attempt + 1)
+            print(f"Gemini rate limit, ждём {wait} сек... (попытка {attempt + 1}/3)")
+            time.sleep(wait)
             continue
         resp.raise_for_status()
         break
+    else:
+        print("Gemini недоступен (rate limit). Пропускаем этот запуск.")
+        return {"signal": "нейтральный", "strength": 0, "key_factor": "rate limit", "action": "—", "risk": "—", "reasoning": "Gemini API временно недоступен"}
 
     text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
