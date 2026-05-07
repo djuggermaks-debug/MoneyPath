@@ -85,6 +85,10 @@
     .alert-news a { display: block; font-size: 12px; color: #4a90d9; text-decoration: none; margin-bottom: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .alert-news a:hover { text-decoration: underline; }
 
+    .alert-pattern { font-size: 13px; color: #9c88ff; margin: 6px 0; }
+    .alert-edu { font-size: 13px; color: #aaa; margin-top: 10px; padding: 10px; background: #161a26; border-radius: 8px; border-left: 3px solid #4a90d9; }
+    .edu-label { color: #4a90d9; font-weight: 600; }
+
     .strength-dots { display: inline-flex; gap: 3px; margin-left: 6px; vertical-align: middle; }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: #2a2d3e; display: inline-block; }
     .dot.filled { background: currentColor; }
@@ -203,6 +207,8 @@
           <div class="alert-action">→ ${a.action || ""}</div>
           <div class="alert-risk">⚠ ${a.risk || ""}</div>
           <div class="alert-text">${a.reasoning || ""}</div>
+          ${a.pattern ? `<div class="alert-pattern">📐 ${a.pattern}</div>` : ""}
+          ${a.education ? `<div class="alert-edu"><span class="edu-label">📚 Обучение:</span> ${a.education}</div>` : ""}
           ${news}
         </div>`;
     }

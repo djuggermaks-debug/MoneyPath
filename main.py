@@ -44,10 +44,10 @@ def is_trading_hours(config):
 
 def main():
     config = load_config()
-    state = load_state()
 
-    mode = state.get("mode", "trading")
-    instrument_key = state.get("active_instrument", "OIL")
+    # Инструмент и режим передаются через env (каждый workflow свой)
+    instrument_key = os.environ.get("INSTRUMENT", "OIL")
+    mode = os.environ.get("MODE", "trading")
 
     instrument = config["instruments"].get(instrument_key)
     if not instrument:
@@ -73,7 +73,7 @@ def main():
     history = memory.load_history(instrument_key)
     memory.update_price_changes({instrument_key: current_price})
 
-    result = analyze(instrument["name"], news, market_data, history)
+    result = analyze(instrument["name"], news, market_data, history, mode)
 
     print(f"Сигнал: {result.get('signal')} | Сила: {result.get('strength')}/5")
     print(f"Фактор: {result.get('key_factor')}")

@@ -1,0 +1,32 @@
+name: "🔥 Природный газ"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python main.py
+        env:
+          INSTRUMENT: GAS
+          MODE: trading
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      - run: |
+          git config user.name "MoneyPath Bot"
+          git config user.email "bot@moneypath"
+          git pull --rebase
+          git add data/
+          git diff --staged --quiet || git commit -m "gas: update $(date -u +%Y-%m-%dT%H:%M)"
+          git push

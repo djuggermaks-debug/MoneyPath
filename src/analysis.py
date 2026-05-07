@@ -1,11 +1,12 @@
 import os
 import json
 import requests
+import time
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
 
-def analyze(instrument_name, news_articles, market_data, history):
+def analyze(instrument_name, news_articles, market_data, history, mode="trading"):
     api_key = os.environ["GEMINI_API_KEY"]
 
     price = market_data.get("price", {})
@@ -25,41 +26,17 @@ def analyze(instrument_name, news_articles, market_data, history):
 
     history_text = ""
     if history:
-        last = history[-5:]
-        for h in last:
+        for h in history[-5:]:
             history_text += f"- {h.get('date')}: сигнал {h.get('signal')}, цена изменилась на {h.get('price_change_4h', '?')}\n"
 
-    prompt = f"""Ты — аналитик финансовых рынков. Анализируй данные и давай чёткий торговый сигнал.
+    if mode == "digest":
+        prompt = _digest_prompt(instrument_name, news_text)
+    else:
+        prompt = _trading_prompt(
+            instrument_name, price, indicators,
+            position_text, news_text, history_text
+        )
 
-ИНСТРУМЕНТ: {instrument_name}
-
-РЫНОЧНЫЕ ДАННЫЕ:
-- Текущая цена: {price.get('mid')}
-- Изменение за день: {price.get('change_pct')}%
-- RSI (30m): {indicators.get('rsi')}
-- Поддержка: {indicators.get('support')}
-- Сопротивление: {indicators.get('resistance')}
-
-ПОЗИЦИЯ ТРЕЙДЕРА:
-{position_text}
-
-НОВОСТИ (последние 4 часа):
-{news_text if news_text else "Новостей нет."}
-
-ИСТОРИЯ ПРОШЛЫХ СИГНАЛОВ:
-{history_text if history_text else "История пуста."}
-
-Ответь строго в формате JSON:
-{{
-  "signal": "бычий" | "медвежий" | "нейтральный",
-  "strength": 1-5,
-  "reasoning": "краткое объяснение на русском (2-3 предложения)",
-  "key_factor": "главный фактор который двигает цену прямо сейчас",
-  "action": "конкретная рекомендация (например: ждать пробоя X, или осторожно — позиция под угрозой)",
-  "risk": "главный риск прямо сейчас"
-}}"""
-
-    import time
     resp = None
     for attempt in range(3):
         resp = requests.post(
@@ -76,7 +53,9 @@ def analyze(instrument_name, news_articles, market_data, history):
         break
     else:
         print("Gemini недоступен (rate limit). Пропускаем этот запуск.")
-        return {"signal": "нейтральный", "strength": 0, "key_factor": "rate limit", "action": "—", "risk": "—", "reasoning": "Gemini API временно недоступен"}
+        return {"signal": "нейтральный", "strength": 0, "key_factor": "rate limit",
+                "action": "—", "risk": "—", "reasoning": "Gemini API временно недоступен",
+                "education": "", "pattern": ""}
 
     text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
@@ -86,3 +65,59 @@ def analyze(instrument_name, news_articles, market_data, history):
             text = text[4:]
 
     return json.loads(text.strip())
+
+
+def _trading_prompt(instrument_name, price, indicators, position_text, news_text, history_text):
+    return f"""Ты — опытный трейдер и наставник. Анализируй данные и давай развёрнутый торговый сигнал с обучающим блоком.
+
+ИНСТРУМЕНТ: {instrument_name}
+
+РЫНОЧНЫЕ ДАННЫЕ:
+- Текущая цена: {price.get('mid')}
+- Изменение за день: {price.get('change_pct')}%
+- RSI (15m): {indicators.get('rsi')}
+- Поддержка: {indicators.get('support')}
+- Сопротивление: {indicators.get('resistance')}
+- Пивот: {indicators.get('pivot')}
+
+ПОЗИЦИЯ ТРЕЙДЕРА:
+{position_text}
+
+НОВОСТИ (последние 4 часа):
+{news_text if news_text else "Новостей нет."}
+
+ИСТОРИЯ СИГНАЛОВ:
+{history_text if history_text else "История пуста."}
+
+Ответь строго в формате JSON:
+{{
+  "signal": "бычий" | "медвежий" | "нейтральный",
+  "strength": 1-5,
+  "key_factor": "главный фактор который двигает цену прямо сейчас (1 предложение)",
+  "action": "конкретная рекомендация с уровнями — что смотреть, где вход, где стоп",
+  "risk": "главный риск и при каком сценарии он реализуется",
+  "reasoning": "полный анализ ситуации на русском (4-6 предложений) — что происходит, почему, что это значит для цены",
+  "education": "обучающий блок (3-5 предложений) — объясни простыми словами один из использованных инструментов анализа. Например: что значит текущий RSI, как работает уровень поддержки в данной ситуации, или что такое паттерн который сейчас формируется",
+  "pattern": "название торгового паттерна или ситуации если она есть (например: продажа на новостях, ложный пробой, накопление перед движением) — или пустая строка если паттерна нет"
+}}"""
+
+
+def _digest_prompt(instrument_name, news_text):
+    return f"""Ты — финансовый аналитик и педагог. Составь информативный дайджест по теме.
+
+ТЕМА: {instrument_name}
+
+НОВОСТИ:
+{news_text if news_text else "Новостей нет."}
+
+Ответь строго в формате JSON:
+{{
+  "signal": "нейтральный",
+  "strength": 0,
+  "key_factor": "главная тема дайджеста",
+  "action": "на что обратить внимание в ближайшее время",
+  "risk": "главный риск или неопределённость",
+  "reasoning": "подробный обзор ситуации (5-7 предложений) — что происходит, какие силы действуют, что это означает",
+  "education": "образовательный блок (3-5 предложений) — объясни один важный концепт связанный с текущими событиями. Например: как работают санкции на нефтяном рынке, что такое контанго, почему ФРС влияет на золото",
+  "pattern": ""
+}}"""
