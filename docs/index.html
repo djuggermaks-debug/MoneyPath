@@ -28,7 +28,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 10px;
       margin-bottom: 32px;
     }
@@ -43,16 +43,16 @@
       text-decoration: none;
       color: #e0e0e0;
       transition: all 0.15s;
+      cursor: pointer;
     }
-
     .btn:hover { border-color: #4a90d9; background: #252840; }
     .btn.active { border-color: #4a90d9; background: #1a2744; color: #fff; }
-
     .btn .icon { font-size: 28px; margin-bottom: 8px; }
     .btn .label { font-size: 13px; font-weight: 600; }
     .btn .sub { font-size: 11px; color: #666; margin-top: 4px; }
     .btn.active .sub { color: #4a90d9; }
 
+    /* Alert cards */
     .alert-card {
       background: #1e2130;
       border-radius: 12px;
@@ -60,7 +60,6 @@
       margin-bottom: 12px;
       border-left: 4px solid #2a2d3e;
     }
-
     .alert-card.bullish { border-color: #4CAF50; }
     .alert-card.bearish { border-color: #f44336; }
     .alert-card.neutral  { border-color: #FF9800; }
@@ -80,11 +79,6 @@
     .alert-action { font-size: 13px; color: #4a90d9; margin: 6px 0; }
     .alert-risk { font-size: 13px; color: #FF9800; margin-bottom: 4px; }
     .alert-text { font-size: 13px; color: #777; margin-bottom: 4px; }
-
-    .alert-news { margin-top: 10px; border-top: 1px solid #2a2d3e; padding-top: 8px; }
-    .alert-news a { display: block; font-size: 12px; color: #4a90d9; text-decoration: none; margin-bottom: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .alert-news a:hover { text-decoration: underline; }
-
     .alert-pattern { font-size: 13px; color: #9c88ff; margin: 6px 0; }
     .alert-edu { font-size: 13px; color: #aaa; margin-top: 10px; padding: 10px; background: #161a26; border-radius: 8px; border-left: 3px solid #4a90d9; }
     .edu-label { color: #4a90d9; font-weight: 600; }
@@ -93,8 +87,22 @@
     .dot { width: 7px; height: 7px; border-radius: 50%; background: #2a2d3e; display: inline-block; }
     .dot.filled { background: currentColor; }
 
+    .trade-btn {
+      margin-top: 12px;
+      background: none;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      color: #888;
+      font-size: 12px;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .trade-btn:hover { border-color: #4CAF50; color: #4CAF50; }
+
     .empty { color: #555; font-size: 14px; padding: 16px 0; }
 
+    /* Timer bar */
     .timer-bar {
       display: flex;
       align-items: center;
@@ -103,26 +111,15 @@
       color: #555;
       margin-bottom: 14px;
     }
-    .timer-bar .timer-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #2a2d3e;
-      flex-shrink: 0;
-    }
+    .timer-bar .timer-dot { width: 8px; height: 8px; border-radius: 50%; background: #2a2d3e; flex-shrink: 0; }
     .timer-bar .timer-dot.active { background: #4CAF50; animation: pulse 1.5s infinite; }
     .timer-bar .timer-dot.closed { background: #555; }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
-    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     .timer-bar .timer-text { color: #888; }
     .timer-bar .timer-count { color: #e0e0e0; font-weight: 600; font-variant-numeric: tabular-nums; }
 
-    .digest-card {
-      background: #1e2130;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 12px;
-      border-left: 4px solid #9c88ff;
-    }
+    /* Digest */
+    .digest-card { background: #1e2130; border-radius: 12px; padding: 20px; margin-bottom: 12px; border-left: 4px solid #9c88ff; }
     .digest-title { font-size: 16px; font-weight: 700; color: #9c88ff; margin-bottom: 12px; }
     .digest-time { font-size: 12px; color: #555; margin-bottom: 16px; }
     .digest-events { margin-bottom: 12px; }
@@ -138,6 +135,124 @@
     .upcoming-body { flex: 1; }
     .upcoming-event { font-size: 13px; color: #e0e0e0; font-weight: 600; }
     .upcoming-meta { font-size: 12px; color: #555; margin-top: 2px; }
+
+    /* Journal */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
+    .stat-card { background: #1e2130; border-radius: 10px; padding: 14px; text-align: center; }
+    .stat-card .st-val { font-size: 22px; font-weight: 700; }
+    .stat-card .st-label { font-size: 11px; color: #555; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    .stat-card.green .st-val { color: #4CAF50; }
+    .stat-card.red .st-val { color: #f44336; }
+    .stat-card.blue .st-val { color: #4a90d9; }
+
+    .accuracy-bar { background: #1e2130; border-radius: 10px; padding: 14px; margin-bottom: 20px; }
+    .acc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+    .acc-label { width: 80px; color: #888; }
+    .acc-track { flex: 1; height: 6px; background: #2a2d3e; border-radius: 3px; overflow: hidden; }
+    .acc-fill { height: 100%; border-radius: 3px; }
+    .acc-fill.bullish { background: #4CAF50; }
+    .acc-fill.bearish { background: #f44336; }
+    .acc-pct { width: 40px; text-align: right; font-weight: 600; }
+
+    .journal-card {
+      background: #1e2130;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 10px;
+      border-left: 4px solid #2a2d3e;
+    }
+    .journal-card.open { border-color: #4a90d9; }
+    .journal-card.profit { border-color: #4CAF50; }
+    .journal-card.loss { border-color: #f44336; }
+
+    .jcard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .jcard-title { font-size: 14px; font-weight: 700; }
+    .jcard-badge { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+    .jcard-badge.open { background: #1a2744; color: #4a90d9; }
+    .jcard-badge.profit { background: #1a2d1a; color: #4CAF50; }
+    .jcard-badge.loss { background: #2d1a1a; color: #f44336; }
+
+    .jcard-row { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; color: #888; margin-bottom: 8px; }
+    .jcard-row span b { color: #e0e0e0; }
+    .jcard-pnl { font-size: 16px; font-weight: 700; }
+    .jcard-pnl.profit { color: #4CAF50; }
+    .jcard-pnl.loss { color: #f44336; }
+
+    .close-btn {
+      background: none;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      color: #888;
+      font-size: 12px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .close-btn:hover { border-color: #f44336; color: #f44336; }
+
+    .journal-actions { display: flex; gap: 10px; margin-bottom: 20px; }
+    .action-btn {
+      background: #1e2130;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      color: #888;
+      font-size: 13px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .action-btn:hover { border-color: #4a90d9; color: #4a90d9; }
+
+    .subsection { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #555; margin: 16px 0 10px; }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: #1e2130;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 400px;
+      margin: 16px;
+    }
+    .modal h3 { font-size: 16px; margin-bottom: 16px; }
+    .modal-field { margin-bottom: 14px; }
+    .modal-field label { display: block; font-size: 12px; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+    .modal-field input {
+      width: 100%;
+      background: #0f1117;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 14px;
+      padding: 10px 12px;
+      outline: none;
+    }
+    .modal-field input:focus { border-color: #4a90d9; }
+    .modal-info { font-size: 13px; color: #666; background: #161a26; border-radius: 8px; padding: 10px; margin-bottom: 14px; }
+    .modal-btns { display: flex; gap: 10px; }
+    .modal-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .modal-btn.confirm { background: #4CAF50; color: #fff; }
+    .modal-btn.confirm:hover { background: #43a047; }
+    .modal-btn.cancel { background: #2a2d3e; color: #888; }
+    .modal-btn.cancel:hover { background: #353849; }
   </style>
 </head>
 <body>
@@ -147,27 +262,27 @@
 
   <div class="section-title">Инструмент</div>
   <div class="grid">
-    <a class="btn" href="?i=OIL"   id="btn-OIL">
+    <a class="btn" href="?i=OIL"    id="btn-OIL">
       <div class="icon">🛢️</div>
       <div class="label">Нефть</div>
       <div class="sub">Brent</div>
     </a>
-    <a class="btn" href="?i=GAS"   id="btn-GAS">
+    <a class="btn" href="?i=GAS"    id="btn-GAS">
       <div class="icon">🔥</div>
       <div class="label">Газ</div>
       <div class="sub">Natural Gas</div>
     </a>
-    <a class="btn" href="?i=GOLD"  id="btn-GOLD">
+    <a class="btn" href="?i=GOLD"   id="btn-GOLD">
       <div class="icon">🥇</div>
       <div class="label">Золото</div>
       <div class="sub">Gold</div>
     </a>
-    <a class="btn" href="?i=BTC"   id="btn-BTC">
+    <a class="btn" href="?i=BTC"    id="btn-BTC">
       <div class="icon">₿</div>
       <div class="label">Bitcoin</div>
       <div class="sub">BTC/USD</div>
     </a>
-    <a class="btn" href="?i=ALL"   id="btn-ALL">
+    <a class="btn" href="?i=ALL"    id="btn-ALL">
       <div class="icon">🌐</div>
       <div class="label">Все</div>
       <div class="sub">Все алерты</div>
@@ -177,9 +292,14 @@
       <div class="label">Дайджест</div>
       <div class="sub">Мир / Политика</div>
     </a>
+    <a class="btn" href="?i=JOURNAL" id="btn-JOURNAL">
+      <div class="icon">📓</div>
+      <div class="label">Дневник</div>
+      <div class="sub">Мои сделки</div>
+    </a>
   </div>
 
-  <div class="section-title">Алерты</div>
+  <div class="section-title" id="section-label">Алерты</div>
   <div id="oil-timer" class="timer-bar" style="display:none">
     <span class="timer-dot" id="timer-dot"></span>
     <span class="timer-text" id="timer-text"></span>
@@ -189,13 +309,50 @@
     <div class="empty">Загрузка...</div>
   </div>
 
+  <!-- Модал: открыть сделку -->
+  <div class="modal-overlay" id="modal-open">
+    <div class="modal">
+      <h3>📝 Открыть сделку</h3>
+      <div class="modal-info" id="modal-open-info"></div>
+      <div class="modal-field">
+        <label>Цена входа</label>
+        <input type="number" id="inp-entry" step="0.01" placeholder="например 75.80">
+      </div>
+      <div class="modal-field">
+        <label>Сумма (€)</label>
+        <input type="number" id="inp-amount" step="1" placeholder="например 50">
+      </div>
+      <div class="modal-btns">
+        <button class="modal-btn cancel" onclick="closeModal('modal-open')">Отмена</button>
+        <button class="modal-btn confirm" onclick="confirmOpenTrade()">Открыл</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модал: закрыть сделку -->
+  <div class="modal-overlay" id="modal-close">
+    <div class="modal">
+      <h3>🔒 Закрыть сделку</h3>
+      <div class="modal-info" id="modal-close-info"></div>
+      <div class="modal-field">
+        <label>Цена выхода</label>
+        <input type="number" id="inp-exit" step="0.01" placeholder="например 76.20">
+      </div>
+      <div class="modal-btns">
+        <button class="modal-btn cancel" onclick="closeModal('modal-close')">Отмена</button>
+        <button class="modal-btn confirm" onclick="confirmCloseTrade()">Закрыл</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const REPO = "djuggermaks-debug/MoneyPath";
-    const ALERTS_URL  = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
-    const DIGEST_URL  = `https://raw.githubusercontent.com/${REPO}/main/data/digest.json`;
+    const REPO       = "djuggermaks-debug/MoneyPath";
+    const ALERTS_URL = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
+    const DIGEST_URL = `https://raw.githubusercontent.com/${REPO}/main/data/digest.json`;
+    const JOURNAL_KEY = "moneypath_journal";
 
     const SIGNAL_EMOJI = { "бычий": "📈", "медвежий": "📉", "нейтральный": "➡️" };
-    const SIGNAL_EN   = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
+    const SIGNAL_EN    = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
 
     const params = new URLSearchParams(location.search);
     const active = params.get("i") || "ALL";
@@ -203,8 +360,15 @@
     const btn = document.getElementById("btn-" + active);
     if (btn) btn.classList.add("active");
 
-    const sectionTitle = document.querySelector(".section-title:last-of-type");
-    if (active === "DIGEST" && sectionTitle) sectionTitle.textContent = "Дайджест";
+    const sectionLabel = document.getElementById("section-label");
+    if (active === "DIGEST")  sectionLabel.textContent = "Дайджест";
+    if (active === "JOURNAL") sectionLabel.textContent = "Дневник";
+
+    let loadedAlerts = [];
+    let pendingAlertId = null;
+    let pendingTradeId = null;
+
+    // ─── Загрузка данных ──────────────────────────────────────────────
 
     async function loadAlerts() {
       const container = document.getElementById("alerts-container");
@@ -213,11 +377,15 @@
         try {
           const resp = await fetch(DIGEST_URL + "?t=" + Date.now());
           if (!resp.ok) throw new Error();
-          const d = await resp.json();
-          container.innerHTML = renderDigest(d);
+          container.innerHTML = renderDigest(await resp.json());
         } catch {
-          container.innerHTML = '<div class="empty">Дайджест ещё не запускался. Нажмите кнопку в GitHub Actions.</div>';
+          container.innerHTML = '<div class="empty">Дайджест ещё не запускался.</div>';
         }
+        return;
+      }
+
+      if (active === "JOURNAL") {
+        renderJournal();
         return;
       }
 
@@ -225,8 +393,8 @@
         const resp = await fetch(ALERTS_URL + "?t=" + Date.now());
         if (!resp.ok) throw new Error();
         const all = await resp.json();
+        loadedAlerts = all;
         const alerts = active === "ALL" ? all : all.filter(a => a.instrument === active);
-
         if (!alerts.length) {
           container.innerHTML = '<div class="empty">Алертов пока нет.</div>';
           return;
@@ -237,6 +405,60 @@
       }
     }
 
+    // ─── Рендер алерта ───────────────────────────────────────────────
+
+    function renderAlert(a) {
+      const cls   = SIGNAL_EN[a.signal] || "neutral";
+      const emoji = SIGNAL_EMOJI[a.signal] || "➡️";
+      const time  = new Date(a.timestamp).toLocaleString("ru");
+      const s     = a.strength || 0;
+      const dotColor = cls === "bullish" ? "#4CAF50" : cls === "bearish" ? "#f44336" : "#FF9800";
+
+      const dots = Array.from({length: 5}, (_, i) =>
+        `<span class="dot ${i < s ? "filled" : ""}"></span>`
+      ).join("");
+
+      const stats = [
+        a.price      ? `<div class="alert-stat"><span class="s-label">Цена </span><span class="s-val">${a.price}</span></div>` : "",
+        a.change_pct != null ? `<div class="alert-stat"><span class="s-label">День </span><span class="s-val">${a.change_pct > 0 ? "+" : ""}${a.change_pct}%</span></div>` : "",
+        a.rsi        ? `<div class="alert-stat"><span class="s-label">RSI </span><span class="s-val">${a.rsi}</span></div>` : "",
+        a.support    ? `<div class="alert-stat"><span class="s-label">Поддержка </span><span class="s-val">${a.support}</span></div>` : "",
+        a.resistance ? `<div class="alert-stat"><span class="s-label">Сопротивление </span><span class="s-val">${a.resistance}</span></div>` : "",
+      ].filter(Boolean).join("");
+
+      const position = a.position
+        ? `<div class="alert-text">⚠️ Позиция: ${a.position.direction} с ${a.position.level} | P&L: ${a.position.upl}</div>`
+        : "";
+
+      const alreadyOpen = journalLoad().some(t => t.alert_id === a.id && t.status === "open");
+      const tradeBtn = (a.signal !== "нейтральный")
+        ? `<button class="trade-btn" onclick="openTradeModal('${a.id}')" ${alreadyOpen ? 'disabled style="opacity:0.4"' : ''}>
+             ${alreadyOpen ? "✓ Сделка открыта" : "📝 Открыл сделку"}
+           </button>`
+        : "";
+
+      return `
+        <div class="alert-card ${cls}">
+          <div class="alert-header">
+            <span class="alert-signal ${cls}">${emoji} ${a.instrument_name} — ${a.signal}
+              <span class="strength-dots" style="color:${dotColor}">${dots}</span>
+            </span>
+            <span class="alert-meta">${time}</span>
+          </div>
+          <div class="alert-row">${stats}</div>
+          ${position}
+          <div class="alert-text">${a.key_factor || ""}</div>
+          <div class="alert-action">→ ${a.action || ""}</div>
+          <div class="alert-risk">⚠ ${a.risk || ""}</div>
+          <div class="alert-text">${a.reasoning || ""}</div>
+          ${a.pattern ? `<div class="alert-pattern">📐 ${a.pattern}</div>` : ""}
+          ${a.education ? `<div class="alert-edu"><span class="edu-label">📚 Обучение:</span> ${a.education}</div>` : ""}
+          ${tradeBtn}
+        </div>`;
+    }
+
+    // ─── Рендер дайджеста ─────────────────────────────────────────────
+
     function renderDigest(d) {
       const time = new Date(d.timestamp).toLocaleString("ru");
 
@@ -244,8 +466,7 @@
         ? `<div class="digest-section">
              <div class="digest-label">Главные события</div>
              <ul class="digest-events">${d.top_events.map(e => `<li>• ${e}</li>`).join("")}</ul>
-           </div>`
-        : "";
+           </div>` : "";
 
       const upcoming = (d.upcoming_events || []).length
         ? `<div class="upcoming">
@@ -258,8 +479,7 @@
                    <div class="upcoming-meta">📍 ${e.location}${e.participants && e.participants.length ? " · " + e.participants.join(", ") : ""}</div>
                  </div>
                </div>`).join("")}
-           </div>`
-        : "";
+           </div>` : "";
 
       return `
         <div class="digest-card">
@@ -282,156 +502,353 @@
         </div>`;
     }
 
-    function renderAlert(a) {
-      const cls   = SIGNAL_EN[a.signal] || "neutral";
-      const emoji = SIGNAL_EMOJI[a.signal] || "➡️";
-      const time  = new Date(a.timestamp).toLocaleString("ru");
-      const s     = a.strength || 0;
+    // ─── Журнал: localStorage ─────────────────────────────────────────
 
-      const dots = Array.from({length: 5}, (_, i) =>
-        `<span class="dot ${i < s ? "filled" : ""}"></span>`
-      ).join("");
+    function journalLoad() {
+      try { return JSON.parse(localStorage.getItem(JOURNAL_KEY) || "[]"); } catch { return []; }
+    }
 
-      const stats = [
-        a.price      ? `<div class="alert-stat"><span class="s-label">Цена </span><span class="s-val">${a.price}</span></div>` : "",
-        a.change_pct != null ? `<div class="alert-stat"><span class="s-label">День </span><span class="s-val">${a.change_pct > 0 ? "+" : ""}${a.change_pct}%</span></div>` : "",
-        a.rsi        ? `<div class="alert-stat"><span class="s-label">RSI </span><span class="s-val">${a.rsi}</span></div>` : "",
-        a.support    ? `<div class="alert-stat"><span class="s-label">Поддержка </span><span class="s-val">${a.support}</span></div>` : "",
-        a.resistance ? `<div class="alert-stat"><span class="s-label">Сопротивление </span><span class="s-val">${a.resistance}</span></div>` : "",
-      ].filter(Boolean).join("");
+    function journalSave(entries) {
+      localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+    }
 
-      const news = "";
+    // ─── Журнал: открыть сделку ───────────────────────────────────────
 
-      const position = a.position
-        ? `<div class="alert-text">⚠️ Позиция: ${a.position.direction} с ${a.position.level} | P&L: ${a.position.upl}</div>`
+    function openTradeModal(alertId) {
+      const alert = loadedAlerts.find(a => a.id === alertId);
+      if (!alert) return;
+      pendingAlertId = alertId;
+      const dir = alert.signal === "бычий" ? "Покупка (Long)" : "Продажа (Short)";
+      document.getElementById("modal-open-info").innerHTML =
+        `<b>${alert.instrument_name}</b> — сигнал: ${alert.signal}<br>Направление: ${dir}<br>Цена по сигналу: ${alert.price || "—"}`;
+      document.getElementById("inp-entry").value = alert.price || "";
+      document.getElementById("inp-amount").value = "";
+      document.getElementById("modal-open").classList.add("show");
+    }
+
+    function confirmOpenTrade() {
+      const alert = loadedAlerts.find(a => a.id === pendingAlertId);
+      if (!alert) return;
+      const entry = parseFloat(document.getElementById("inp-entry").value);
+      const amount = parseFloat(document.getElementById("inp-amount").value);
+      if (!entry || !amount) return;
+
+      const entries = journalLoad();
+      entries.unshift({
+        id: Date.now().toString(),
+        alert_id: alert.id,
+        signal: alert.signal,
+        instrument: alert.instrument,
+        instrument_name: alert.instrument_name,
+        signal_price: alert.price,
+        entry_price: entry,
+        amount: amount,
+        entry_time: new Date().toISOString(),
+        status: "open",
+        exit_price: null,
+        exit_time: null,
+        result: null,
+        pnl: null,
+        pnl_pct: null,
+      });
+      journalSave(entries);
+      closeModal("modal-open");
+      renderJournal();
+    }
+
+    // ─── Журнал: закрыть сделку ──────────────────────────────────────
+
+    function openCloseModal(tradeId) {
+      const entries = journalLoad();
+      const trade = entries.find(t => t.id === tradeId);
+      if (!trade) return;
+      pendingTradeId = tradeId;
+      document.getElementById("modal-close-info").innerHTML =
+        `<b>${trade.instrument_name}</b> | Вход: ${trade.entry_price} | Сумма: €${trade.amount}`;
+      document.getElementById("inp-exit").value = "";
+      document.getElementById("modal-close").classList.add("show");
+    }
+
+    function confirmCloseTrade() {
+      const exit = parseFloat(document.getElementById("inp-exit").value);
+      if (!exit) return;
+
+      const entries = journalLoad();
+      const trade = entries.find(t => t.id === pendingTradeId);
+      if (!trade) return;
+
+      const dir = trade.signal === "бычий" ? 1 : -1;
+      const pnl_pct = ((exit - trade.entry_price) / trade.entry_price) * 100 * dir;
+      const pnl = (trade.amount * pnl_pct) / 100;
+
+      trade.exit_price = exit;
+      trade.exit_time  = new Date().toISOString();
+      trade.status     = "closed";
+      trade.result     = pnl >= 0 ? "profit" : "loss";
+      trade.pnl        = Math.round(pnl * 100) / 100;
+      trade.pnl_pct    = Math.round(pnl_pct * 100) / 100;
+
+      journalSave(entries);
+      closeModal("modal-close");
+      renderJournal();
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("show");
+    }
+
+    // ─── Журнал: рендер ──────────────────────────────────────────────
+
+    function renderJournal() {
+      const container = document.getElementById("alerts-container");
+      const entries = journalLoad();
+
+      const stats = calcStats(entries);
+      const open   = entries.filter(t => t.status === "open");
+      const closed = entries.filter(t => t.status === "closed");
+
+      const pnlSign = stats.totalPnl >= 0 ? "+" : "";
+      const pnlClass = stats.totalPnl >= 0 ? "green" : "red";
+
+      const statsHtml = `
+        <div class="stats-grid">
+          <div class="stat-card blue">
+            <div class="st-val">${stats.total}</div>
+            <div class="st-label">Всего сделок</div>
+          </div>
+          <div class="stat-card ${stats.winRate >= 50 ? "green" : "red"}">
+            <div class="st-val">${stats.winRate}%</div>
+            <div class="st-label">Выигрышных</div>
+          </div>
+          <div class="stat-card ${pnlClass}">
+            <div class="st-val">${pnlSign}€${Math.abs(stats.totalPnl)}</div>
+            <div class="st-label">Итого P&L</div>
+          </div>
+          <div class="stat-card">
+            <div class="st-val">${open.length}</div>
+            <div class="st-label">Открытых</div>
+          </div>
+        </div>
+        ${renderAccuracy(stats)}`;
+
+      const actionsHtml = `
+        <div class="journal-actions">
+          <button class="action-btn" onclick="exportJournal()">⬇ Скачать TXT</button>
+          <label class="action-btn" style="cursor:pointer">
+            ⬆ Загрузить TXT
+            <input type="file" accept=".txt,.json" style="display:none" onchange="importJournal(event)">
+          </label>
+        </div>`;
+
+      const openHtml = open.length
+        ? `<div class="subsection">Открытые сделки (${open.length})</div>` + open.map(renderJournalCard).join("")
         : "";
 
-      const dotColor = cls === "bullish" ? "#4CAF50" : cls === "bearish" ? "#f44336" : "#FF9800";
+      const closedHtml = closed.length
+        ? `<div class="subsection">Закрытые сделки (${closed.length})</div>` + closed.map(renderJournalCard).join("")
+        : "";
 
+      const emptyHtml = !entries.length
+        ? '<div class="empty">Сделок пока нет. Нажми "📝 Открыл сделку" на любом алерте.</div>'
+        : "";
+
+      container.innerHTML = statsHtml + actionsHtml + openHtml + closedHtml + emptyHtml;
+    }
+
+    function renderAccuracy(stats) {
+      if (!stats.bullishTotal && !stats.bearishTotal) return "";
+      const bPct = stats.bullishTotal ? Math.round(stats.bullishWin / stats.bullishTotal * 100) : 0;
+      const sPct = stats.bearishTotal ? Math.round(stats.bearishWin / stats.bearishTotal * 100) : 0;
       return `
-        <div class="alert-card ${cls}">
-          <div class="alert-header">
-            <span class="alert-signal ${cls}">${emoji} ${a.instrument_name} — ${a.signal}
-              <span class="strength-dots" style="color:${dotColor}">${dots}</span>
-            </span>
-            <span class="alert-meta">${time}</span>
-          </div>
-          <div class="alert-row">${stats}</div>
-          ${position}
-          <div class="alert-text">${a.key_factor || ""}</div>
-          <div class="alert-action">→ ${a.action || ""}</div>
-          <div class="alert-risk">⚠ ${a.risk || ""}</div>
-          <div class="alert-text">${a.reasoning || ""}</div>
-          ${a.pattern ? `<div class="alert-pattern">📐 ${a.pattern}</div>` : ""}
-          ${a.education ? `<div class="alert-edu"><span class="edu-label">📚 Обучение:</span> ${a.education}</div>` : ""}
-          ${news}
+        <div class="accuracy-bar">
+          <div class="digest-label" style="margin-bottom:10px">Точность сигналов</div>
+          ${stats.bullishTotal ? `<div class="acc-row">
+            <span class="acc-label">📈 Бычий</span>
+            <div class="acc-track"><div class="acc-fill bullish" style="width:${bPct}%"></div></div>
+            <span class="acc-pct">${bPct}%</span>
+            <span style="font-size:12px;color:#555">${stats.bullishWin}/${stats.bullishTotal}</span>
+          </div>` : ""}
+          ${stats.bearishTotal ? `<div class="acc-row">
+            <span class="acc-label">📉 Медвежий</span>
+            <div class="acc-track"><div class="acc-fill bearish" style="width:${sPct}%"></div></div>
+            <span class="acc-pct">${sPct}%</span>
+            <span style="font-size:12px;color:#555">${stats.bearishWin}/${stats.bearishTotal}</span>
+          </div>` : ""}
         </div>`;
     }
 
-    // Счётчик для дайджеста: 06:00 UTC (09:00 EEST) пн–пт
+    function renderJournalCard(t) {
+      const cls = t.status === "open" ? "open" : t.result;
+      const badge = t.status === "open" ? "Открыта" : t.result === "profit" ? "Прибыль" : "Убыток";
+      const dir = t.signal === "бычий" ? "📈 Long" : "📉 Short";
+      const entryTime = new Date(t.entry_time).toLocaleString("ru");
+
+      const pnlHtml = t.status === "closed"
+        ? `<div class="jcard-pnl ${t.result}">${t.pnl >= 0 ? "+" : ""}€${t.pnl} (${t.pnl_pct >= 0 ? "+" : ""}${t.pnl_pct}%)</div>`
+        : "";
+
+      const closeBtn = t.status === "open"
+        ? `<button class="close-btn" onclick="openCloseModal('${t.id}')">🔒 Закрыть</button>`
+        : `<span style="font-size:12px;color:#555">${new Date(t.exit_time).toLocaleString("ru")}</span>`;
+
+      return `
+        <div class="journal-card ${cls}">
+          <div class="jcard-header">
+            <span class="jcard-title">${t.instrument_name} ${dir}</span>
+            <span class="jcard-badge ${cls}">${badge}</span>
+          </div>
+          <div class="jcard-row">
+            <span>Вход: <b>${t.entry_price}</b></span>
+            ${t.exit_price ? `<span>Выход: <b>${t.exit_price}</b></span>` : ""}
+            <span>Сумма: <b>€${t.amount}</b></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              ${pnlHtml}
+              <div style="font-size:12px;color:#555;margin-top:4px">${entryTime}</div>
+            </div>
+            ${closeBtn}
+          </div>
+        </div>`;
+    }
+
+    function calcStats(entries) {
+      const closed = entries.filter(t => t.status === "closed");
+      const wins   = closed.filter(t => t.result === "profit");
+      const totalPnl = closed.reduce((s, t) => s + (t.pnl || 0), 0);
+
+      const bullish = closed.filter(t => t.signal === "бычий");
+      const bearish = closed.filter(t => t.signal === "медвежий");
+
+      return {
+        total: entries.length,
+        winRate: closed.length ? Math.round(wins.length / closed.length * 100) : 0,
+        totalPnl: Math.round(totalPnl * 100) / 100,
+        bullishTotal: bullish.length,
+        bullishWin:   bullish.filter(t => t.result === "profit").length,
+        bearishTotal: bearish.length,
+        bearishWin:   bearish.filter(t => t.result === "profit").length,
+      };
+    }
+
+    // ─── Экспорт / Импорт ────────────────────────────────────────────
+
+    function exportJournal() {
+      const entries = journalLoad();
+      const stats   = calcStats(entries);
+      const now     = new Date().toLocaleString("ru");
+
+      let txt = `MoneyPath — Торговый дневник\n`;
+      txt    += `Экспорт: ${now}\n`;
+      txt    += `${"=".repeat(40)}\n\n`;
+      txt    += `СТАТИСТИКА\n`;
+      txt    += `Всего сделок: ${stats.total}\n`;
+      txt    += `Выигрышных: ${stats.winRate}%\n`;
+      txt    += `Итого P&L: ${stats.totalPnl >= 0 ? "+" : ""}€${stats.totalPnl}\n`;
+      txt    += `Бычий сигнал: ${stats.bullishWin}/${stats.bullishTotal}\n`;
+      txt    += `Медвежий сигнал: ${stats.bearishWin}/${stats.bearishTotal}\n`;
+      txt    += `\n${"=".repeat(40)}\n\nСДЕЛКИ\n\n`;
+
+      for (const t of entries) {
+        txt += `[${new Date(t.entry_time).toLocaleString("ru")}] ${t.instrument_name} — ${t.signal}\n`;
+        txt += `Вход: ${t.entry_price} | Сумма: €${t.amount}\n`;
+        if (t.status === "closed") {
+          txt += `Выход: ${t.exit_price} | P&L: ${t.pnl >= 0 ? "+" : ""}€${t.pnl} (${t.pnl_pct >= 0 ? "+" : ""}${t.pnl_pct}%) | ${t.result === "profit" ? "ПРИБЫЛЬ" : "УБЫТОК"}\n`;
+        } else {
+          txt += `Статус: открыта\n`;
+        }
+        txt += `---\n`;
+      }
+
+      // Также сохраняем JSON рядом
+      txt += `\n${"=".repeat(40)}\nJSON (для импорта)\n${JSON.stringify(entries, null, 2)}\n`;
+
+      const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `moneypath_journal_${new Date().toISOString().slice(0,10)}.txt`;
+      a.click();
+    }
+
+    function importJournal(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target.result;
+        const jsonMatch = text.match(/JSON \(для импорта\)\n([\s\S]+)/);
+        if (!jsonMatch) { alert("Файл не распознан"); return; }
+        try {
+          const entries = JSON.parse(jsonMatch[1].trim());
+          journalSave(entries);
+          renderJournal();
+        } catch { alert("Ошибка чтения файла"); }
+      };
+      reader.readAsText(file);
+    }
+
+    // ─── Счётчики ────────────────────────────────────────────────────
+
     function getNextDigestUpdate() {
       const now = new Date();
-      const day = now.getUTCDay();
-      const h   = now.getUTCHours();
-      const m   = now.getUTCMinutes();
-      const s   = now.getUTCSeconds();
-
-      // найти следующий рабочий день в 06:00 UTC
+      const h = now.getUTCHours(), m = now.getUTCMinutes(), s = now.getUTCSeconds();
       let target = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 0, 0));
-      // если сегодня уже после 06:00 — берём следующий день
       if (h > 6 || (h === 6 && (m > 0 || s > 0))) target.setUTCDate(target.getUTCDate() + 1);
-      // пропускаем выходные
       while (target.getUTCDay() === 0 || target.getUTCDay() === 6) target.setUTCDate(target.getUTCDate() + 1);
+      return Math.floor((target - now) / 1000);
+    }
 
-      const secsLeft = Math.floor((target - now) / 1000);
-      return { secs: secsLeft };
+    function getNextOilUpdate() {
+      const now = new Date();
+      const day = now.getUTCDay(), h = now.getUTCHours(), m = now.getUTCMinutes(), s = now.getUTCSeconds();
+      if (day === 0 || day === 6 || h < 7 || h >= 20) return { active: false };
+      const nextM = m < 30 ? 30 : 60;
+      return { active: true, secs: (nextM - m) * 60 - s };
+    }
+
+    function fmt(secs) {
+      const m = Math.floor(secs / 60), s = secs % 60;
+      return `${m}:${String(s).padStart(2, "0")}`;
     }
 
     function fmtLong(secs) {
-      const h = Math.floor(secs / 3600);
-      const m = Math.floor((secs % 3600) / 60);
-      const s = secs % 60;
+      const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60), s = secs % 60;
       if (h > 0) return `${h} ч ${m} мин`;
       if (m > 0) return `${m} мин ${s} сек`;
       return `${s} сек`;
     }
 
-    // Счётчик для нефти (OIL): каждые 30 мин, 07:00–20:00 UTC, пн–пт
-    function getNextOilUpdate() {
-      const now = new Date();
-      const day  = now.getUTCDay();   // 0=вс, 6=сб
-      const h    = now.getUTCHours();
-      const m    = now.getUTCMinutes();
-      const s    = now.getUTCSeconds();
-
-      const isWeekend = day === 0 || day === 6;
-      const inHours   = h >= 7 && h < 20;
-
-      if (isWeekend || !inHours) {
-        return { active: false };
-      }
-
-      // следующая :00 или :30
-      const nextM   = m < 30 ? 30 : 60;
-      const secsLeft = (nextM - m) * 60 - s;
-      return { active: true, secs: secsLeft };
-    }
-
-    function fmt(secs) {
-      const m = Math.floor(secs / 60);
-      const s = secs % 60;
-      return `${m}:${String(s).padStart(2, "0")}`;
-    }
-
-    function tickTimer() {
+    function tickAll() {
       const timerEl = document.getElementById("oil-timer");
       if (!timerEl) return;
-
-      if (active !== "OIL" && active !== "ALL") {
-        timerEl.style.display = "none";
-        return;
-      }
-
-      timerEl.style.display = "flex";
-      const dot   = document.getElementById("timer-dot");
-      const text  = document.getElementById("timer-text");
+      const dot = document.getElementById("timer-dot");
+      const text = document.getElementById("timer-text");
       const count = document.getElementById("timer-count");
-      const info  = getNextOilUpdate();
 
-      if (info.active) {
-        dot.className   = "timer-dot active";
-        text.textContent = "🛢️ Нефть — обновление через";
-        count.textContent = fmt(info.secs);
+      if (active === "DIGEST") {
+        timerEl.style.display = "flex";
+        dot.className = "timer-dot active";
+        text.textContent = "📰 Следующий дайджест через";
+        count.textContent = fmtLong(getNextDigestUpdate());
+      } else if (active === "OIL" || active === "ALL") {
+        timerEl.style.display = "flex";
+        const info = getNextOilUpdate();
+        if (info.active) {
+          dot.className = "timer-dot active";
+          text.textContent = "🛢️ Нефть — обновление через";
+          count.textContent = fmt(info.secs);
+        } else {
+          dot.className = "timer-dot closed";
+          text.textContent = "🛢️ Нефть — торги закрыты";
+          count.textContent = "(07:00–20:00 UTC пн–пт)";
+        }
       } else {
-        dot.className   = "timer-dot closed";
-        text.textContent = "🛢️ Нефть — торги закрыты";
-        count.textContent = "(07:00–20:00 UTC пн–пт)";
+        timerEl.style.display = "none";
       }
-    }
-
-    function tickDigestTimer() {
-      const timerEl = document.getElementById("oil-timer");
-      if (!timerEl || active !== "DIGEST") return;
-
-      timerEl.style.display = "flex";
-      const dot   = document.getElementById("timer-dot");
-      const text  = document.getElementById("timer-text");
-      const count = document.getElementById("timer-count");
-      const info  = getNextDigestUpdate();
-
-      dot.className    = "timer-dot active";
-      text.textContent = "📰 Следующий дайджест через";
-      count.textContent = fmtLong(info.secs);
-    }
-
-    function tickAll() {
-      if (active === "DIGEST") tickDigestTimer();
-      else tickTimer();
     }
 
     tickAll();
     setInterval(tickAll, 1000);
-
     loadAlerts();
   </script>
 </body>
