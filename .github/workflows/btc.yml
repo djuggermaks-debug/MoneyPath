@@ -26,7 +26,6 @@ jobs:
       - run: |
           git config user.name "MoneyPath Bot"
           git config user.email "bot@moneypath"
-          git pull --rebase
           git add data/
           git diff --staged --quiet || git commit -m "btc: update $(date -u +%Y-%m-%dT%H:%M)"
           git push
