@@ -59,12 +59,20 @@ def analyze(instrument_name, news_articles, market_data, history):
   "risk": "главный риск прямо сейчас"
 }}"""
 
-    resp = requests.post(
-        f"{GEMINI_URL}?key={api_key}",
-        json={"contents": [{"parts": [{"text": prompt}]}]},
-        timeout=30,
-    )
-    resp.raise_for_status()
+    import time
+    for attempt in range(3):
+        resp = requests.post(
+            f"{GEMINI_URL}?key={api_key}",
+            json={"contents": [{"parts": [{"text": prompt}]}]},
+            timeout=30,
+        )
+        if resp.status_code == 429:
+            print(f"Gemini rate limit, ждём 15 сек... (попытка {attempt + 1}/3)")
+            time.sleep(15)
+            continue
+        resp.raise_for_status()
+        break
+
     text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
     if "```" in text:
