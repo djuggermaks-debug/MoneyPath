@@ -1,90 +1,64 @@
-import os
-import requests
+import yfinance as yf
+import pandas as pd
 
 
-BASE_URL = "https://api.twelvedata.com"
-
-# Символы для Twelve Data
 SYMBOLS = {
-    "OIL":  "UKOIL",
-    "GAS":  "XNG/USD",
-    "GOLD": "XAU/USD",
-    "BTC":  "BTC/USD",
+    "OIL":  "BZ=F",
+    "GAS":  "NG=F",
+    "GOLD": "GC=F",
+    "BTC":  "BTC-USD",
 }
 
 
 def get_market_data(instrument_key):
-    api_key = os.environ["TWELVE_DATA_KEY"]
-    symbol = SYMBOLS.get(instrument_key, "BRENT")
+    symbol = SYMBOLS.get(instrument_key, "BZ=F")
 
-    price = _get_price(symbol, api_key)
-    print(f"Twelve Data цена: {price}")
-    candles = _get_candles(symbol, api_key)
-    print(f"Twelve Data свечей: {len(candles)}")
-    indicators = _calculate_indicators(candles)
+    ticker = yf.Ticker(symbol)
+    df = ticker.history(period="5d", interval="15m")
+
+    if df.empty:
+        print(f"yfinance: нет данных для {symbol}")
+        return {"price": {}, "indicators": {}, "position": None}
+
+    current = df.iloc[-1]
+    prev_close = df.iloc[-2]["Close"] if len(df) > 1 else current["Close"]
+    change_pct = round((current["Close"] - prev_close) / prev_close * 100, 2)
+
+    price = {
+        "symbol": symbol,
+        "mid": round(float(current["Close"]), 3),
+        "change_pct": change_pct,
+    }
+
+    indicators = _calculate_indicators(df)
+
+    print(f"yfinance цена: {price}")
+    print(f"yfinance индикаторы: {indicators}")
 
     return {
         "price": price,
         "indicators": indicators,
-        "position": None,  # позиции добавим позже
+        "position": None,
     }
 
 
-def _get_price(symbol, api_key):
-    resp = requests.get(
-        f"{BASE_URL}/price",
-        params={"symbol": symbol, "apikey": api_key},
-        timeout=10,
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    price = float(data.get("price", 0))
+def _calculate_indicators(df):
+    closes = df["Close"].dropna().tolist()
+    highs  = df["High"].dropna().tolist()
+    lows   = df["Low"].dropna().tolist()
 
-    # Изменение за день
-    quote = requests.get(
-        f"{BASE_URL}/quote",
-        params={"symbol": symbol, "apikey": api_key},
-        timeout=10,
-    ).json()
-    change_pct = round(float(quote.get("percent_change", 0)), 2)
-
-    return {
-        "symbol": symbol,
-        "mid": round(price, 3),
-        "change_pct": change_pct,
-    }
-
-
-def _get_candles(symbol, api_key, interval="30min", count=48):
-    resp = requests.get(
-        f"{BASE_URL}/time_series",
-        params={
-            "symbol": symbol,
-            "interval": interval,
-            "outputsize": count,
-            "apikey": api_key,
-        },
-        timeout=10,
-    )
-    resp.raise_for_status()
-    return resp.json().get("values", [])
-
-
-def _calculate_indicators(candles):
-    if len(candles) < 14:
+    if len(closes) < 14:
         return {}
 
-    closes = [float(c["close"]) for c in candles]
-    closes.reverse()  # Twelve Data отдаёт от новых к старым
-
     rsi = _rsi(closes, 14)
-    support = min(closes[-48:])
-    resistance = max(closes[-48:])
+    support, resistance = _support_resistance(highs, lows)
+    pivot = _pivot_points(df)
 
     return {
         "rsi": round(rsi, 1),
         "support": round(support, 2),
         "resistance": round(resistance, 2),
+        "pivot": round(pivot, 2),
     }
 
 
@@ -101,3 +75,23 @@ def _rsi(closes, period=14):
     if avg_loss == 0:
         return 100.0
     return 100 - (100 / (1 + avg_gain / avg_loss))
+
+
+def _support_resistance(highs, lows, lookback=50):
+    recent_highs = highs[-lookback:]
+    recent_lows  = lows[-lookback:]
+
+    resistance = max(recent_highs)
+    support    = min(recent_lows)
+
+    return support, resistance
+
+
+def _pivot_points(df):
+    # Берём вчерашнюю дневную свечу для расчёта пивота
+    daily = df["Close"].resample("1D").ohlc().dropna()
+    if len(daily) < 2:
+        return 0.0
+    yesterday = daily.iloc[-2]
+    pivot = (yesterday["high"] + yesterday["low"] + yesterday["close"]) / 3
+    return float(pivot)
