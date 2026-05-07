@@ -94,6 +94,47 @@
     .dot.filled { background: currentColor; }
 
     .empty { color: #555; font-size: 14px; padding: 16px 0; }
+
+    .timer-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .timer-bar .timer-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #2a2d3e;
+      flex-shrink: 0;
+    }
+    .timer-bar .timer-dot.active { background: #4CAF50; animation: pulse 1.5s infinite; }
+    .timer-bar .timer-dot.closed { background: #555; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .timer-bar .timer-text { color: #888; }
+    .timer-bar .timer-count { color: #e0e0e0; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    .digest-card {
+      background: #1e2130;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+      border-left: 4px solid #9c88ff;
+    }
+    .digest-title { font-size: 16px; font-weight: 700; color: #9c88ff; margin-bottom: 12px; }
+    .digest-time { font-size: 12px; color: #555; margin-bottom: 16px; }
+    .digest-events { margin-bottom: 12px; }
+    .digest-events li { font-size: 13px; color: #ccc; margin-bottom: 5px; padding-left: 4px; }
+    .digest-section { margin-bottom: 10px; }
+    .digest-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #555; margin-bottom: 4px; }
+    .digest-text { font-size: 13px; color: #e0e0e0; line-height: 1.6; }
+    .digest-action { font-size: 13px; color: #4a90d9; }
+    .digest-risk { font-size: 13px; color: #FF9800; }
+    .digest-news { margin-top: 14px; border-top: 1px solid #2a2d3e; padding-top: 10px; }
+    .digest-news a { display: block; font-size: 12px; color: #4a90d9; text-decoration: none; margin-bottom: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .digest-news a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -128,16 +169,27 @@
       <div class="label">Все</div>
       <div class="sub">Все алерты</div>
     </a>
+    <a class="btn" href="?i=DIGEST" id="btn-DIGEST">
+      <div class="icon">📰</div>
+      <div class="label">Дайджест</div>
+      <div class="sub">Мир / Политика</div>
+    </a>
   </div>
 
   <div class="section-title">Алерты</div>
+  <div id="oil-timer" class="timer-bar" style="display:none">
+    <span class="timer-dot" id="timer-dot"></span>
+    <span class="timer-text" id="timer-text"></span>
+    <span class="timer-count" id="timer-count"></span>
+  </div>
   <div id="alerts-container">
     <div class="empty">Загрузка...</div>
   </div>
 
   <script>
     const REPO = "djuggermaks-debug/MoneyPath";
-    const ALERTS_URL = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
+    const ALERTS_URL  = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
+    const DIGEST_URL  = `https://raw.githubusercontent.com/${REPO}/main/data/digest.json`;
 
     const SIGNAL_EMOJI = { "бычий": "📈", "медвежий": "📉", "нейтральный": "➡️" };
     const SIGNAL_EN   = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
@@ -145,12 +197,27 @@
     const params = new URLSearchParams(location.search);
     const active = params.get("i") || "ALL";
 
-    // подсветить активную кнопку
     const btn = document.getElementById("btn-" + active);
     if (btn) btn.classList.add("active");
 
+    const sectionTitle = document.querySelector(".section-title:last-of-type");
+    if (active === "DIGEST" && sectionTitle) sectionTitle.textContent = "Дайджест";
+
     async function loadAlerts() {
       const container = document.getElementById("alerts-container");
+
+      if (active === "DIGEST") {
+        try {
+          const resp = await fetch(DIGEST_URL + "?t=" + Date.now());
+          if (!resp.ok) throw new Error();
+          const d = await resp.json();
+          container.innerHTML = renderDigest(d);
+        } catch {
+          container.innerHTML = '<div class="empty">Дайджест ещё не запускался. Нажмите кнопку в GitHub Actions.</div>';
+        }
+        return;
+      }
+
       try {
         const resp = await fetch(ALERTS_URL + "?t=" + Date.now());
         if (!resp.ok) throw new Error();
@@ -165,6 +232,44 @@
       } catch {
         container.innerHTML = '<div class="empty">Данных нет — система ещё не запускалась.</div>';
       }
+    }
+
+    function renderDigest(d) {
+      const time = new Date(d.timestamp).toLocaleString("ru");
+
+      const events = (d.top_events || []).length
+        ? `<div class="digest-section">
+             <div class="digest-label">Главные события</div>
+             <ul class="digest-events">${d.top_events.map(e => `<li>• ${e}</li>`).join("")}</ul>
+           </div>`
+        : "";
+
+      const news = (d.top_news || []).length
+        ? `<div class="digest-news">${d.top_news.map(n =>
+            `<a href="${n.link}" target="_blank">[${n.source}] ${n.title}</a>`
+          ).join("")}</div>`
+        : "";
+
+      return `
+        <div class="digest-card">
+          <div class="digest-title">📰 Мировой дайджест</div>
+          <div class="digest-time">${time}</div>
+          ${events}
+          <div class="digest-section">
+            <div class="digest-label">Обзор</div>
+            <div class="digest-text">${d.reasoning || ""}</div>
+          </div>
+          <div class="digest-section">
+            <div class="digest-label">На что смотреть</div>
+            <div class="digest-action">→ ${d.action || ""}</div>
+          </div>
+          <div class="digest-section">
+            <div class="digest-label">Главный риск</div>
+            <div class="digest-risk">⚠ ${d.risk || ""}</div>
+          </div>
+          ${d.education ? `<div class="alert-edu"><span class="edu-label">📚 Обучение:</span> ${d.education}</div>` : ""}
+          ${news}
+        </div>`;
     }
 
     function renderAlert(a) {
@@ -212,6 +317,62 @@
           ${news}
         </div>`;
     }
+
+    // Счётчик для нефти (OIL): каждые 30 мин, 07:00–20:00 UTC, пн–пт
+    function getNextOilUpdate() {
+      const now = new Date();
+      const day  = now.getUTCDay();   // 0=вс, 6=сб
+      const h    = now.getUTCHours();
+      const m    = now.getUTCMinutes();
+      const s    = now.getUTCSeconds();
+
+      const isWeekend = day === 0 || day === 6;
+      const inHours   = h >= 7 && h < 20;
+
+      if (isWeekend || !inHours) {
+        return { active: false };
+      }
+
+      // следующая :00 или :30
+      const nextM   = m < 30 ? 30 : 60;
+      const secsLeft = (nextM - m) * 60 - s;
+      return { active: true, secs: secsLeft };
+    }
+
+    function fmt(secs) {
+      const m = Math.floor(secs / 60);
+      const s = secs % 60;
+      return `${m}:${String(s).padStart(2, "0")}`;
+    }
+
+    function tickTimer() {
+      const timerEl = document.getElementById("oil-timer");
+      if (!timerEl) return;
+
+      if (active !== "OIL" && active !== "ALL") {
+        timerEl.style.display = "none";
+        return;
+      }
+
+      timerEl.style.display = "flex";
+      const dot   = document.getElementById("timer-dot");
+      const text  = document.getElementById("timer-text");
+      const count = document.getElementById("timer-count");
+      const info  = getNextOilUpdate();
+
+      if (info.active) {
+        dot.className   = "timer-dot active";
+        text.textContent = "🛢️ Нефть — обновление через";
+        count.textContent = fmt(info.secs);
+      } else {
+        dot.className   = "timer-dot closed";
+        text.textContent = "🛢️ Нефть — торги закрыты";
+        count.textContent = "(07:00–20:00 UTC пн–пт)";
+      }
+    }
+
+    tickTimer();
+    setInterval(tickTimer, 1000);
 
     loadAlerts();
   </script>

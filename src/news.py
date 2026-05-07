@@ -15,6 +15,13 @@ REUTERS_FEEDS = [
 
 NEWSAPI_URL = "https://newsapi.org/v2/everything"
 
+DIGEST_KEYWORDS = [
+    "merger", "acquisition", "geopolitics", "sanctions", "summit",
+    "artificial intelligence", "semiconductor", "IPO", "Federal Reserve",
+    "trade war", "NATO", "tariff", "central bank", "election", "conflict",
+    "G7", "G20", "BRICS", "tech deal", "big tech", "regulation",
+]
+
 
 def _is_recent(published, hours=4):
     try:
@@ -79,6 +86,58 @@ def fetch_all(keywords):
     seen = set()
     result = []
     for article in rss + api:
+        key = article["title"][:60]
+        if key not in seen:
+            seen.add(key)
+            result.append(article)
+    return result
+
+
+def fetch_digest():
+    api_key = os.environ.get("NEWSAPI_KEY", "")
+    articles = []
+
+    # RSS — broad feeds, no keyword filter for digest (take all recent)
+    for url in REUTERS_FEEDS:
+        feed = feedparser.parse(url)
+        for entry in feed.entries:
+            if _is_recent(entry.get("published_parsed", ()), hours=24):
+                articles.append({
+                    "source": "Reuters",
+                    "title": entry.get("title", ""),
+                    "summary": entry.get("summary", ""),
+                    "published": entry.get("published", ""),
+                    "link": entry.get("link", ""),
+                })
+
+    # NewsAPI — digest-specific keywords, 24h window
+    if api_key:
+        query = " OR ".join(DIGEST_KEYWORDS[:8])
+        params = {
+            "q": query,
+            "apiKey": api_key,
+            "language": "en",
+            "sortBy": "publishedAt",
+            "pageSize": 20,
+            "from": (datetime.now(timezone.utc) - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%S"),
+        }
+        try:
+            resp = requests.get(NEWSAPI_URL, params=params, timeout=10)
+            data = resp.json()
+            for a in data.get("articles", []):
+                articles.append({
+                    "source": a.get("source", {}).get("name", "NewsAPI"),
+                    "title": a.get("title", ""),
+                    "summary": a.get("description", ""),
+                    "published": a.get("publishedAt", ""),
+                    "link": a.get("url", ""),
+                })
+        except Exception:
+            pass
+
+    seen = set()
+    result = []
+    for article in articles:
         key = article["title"][:60]
         if key not in seen:
             seen.add(key)

@@ -4,7 +4,7 @@ import sys
 import os
 from datetime import datetime, timezone
 
-from src.news import fetch_all
+from src.news import fetch_all, fetch_digest
 from src.market import get_market_data
 from src.analysis import analyze
 # from src.notifier import send_alert  # включить когда будет нужна почта
@@ -44,19 +44,36 @@ def is_trading_hours(config):
 
 def main():
     config = load_config()
-
-    # Инструмент и режим передаются через env (каждый workflow свой)
-    instrument_key = os.environ.get("INSTRUMENT", "OIL")
     mode = os.environ.get("MODE", "trading")
+
+    if mode == "digest":
+        run_digest()
+    else:
+        run_trading(config)
+
+
+def run_digest():
+    print(f"[{datetime.now(timezone.utc).strftime('%H:%M UTC')}] Режим: дайджест")
+    news = fetch_digest()
+    print(f"Найдено новостей: {len(news)}")
+    if not news:
+        print("Новостей не найдено — продолжаем анализ без них.")
+    result = analyze("Дайджест", news, {}, {}, "digest")
+    print(f"Главная тема: {result.get('key_factor')}")
+    save_digest(result, news)
+
+
+def run_trading(config):
+    instrument_key = os.environ.get("INSTRUMENT", "OIL")
 
     instrument = config["instruments"].get(instrument_key)
     if not instrument:
         print(f"Инструмент {instrument_key} не найден в config.yaml")
         sys.exit(1)
 
-    print(f"[{datetime.now(timezone.utc).strftime('%H:%M UTC')}] Режим: {mode} | Инструмент: {instrument['name']}")
+    print(f"[{datetime.now(timezone.utc).strftime('%H:%M UTC')}] Режим: trading | Инструмент: {instrument['name']}")
 
-    if mode == "trading" and not is_trading_hours(config):
+    if not is_trading_hours(config):
         print("Вне торговых часов. Пропускаем.")
         sys.exit(0)
 
@@ -73,7 +90,7 @@ def main():
     history = memory.load_history(instrument_key)
     memory.update_price_changes({instrument_key: current_price})
 
-    result = analyze(instrument["name"], news, market_data, history, mode)
+    result = analyze(instrument["name"], news, market_data, history, "trading")
 
     print(f"Сигнал: {result.get('signal')} | Сила: {result.get('strength')}/5")
     print(f"Фактор: {result.get('key_factor')}")
@@ -86,6 +103,30 @@ def main():
         print(f"Сигнал слабее {min_strength}/5. Пропускаем.")
 
     memory.save_signal(instrument_key, result, current_price)
+
+
+def save_digest(analysis, news_articles):
+    path = "data/digest.json"
+    os.makedirs("data", exist_ok=True)
+
+    digest = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "key_factor": analysis.get("key_factor"),
+        "action": analysis.get("action"),
+        "risk": analysis.get("risk"),
+        "reasoning": analysis.get("reasoning"),
+        "education": analysis.get("education"),
+        "top_events": analysis.get("top_events", []),
+        "top_news": [
+            {"title": a["title"], "source": a["source"], "link": a["link"]}
+            for a in news_articles[:8]
+        ],
+    }
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(digest, f, ensure_ascii=False, indent=2)
+
+    print(f"Дайджест сохранён в {path}")
 
 
 def save_alert(instrument_name, instrument_key, analysis, market_data, news_articles):
