@@ -112,15 +112,11 @@ def save_digest(analysis, news_articles):
     digest = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "key_factor": analysis.get("key_factor"),
-        "action": analysis.get("action"),
-        "risk": analysis.get("risk"),
         "reasoning": analysis.get("reasoning"),
-        "education": analysis.get("education"),
+        "risk": analysis.get("risk"),
+        "action": analysis.get("action"),
         "top_events": analysis.get("top_events", []),
-        "top_news": [
-            {"title": a["title"], "source": a["source"], "link": a["link"]}
-            for a in news_articles[:8]
-        ],
+        "upcoming_events": analysis.get("upcoming_events", []),
     }
 
     with open(path, "w", encoding="utf-8") as f:

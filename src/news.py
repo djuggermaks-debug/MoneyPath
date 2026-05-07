@@ -8,9 +8,24 @@ REUTERS_FEEDS = [
     "https://feeds.reuters.com/reuters/businessNews",
     "https://feeds.reuters.com/reuters/topNews",
     "https://feeds.reuters.com/reuters/energy",
-    "https://rss.app/feeds/tXWNOmyBuVRdQprj.xml",  # Reuters energy backup
-    "https://www.investing.com/rss/news_301.rss",   # Investing.com commodities
-    "https://www.investing.com/rss/news_25.rss",    # Investing.com forex
+    "https://rss.app/feeds/tXWNOmyBuVRdQprj.xml",
+    "https://www.investing.com/rss/news_301.rss",
+    "https://www.investing.com/rss/news_25.rss",
+]
+
+DIGEST_FEEDS = [
+    "https://feeds.reuters.com/reuters/topNews",
+    "https://feeds.reuters.com/reuters/businessNews",
+    "https://feeds.reuters.com/reuters/technologyNews",
+    "https://feeds.reuters.com/reuters/energy",
+    "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+    "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "https://www.aljazeera.com/xml/rss/all.xml",
+    "https://feeds.feedburner.com/TechCrunch",
+    "https://feeds.arstechnica.com/arstechnica/index",
+    "https://www.eurogamer.net/feed",
+    "https://oilprice.com/rss/main",
 ]
 
 NEWSAPI_URL = "https://newsapi.org/v2/everything"
@@ -97,22 +112,24 @@ def fetch_digest():
     api_key = os.environ.get("NEWSAPI_KEY", "")
     articles = []
 
-    # RSS — broad feeds, no keyword filter for digest (take all recent)
-    for url in REUTERS_FEEDS:
-        feed = feedparser.parse(url)
-        for entry in feed.entries:
-            if _is_recent(entry.get("published_parsed", ()), hours=24):
-                articles.append({
-                    "source": "Reuters",
-                    "title": entry.get("title", ""),
-                    "summary": entry.get("summary", ""),
-                    "published": entry.get("published", ""),
-                    "link": entry.get("link", ""),
-                })
+    for url in DIGEST_FEEDS:
+        try:
+            feed = feedparser.parse(url)
+            source_name = feed.feed.get("title", url.split("/")[2])
+            for entry in feed.entries:
+                if _is_recent(entry.get("published_parsed", ()), hours=24):
+                    articles.append({
+                        "source": source_name,
+                        "title": entry.get("title", ""),
+                        "summary": entry.get("summary", ""),
+                        "published": entry.get("published", ""),
+                        "link": entry.get("link", ""),
+                    })
+        except Exception:
+            pass
 
-    # NewsAPI — digest-specific keywords, 24h window
     if api_key:
-        query = " OR ".join(DIGEST_KEYWORDS[:8])
+        query = "summit OR geopolitics OR sanctions OR \"artificial intelligence\" OR energy OR gaming OR merger OR acquisition"
         params = {
             "q": query,
             "apiKey": api_key,
