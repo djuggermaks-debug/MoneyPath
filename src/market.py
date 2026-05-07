@@ -18,7 +18,9 @@ def get_market_data(instrument_key):
     symbol = SYMBOLS.get(instrument_key, "BRENT")
 
     price = _get_price(symbol, api_key)
+    print(f"Twelve Data цена: {price}")
     candles = _get_candles(symbol, api_key)
+    print(f"Twelve Data свечей: {len(candles)}")
     indicators = _calculate_indicators(candles)
 
     return {

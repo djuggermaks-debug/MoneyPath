@@ -24,7 +24,7 @@ instruments:
     active: false
 
 alerts:
-  min_signal_strength: 3   # минимальная сила сигнала 1-5 для отправки письма
+  min_signal_strength: 1   # временно 1 для отладки (вернуть 3 после)
   check_interval_minutes: 30
 
 schedule:
