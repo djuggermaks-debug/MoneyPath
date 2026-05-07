@@ -1,0 +1,32 @@
+[
+  {
+    "id": "20260507170000",
+    "timestamp": "2026-05-07T17:00:00Z",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 4,
+    "key_factor": "ОПЕК+ сохраняет ограничения добычи, Иран под санкциями",
+    "action": "Смотреть на пробой $84.50 вверх — при закреплении выше можно рассматривать лонг",
+    "risk": "Данные EIA в среду могут опровергнуть бычий сценарий при росте запасов",
+    "reasoning": "Фундаментальный фон поддерживает нефть: ОПЕК+ не спешит увеличивать добычу, санкционное давление на Иран сохраняется. RSI в нейтральной зоне — есть куда расти технически.",
+    "price": 83.42,
+    "change_pct": 0.87,
+    "rsi": 58.3,
+    "support": 81.10,
+    "resistance": 84.50,
+    "position": null,
+    "top_news": [
+      {
+        "title": "OPEC+ sticks to output cuts amid demand uncertainty",
+        "source": "Reuters",
+        "link": "https://reuters.com"
+      },
+      {
+        "title": "Iran nuclear talks stall, sanctions remain in place",
+        "source": "Reuters",
+        "link": "https://reuters.com"
+      }
+    ]
+  }
+]
