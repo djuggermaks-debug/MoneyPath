@@ -1,0 +1,36 @@
+instruments:
+  OIL:
+    name: "Нефть Brent"
+    epic: "BRENTOIL"
+    keywords: ["OPEC", "Iran", "Saudi Arabia", "oil", "crude", "нефть", "баррель"]
+    active: true
+
+  GAS:
+    name: "Природный газ"
+    epic: "NATURAL_GAS"
+    keywords: ["natural gas", "LNG", "газ", "Газпром", "gazprom"]
+    active: false
+
+  GOLD:
+    name: "Золото"
+    epic: "GOLD"
+    keywords: ["gold", "золото", "ФРС", "Fed", "inflation", "инфляция"]
+    active: false
+
+  BTC:
+    name: "Bitcoin"
+    epic: "BITCOIN"
+    keywords: ["bitcoin", "crypto", "BTC", "SEC", "ETF", "крипта"]
+    active: false
+
+alerts:
+  min_signal_strength: 3   # минимальная сила сигнала 1-5 для отправки письма
+  check_interval_minutes: 30
+
+schedule:
+  london_open_utc: "07:00"
+  london_close_utc: "16:00"
+  us_open_utc: "13:30"
+  us_close_utc: "20:00"
+  eia_day: "Wednesday"
+  eia_time_utc: "15:30"

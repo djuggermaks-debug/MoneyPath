@@ -1,0 +1,48 @@
+name: MoneyPath Alert
+
+on:
+  schedule:
+    # Каждые 30 минут в торговые часы (Лондон + США): 07:00-20:00 UTC
+    - cron: "0,30 7-20 * * 1-5"
+    # EIA данные: каждую среду в 15:30 UTC
+    - cron: "30 15 * * 3"
+  workflow_dispatch:  # ручной запуск для тестирования
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # нужно для коммита data/history.json
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run analysis
+        env:
+          CAPITAL_API_KEY: ${{ secrets.CAPITAL_API_KEY }}
+          CAPITAL_EMAIL: ${{ secrets.CAPITAL_EMAIL }}
+          CAPITAL_PASSWORD: ${{ secrets.CAPITAL_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python main.py
+
+      - name: Save history to repo
+        run: |
+          git config user.name "MoneyPath Bot"
+          git config user.email "bot@moneypath"
+          git add data/
+          git diff --staged --quiet || git commit -m "update history $(date -u +%Y-%m-%dT%H:%M)"
+          git push
