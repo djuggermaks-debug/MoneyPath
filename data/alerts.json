@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260507173444",
+    "timestamp": "2026-05-07T17:34:44.095622+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "нейтральный",
+    "strength": 1,
+    "key_factor": "Критическое отсутствие актуальных рыночных данных.",
+    "action": "Дождаться поступления актуальных рыночных данных по цене и техническим индикаторам для принятия обоснованного решения.",
+    "risk": "Принятие решения на основе неполных или устаревших данных может привести к значительным потерям.",
+    "reasoning": "Рыночные данные критически неполны: отсутствуют текущая цена, RSI и уровни поддержки/сопротивления. Хотя новости указывают на медвежьи настроения в связи с возможным мирным соглашением между США и Ираном, без реальных котировок подтвердить это движение и дать обоснованный торговый сигнал невозможно.",
+    "price": 0.0,
+    "change_pct": 0.0,
+    "rsi": null,
+    "support": null,
+    "resistance": null,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin pulls back as markets eye Iran progress, Strategy sales",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-81k-as-markets-watch-iran-progress-strategy-sales-4666250"
+      },
+      {
+        "title": "Stocks dip as oil prices continue pullback on hopes of US-Iran peace deal",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/asian-stocks-hit-record-high-dollar-wobbles-on-peace-deal-hopes-4666114"
+      }
+    ]
+  },
+  {
     "id": "20260507170000",
     "timestamp": "2026-05-07T17:00:00Z",
     "instrument": "OIL",
@@ -13,8 +43,8 @@
     "price": 83.42,
     "change_pct": 0.87,
     "rsi": 58.3,
-    "support": 81.10,
-    "resistance": 84.50,
+    "support": 81.1,
+    "resistance": 84.5,
     "position": null,
     "top_news": [
       {
