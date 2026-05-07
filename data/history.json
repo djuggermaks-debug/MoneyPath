@@ -7,5 +7,14 @@
     "price_at_signal": 0.0,
     "key_factor": "rate limit",
     "price_change_4h": null
+  },
+  {
+    "instrument": "OIL",
+    "date": "2026-05-07 17:29",
+    "signal": "нейтральный",
+    "strength": 1,
+    "price_at_signal": 0.0,
+    "key_factor": "Отсутствие актуальных данных по цене и индикаторам. Ожидания по сделке США-Иран как потенциальный драйвер снижения цен на нефть.",
+    "price_change_4h": null
   }
 ]
