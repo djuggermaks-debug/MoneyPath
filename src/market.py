@@ -6,8 +6,8 @@ BASE_URL = "https://api.twelvedata.com"
 
 # Символы для Twelve Data
 SYMBOLS = {
-    "OIL":  "BRENT",
-    "GAS":  "NATURAL GAS",
+    "OIL":  "XBR/USD",
+    "GAS":  "XNG/USD",
     "GOLD": "XAU/USD",
     "BTC":  "BTC/USD",
 }
