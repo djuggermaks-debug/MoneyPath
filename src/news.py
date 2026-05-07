@@ -7,6 +7,10 @@ from datetime import datetime, timezone, timedelta
 REUTERS_FEEDS = [
     "https://feeds.reuters.com/reuters/businessNews",
     "https://feeds.reuters.com/reuters/topNews",
+    "https://feeds.reuters.com/reuters/energy",
+    "https://rss.app/feeds/tXWNOmyBuVRdQprj.xml",  # Reuters energy backup
+    "https://www.investing.com/rss/news_301.rss",   # Investing.com commodities
+    "https://www.investing.com/rss/news_25.rss",    # Investing.com forex
 ]
 
 NEWSAPI_URL = "https://newsapi.org/v2/everything"

@@ -64,9 +64,8 @@ def main():
     news = fetch_all(keywords)
     print(f"Найдено новостей: {len(news)}")
 
-    if not news and mode == "trading":
-        print("Новостей нет. Пропускаем анализ.")
-        sys.exit(0)
+    if not news:
+        print("Новостей не найдено — анализируем только по рыночным данным.")
 
     market_data = get_market_data(instrument_key)
     current_price = market_data["price"].get("mid", 0)
