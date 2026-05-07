@@ -28,129 +28,30 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
       margin-bottom: 32px;
     }
 
     .btn {
+      display: block;
       background: #1e2130;
       border: 2px solid #2a2d3e;
       border-radius: 12px;
       padding: 16px 12px;
-      cursor: pointer;
       text-align: center;
-      transition: all 0.15s;
+      text-decoration: none;
       color: #e0e0e0;
+      transition: all 0.15s;
     }
 
     .btn:hover { border-color: #4a90d9; background: #252840; }
-
-    .btn.active {
-      border-color: #4a90d9;
-      background: #1a2744;
-      color: #fff;
-    }
+    .btn.active { border-color: #4a90d9; background: #1a2744; color: #fff; }
 
     .btn .icon { font-size: 28px; margin-bottom: 8px; }
     .btn .label { font-size: 13px; font-weight: 600; }
     .btn .sub { font-size: 11px; color: #666; margin-top: 4px; }
     .btn.active .sub { color: #4a90d9; }
-
-    .mode-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .mode-btn {
-      background: #1e2130;
-      border: 2px solid #2a2d3e;
-      border-radius: 12px;
-      padding: 14px;
-      cursor: pointer;
-      transition: all 0.15s;
-      color: #e0e0e0;
-      text-align: left;
-    }
-
-    .mode-btn:hover { border-color: #4a90d9; }
-    .mode-btn.active { border-color: #4CAF50; background: #152515; }
-
-    .mode-btn .mode-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-    .mode-btn .mode-desc { font-size: 12px; color: #666; }
-    .mode-btn.active .mode-desc { color: #4CAF50; }
-
-    .status-card {
-      background: #1e2130;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 32px;
-      border: 1px solid #2a2d3e;
-    }
-
-    .status-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
-    .status-row:not(:last-child) { border-bottom: 1px solid #2a2d3e; }
-    .status-label { color: #666; }
-    .status-value { font-weight: 600; }
-    .status-value.bullish { color: #4CAF50; }
-    .status-value.bearish { color: #f44336; }
-
-    .save-btn {
-      width: 100%;
-      padding: 14px;
-      background: #4a90d9;
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .save-btn:hover { background: #357abd; }
-    .save-btn:disabled { background: #2a2d3e; color: #555; cursor: default; }
-
-    .token-section {
-      margin-top: 32px;
-      padding: 16px;
-      background: #1a1410;
-      border-radius: 12px;
-      border: 1px solid #3a2a10;
-    }
-
-    .token-section input {
-      width: 100%;
-      padding: 10px;
-      background: #0f1117;
-      border: 1px solid #3a2a10;
-      border-radius: 8px;
-      color: #e0e0e0;
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    .token-hint { font-size: 12px; color: #888; margin-top: 6px; }
-
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #4CAF50;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-
-    .toast.show { opacity: 1; }
-    .toast.error { background: #f44336; }
 
     .alert-card {
       background: #1e2130;
@@ -176,239 +77,107 @@
     .alert-stat .s-label { color: #555; }
     .alert-stat .s-val { font-weight: 600; }
 
-    .alert-text { font-size: 13px; color: #aaa; margin: 8px 0 4px; }
-    .alert-action { font-size: 13px; color: #4a90d9; margin-bottom: 4px; }
-    .alert-risk { font-size: 13px; color: #FF9800; }
+    .alert-action { font-size: 13px; color: #4a90d9; margin: 6px 0; }
+    .alert-risk { font-size: 13px; color: #FF9800; margin-bottom: 4px; }
+    .alert-text { font-size: 13px; color: #777; margin-bottom: 4px; }
 
     .alert-news { margin-top: 10px; border-top: 1px solid #2a2d3e; padding-top: 8px; }
     .alert-news a { display: block; font-size: 12px; color: #4a90d9; text-decoration: none; margin-bottom: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .alert-news a:hover { text-decoration: underline; }
 
-    .strength-dots { display: inline-flex; gap: 3px; margin-left: 6px; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: #2a2d3e; }
+    .strength-dots { display: inline-flex; gap: 3px; margin-left: 6px; vertical-align: middle; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #2a2d3e; display: inline-block; }
     .dot.filled { background: currentColor; }
+
+    .empty { color: #555; font-size: 14px; padding: 16px 0; }
   </style>
 </head>
 <body>
 
   <h1>💹 MoneyPath</h1>
-  <p class="subtitle">Система аналитики и алертов</p>
-
-  <div class="section-title">Текущий статус</div>
-  <div class="status-card">
-    <div class="status-row">
-      <span class="status-label">Инструмент</span>
-      <span class="status-value" id="current-instrument">—</span>
-    </div>
-    <div class="status-row">
-      <span class="status-label">Режим</span>
-      <span class="status-value" id="current-mode">—</span>
-    </div>
-    <div class="status-row">
-      <span class="status-label">Обновлено</span>
-      <span class="status-value" id="current-updated">—</span>
-    </div>
-  </div>
+  <p class="subtitle">Аналитика рынков</p>
 
   <div class="section-title">Инструмент</div>
   <div class="grid">
-    <div class="btn" data-instrument="OIL" onclick="selectInstrument(this)">
+    <a class="btn" href="?i=OIL"   id="btn-OIL">
       <div class="icon">🛢️</div>
       <div class="label">Нефть</div>
       <div class="sub">Brent</div>
-    </div>
-    <div class="btn" data-instrument="GAS" onclick="selectInstrument(this)">
+    </a>
+    <a class="btn" href="?i=GAS"   id="btn-GAS">
       <div class="icon">🔥</div>
       <div class="label">Газ</div>
       <div class="sub">Natural Gas</div>
-    </div>
-    <div class="btn" data-instrument="GOLD" onclick="selectInstrument(this)">
+    </a>
+    <a class="btn" href="?i=GOLD"  id="btn-GOLD">
       <div class="icon">🥇</div>
       <div class="label">Золото</div>
       <div class="sub">Gold</div>
-    </div>
-    <div class="btn" data-instrument="BTC" onclick="selectInstrument(this)">
+    </a>
+    <a class="btn" href="?i=BTC"   id="btn-BTC">
       <div class="icon">₿</div>
       <div class="label">Bitcoin</div>
       <div class="sub">BTC/USD</div>
-    </div>
+    </a>
+    <a class="btn" href="?i=ALL"   id="btn-ALL">
+      <div class="icon">🌐</div>
+      <div class="label">Все</div>
+      <div class="sub">Все алерты</div>
+    </a>
   </div>
 
-  <div class="section-title">Режим</div>
-  <div class="mode-grid">
-    <div class="mode-btn" data-mode="trading" onclick="selectMode(this)">
-      <div class="mode-title">📊 Торговля</div>
-      <div class="mode-desc">Алерты с техническим анализом и позицией</div>
-    </div>
-    <div class="mode-btn" data-mode="digest" onclick="selectMode(this)">
-      <div class="mode-title">📰 Дайджест</div>
-      <div class="mode-desc">Новости и аналитика без торговых сигналов</div>
-    </div>
-  </div>
-
-  <button class="save-btn" id="save-btn" onclick="saveState()" disabled>
-    Применить
-  </button>
-
-  <div class="section-title" style="margin-top:32px;">Последние алерты</div>
+  <div class="section-title">Алерты</div>
   <div id="alerts-container">
-    <div style="color:#555;font-size:14px;padding:16px 0;">Загрузка...</div>
+    <div class="empty">Загрузка...</div>
   </div>
-
-  <div class="token-section">
-    <div class="section-title" style="margin-bottom:0;">GitHub Token</div>
-    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxx" oninput="onTokenInput()">
-    <div class="token-hint">Нужен для сохранения настроек. Хранится только в браузере.</div>
-  </div>
-
-  <div class="toast" id="toast"></div>
 
   <script>
-    const REPO = "maksimfir-lang/MoneyPath";
-    const STATE_FILE = "state.json";
-    const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/${STATE_FILE}`;
-    const API_URL = `https://api.github.com/repos/${REPO}/contents/${STATE_FILE}`;
-
-    let selectedInstrument = null;
-    let selectedMode = null;
-    let currentSha = null;
-
-    async function loadCurrentState() {
-      try {
-        const resp = await fetch(RAW_URL + "?t=" + Date.now());
-        const state = await resp.json();
-        document.getElementById("current-instrument").textContent = state.active_instrument;
-        document.getElementById("current-mode").textContent = state.mode === "trading" ? "Торговля" : "Дайджест";
-        document.getElementById("current-updated").textContent = new Date(state.updated_at).toLocaleString("ru");
-
-        selectedInstrument = state.active_instrument;
-        selectedMode = state.mode;
-
-        document.querySelectorAll("[data-instrument]").forEach(el => {
-          el.classList.toggle("active", el.dataset.instrument === selectedInstrument);
-        });
-        document.querySelectorAll("[data-mode]").forEach(el => {
-          el.classList.toggle("active", el.dataset.mode === selectedMode);
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
-    async function getFileSha() {
-      const token = document.getElementById("gh-token").value.trim();
-      const resp = await fetch(API_URL, {
-        headers: { Authorization: `token ${token}` }
-      });
-      const data = await resp.json();
-      return data.sha;
-    }
-
-    function selectInstrument(el) {
-      document.querySelectorAll("[data-instrument]").forEach(b => b.classList.remove("active"));
-      el.classList.add("active");
-      selectedInstrument = el.dataset.instrument;
-      updateSaveBtn();
-    }
-
-    function selectMode(el) {
-      document.querySelectorAll("[data-mode]").forEach(b => b.classList.remove("active"));
-      el.classList.add("active");
-      selectedMode = el.dataset.mode;
-      updateSaveBtn();
-    }
-
-    function onTokenInput() { updateSaveBtn(); }
-
-    function updateSaveBtn() {
-      const token = document.getElementById("gh-token").value.trim();
-      document.getElementById("save-btn").disabled = !(token && selectedInstrument && selectedMode);
-    }
-
-    async function saveState() {
-      const token = document.getElementById("gh-token").value.trim();
-      const btn = document.getElementById("save-btn");
-      btn.disabled = true;
-      btn.textContent = "Сохраняем...";
-
-      try {
-        const sha = await getFileSha();
-        const state = {
-          active_instrument: selectedInstrument,
-          mode: selectedMode,
-          updated_at: new Date().toISOString()
-        };
-        const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2) + "\n")));
-
-        await fetch(API_URL, {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${token}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            message: `switch to ${selectedInstrument} / ${selectedMode}`,
-            content,
-            sha
-          })
-        });
-
-        showToast("Сохранено! Система переключена.");
-        await loadCurrentState();
-      } catch (e) {
-        showToast("Ошибка: " + e.message, true);
-      }
-
-      btn.textContent = "Применить";
-      updateSaveBtn();
-    }
-
-    function showToast(msg, error = false) {
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.className = "toast" + (error ? " error" : "") + " show";
-      setTimeout(() => t.className = "toast", 3000);
-    }
-
-    loadCurrentState();
-    loadAlerts();
-
+    const REPO = "djuggermaks-debug/MoneyPath";
     const ALERTS_URL = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
 
     const SIGNAL_EMOJI = { "бычий": "📈", "медвежий": "📉", "нейтральный": "➡️" };
-    const SIGNAL_EN = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
+    const SIGNAL_EN   = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
+
+    const params = new URLSearchParams(location.search);
+    const active = params.get("i") || "ALL";
+
+    // подсветить активную кнопку
+    const btn = document.getElementById("btn-" + active);
+    if (btn) btn.classList.add("active");
 
     async function loadAlerts() {
       const container = document.getElementById("alerts-container");
       try {
         const resp = await fetch(ALERTS_URL + "?t=" + Date.now());
-        if (!resp.ok) throw new Error("нет данных");
-        const alerts = await resp.json();
+        if (!resp.ok) throw new Error();
+        const all = await resp.json();
+        const alerts = active === "ALL" ? all : all.filter(a => a.instrument === active);
+
         if (!alerts.length) {
-          container.innerHTML = '<div style="color:#555;font-size:14px;padding:16px 0;">Алертов пока нет.</div>';
+          container.innerHTML = '<div class="empty">Алертов пока нет.</div>';
           return;
         }
         container.innerHTML = alerts.map(renderAlert).join("");
-      } catch (e) {
-        container.innerHTML = '<div style="color:#555;font-size:14px;padding:16px 0;">Алертов пока нет — система ещё не запускалась.</div>';
+      } catch {
+        container.innerHTML = '<div class="empty">Данных нет — система ещё не запускалась.</div>';
       }
     }
 
     function renderAlert(a) {
-      const cls = SIGNAL_EN[a.signal] || "neutral";
+      const cls   = SIGNAL_EN[a.signal] || "neutral";
       const emoji = SIGNAL_EMOJI[a.signal] || "➡️";
-      const time = new Date(a.timestamp).toLocaleString("ru");
-      const strength = a.strength || 0;
+      const time  = new Date(a.timestamp).toLocaleString("ru");
+      const s     = a.strength || 0;
 
       const dots = Array.from({length: 5}, (_, i) =>
-        `<span class="dot ${i < strength ? "filled" : ""}"></span>`
+        `<span class="dot ${i < s ? "filled" : ""}"></span>`
       ).join("");
 
       const stats = [
-        a.price ? `<div class="alert-stat"><span class="s-label">Цена </span><span class="s-val">${a.price}</span></div>` : "",
+        a.price      ? `<div class="alert-stat"><span class="s-label">Цена </span><span class="s-val">${a.price}</span></div>` : "",
         a.change_pct != null ? `<div class="alert-stat"><span class="s-label">День </span><span class="s-val">${a.change_pct > 0 ? "+" : ""}${a.change_pct}%</span></div>` : "",
-        a.rsi ? `<div class="alert-stat"><span class="s-label">RSI </span><span class="s-val">${a.rsi}</span></div>` : "",
-        a.support ? `<div class="alert-stat"><span class="s-label">Поддержка </span><span class="s-val">${a.support}</span></div>` : "",
+        a.rsi        ? `<div class="alert-stat"><span class="s-label">RSI </span><span class="s-val">${a.rsi}</span></div>` : "",
+        a.support    ? `<div class="alert-stat"><span class="s-label">Поддержка </span><span class="s-val">${a.support}</span></div>` : "",
         a.resistance ? `<div class="alert-stat"><span class="s-label">Сопротивление </span><span class="s-val">${a.resistance}</span></div>` : "",
       ].filter(Boolean).join("");
 
@@ -420,11 +189,13 @@
         ? `<div class="alert-text">⚠️ Позиция: ${a.position.direction} с ${a.position.level} | P&L: ${a.position.upl}</div>`
         : "";
 
+      const dotColor = cls === "bullish" ? "#4CAF50" : cls === "bearish" ? "#f44336" : "#FF9800";
+
       return `
         <div class="alert-card ${cls}">
           <div class="alert-header">
             <span class="alert-signal ${cls}">${emoji} ${a.instrument_name} — ${a.signal}
-              <span class="strength-dots" style="color:${cls === "bullish" ? "#4CAF50" : cls === "bearish" ? "#f44336" : "#FF9800"}">${dots}</span>
+              <span class="strength-dots" style="color:${dotColor}">${dots}</span>
             </span>
             <span class="alert-meta">${time}</span>
           </div>
@@ -433,10 +204,12 @@
           <div class="alert-text">${a.key_factor || ""}</div>
           <div class="alert-action">→ ${a.action || ""}</div>
           <div class="alert-risk">⚠ ${a.risk || ""}</div>
-          <div class="alert-text" style="color:#777;">${a.reasoning || ""}</div>
+          <div class="alert-text">${a.reasoning || ""}</div>
           ${news}
         </div>`;
     }
+
+    loadAlerts();
   </script>
 </body>
 </html>
