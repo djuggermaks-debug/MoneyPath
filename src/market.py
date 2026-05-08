@@ -54,7 +54,9 @@ def _get_price(symbol):
 
 def _get_candles(symbol):
     from_date = (datetime.now(timezone.utc) - timedelta(days=180)).strftime("%Y%m%d")
-    resp = requests.get(STOOQ_HIST.format(symbol=symbol, from_date=from_date), timeout=10)
+    url = STOOQ_HIST.format(symbol=symbol, from_date=from_date)
+    resp = requests.get(url, timeout=10)
+    print(f"Stooq hist ({symbol}): {repr(resp.text[:300])}")
     reader = csv.DictReader(io.StringIO(resp.text))
     candles = []
     for row in reader:
