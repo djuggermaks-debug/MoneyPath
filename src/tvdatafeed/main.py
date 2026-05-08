@@ -139,14 +139,6 @@ class TvDatafeed:
         self.__create_connection()
         self.__send_message("set_auth_token", [self.token])
         self.__send_message("chart_create_session", [self.chart_session, ""])
-        self.__send_message("quote_create_session", [self.session])
-        self.__send_message("quote_set_fields", [self.session, "ch", "chp", "current_session",
-            "description", "local_description", "language", "exchange", "fractional",
-            "is_tradable", "lp", "lp_time", "minmov", "minmove2", "original_name",
-            "pricescale", "pro_name", "short_name", "type", "update_mode", "volume",
-            "currency_code", "rchp", "rtc"])
-        self.__send_message("quote_add_symbols", [self.session, symbol, {"flags": ["force_permission"]}])
-        self.__send_message("quote_fast_symbols", [self.session, symbol])
         self.__send_message("resolve_symbol", [self.chart_session, "symbol_1",
             '={"symbol":"' + symbol + '","adjustment":"splits","session":' +
             ('"regular"' if not extended_session else '"extended"') + "}"])
@@ -155,14 +147,17 @@ class TvDatafeed:
 
         raw_data = ""
         completed = False
-        deadline = time.time() + 25  # максимум 25 секунд на весь запрос
+        deadline = time.time() + 25
         while time.time() < deadline:
             try:
                 result = self.ws.recv()
                 raw_data += result + "\n"
             except Exception as e:
-                print(f"tvDatafeed recv exception: {type(e).__name__}: {e}")
-                break
+                # Только обрыв соединения прерывает цикл, таймаут — продолжаем ждать
+                if "ConnectionClosed" in type(e).__name__ or "BrokenPipe" in str(e):
+                    print(f"tvDatafeed connection closed: {e}")
+                    break
+                continue
             if "series_completed" in result:
                 completed = True
                 break
