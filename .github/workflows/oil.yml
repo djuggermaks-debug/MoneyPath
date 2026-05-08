@@ -24,8 +24,7 @@ jobs:
           INSTRUMENT: OIL
           MODE: trading
           EVENT_NAME: ${{ github.event_name }}
-          TV_USERNAME: ${{ secrets.TV_USERNAME }}
-          TV_PASSWORD: ${{ secrets.TV_PASSWORD }}
+          TV_SESSION: ${{ secrets.TV_SESSION }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}

@@ -35,11 +35,15 @@ class TvDatafeed:
     __signin_headers = {"Referer": "https://www.tradingview.com"}
     __ws_timeout   = 10
 
-    def __init__(self, username=None, password=None):
+    def __init__(self, username=None, password=None, token=None):
         self.ws_debug = False
-        self.token = self.__auth(username, password)
-        if self.token is None:
-            self.token = "unauthorized_user_token"
+        if token:
+            print(f"tvDatafeed auth: using session token (length={len(token)})")
+            self.token = token
+        else:
+            self.token = self.__auth(username, password)
+            if self.token is None:
+                self.token = "unauthorized_user_token"
         self.ws = None
         self.session = self.__generate_session()
         self.chart_session = self.__generate_chart_session()
