@@ -1,7 +1,7 @@
 import requests
 import csv
 import io
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 
 SYMBOLS = {
@@ -12,7 +12,7 @@ SYMBOLS = {
 }
 
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
-STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=d"  # daily history
+STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=d&d1={from_date}"  # daily history
 
 
 def get_market_data(instrument_key):
@@ -53,7 +53,8 @@ def _get_price(symbol):
 
 
 def _get_candles(symbol):
-    resp = requests.get(STOOQ_HIST.format(symbol=symbol), timeout=10)
+    from_date = (datetime.now(timezone.utc) - timedelta(days=180)).strftime("%Y%m%d")
+    resp = requests.get(STOOQ_HIST.format(symbol=symbol, from_date=from_date), timeout=10)
     reader = csv.DictReader(io.StringIO(resp.text))
     candles = []
     for row in reader:
