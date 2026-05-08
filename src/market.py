@@ -19,19 +19,27 @@ AV_COMMODITY = {
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
 
 
+YF_SYMBOLS = {
+    "OIL":  "BZ=F",
+    "GAS":  "NG=F",
+    "GOLD": "GC=F",
+    "BTC":  "BTC-USD",
+}
+
+
 def get_market_data(instrument_key):
     av_candles = _get_candles_av(instrument_key)
-    stooq_price = _get_stooq_price(STOOQ_SYMBOLS.get(instrument_key, "cb.f"))
-    candles_d = _scale_candles(av_candles, stooq_price.get("mid"))
+    price      = _get_price_yf(instrument_key)
+    candles_d  = _scale_candles(av_candles, price.get("mid"))
     indicators = _calculate_indicators(candles_d, [])
 
-    print(f"Цена (Stooq): {stooq_price}")
+    print(f"Цена (Yahoo): {price}")
     print(f"Свечей (AV→масштаб): {len(candles_d)}")
     if indicators.get("tech_bias"):
         print(f"Технический перевес: {indicators['tech_bias']} (score {indicators.get('tech_score', 0):+d})")
 
     return {
-        "price":      stooq_price,
+        "price":      price,
         "indicators": indicators,
         "position":   None,
     }
@@ -65,6 +73,25 @@ def _get_candles_av(instrument_key):
     except Exception as e:
         print(f"Alpha Vantage ошибка: {e}")
         return []
+
+
+def _get_price_yf(instrument_key):
+    symbol = YF_SYMBOLS.get(instrument_key, "BZ=F")
+    try:
+        resp = requests.get(
+            f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=10,
+        )
+        meta = resp.json()["chart"]["result"][0]["meta"]
+        price = meta.get("regularMarketPrice") or meta.get("previousClose")
+        prev  = meta.get("chartPreviousClose") or meta.get("previousClose") or price
+        change_pct = round((price - prev) / prev * 100, 2) if prev else 0
+        print(f"Yahoo Finance {symbol}: {price}")
+        return {"symbol": symbol, "mid": round(price, 3), "change_pct": change_pct}
+    except Exception as e:
+        print(f"Yahoo Finance ошибка: {e} — fallback Stooq")
+        return _get_stooq_price(STOOQ_SYMBOLS.get(instrument_key, "cb.f"))
 
 
 def _scale_candles(candles, current_price):
