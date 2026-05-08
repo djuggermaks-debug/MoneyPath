@@ -23,8 +23,7 @@ def get_market_data(instrument_key):
     symbol = SYMBOLS.get(instrument_key, "cb.f")
 
     price      = _get_price(symbol)
-    candles_d  = _get_candles_tv(instrument_key, "daily", 100)
-    candles_4h = _get_candles_tv(instrument_key, "4h", 60)
+    candles_d, candles_4h = _get_candles_tv(instrument_key)
     indicators = _calculate_indicators(candles_d, candles_4h)
 
     print(f"Stooq цена: {price}")
@@ -59,27 +58,31 @@ def _get_price(symbol):
     }
 
 
-def _get_candles_tv(instrument_key, timeframe="daily", n_bars=100):
+def _get_candles_tv(instrument_key):
     try:
         from src.tvdatafeed import TvDatafeed, Interval
         tv_symbol, exchange = TV_SYMBOLS.get(instrument_key, ("UKOIL", "OANDA"))
         tv = TvDatafeed()
-        interval = Interval.in_daily if timeframe == "daily" else Interval.in_4_hour
-        df = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=interval, n_bars=n_bars)
-        if df is None or df.empty:
-            return []
-        candles = []
-        for _, row in df.iterrows():
-            candles.append({
-                "open":  float(row["open"]),
-                "high":  float(row["high"]),
-                "low":   float(row["low"]),
-                "close": float(row["close"]),
-            })
-        return candles
+        df_d  = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_daily,  n_bars=100)
+        df_4h = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_4_hour, n_bars=60)
+        return _parse_df(df_d), _parse_df(df_4h)
     except Exception as e:
-        print(f"tvDatafeed [{timeframe}] ошибка: {e}")
+        print(f"tvDatafeed ошибка: {e}")
+        return [], []
+
+
+def _parse_df(df):
+    if df is None or df.empty:
         return []
+    candles = []
+    for _, row in df.iterrows():
+        candles.append({
+            "open":  float(row["open"]),
+            "high":  float(row["high"]),
+            "low":   float(row["low"]),
+            "close": float(row["close"]),
+        })
+    return candles
 
 
 # ── Математические утилиты ────────────────────────────────────────────────────
