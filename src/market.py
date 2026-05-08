@@ -61,12 +61,8 @@ def _get_candles_tv(instrument_key):
     try:
         from src.tvdatafeed import TvDatafeed, Interval
         tv_symbol, exchange = TV_SYMBOLS.get(instrument_key, ("UKOIL", "OANDA"))
-        print(f"tvDatafeed: подключаемся к {exchange}:{tv_symbol}")
         tv = TvDatafeed()
         df = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_daily, n_bars=100)
-        print(f"tvDatafeed: df = {type(df)} | пустой = {df is None or (hasattr(df, 'empty') and df.empty)}")
-        if df is not None and not df.empty:
-            print(df.tail(3))
         if df is None or df.empty:
             return []
         candles = []
@@ -79,9 +75,7 @@ def _get_candles_tv(instrument_key):
             })
         return candles
     except Exception as e:
-        import traceback
         print(f"tvDatafeed ошибка: {e}")
-        traceback.print_exc()
         return []
 
 
