@@ -370,6 +370,10 @@
         <label>Плечо</label>
         <input type="number" id="inp-leverage" step="1" value="10" min="1">
       </div>
+      <div class="modal-field">
+        <label>Комиссия / Спред (€)</label>
+        <input type="number" id="inp-commission" step="0.01" min="0" placeholder="0.00">
+      </div>
       <div class="modal-info" id="modal-position-size" style="margin-top:-6px"></div>
       <div class="modal-btns">
         <button class="modal-btn cancel" onclick="closeModal('modal-open')">Отмена</button>
@@ -574,6 +578,7 @@
       document.getElementById("inp-entry").value = alert.price || "";
       document.getElementById("inp-amount").value = "";
       document.getElementById("inp-leverage").value = "10";
+      document.getElementById("inp-commission").value = "";
       updatePositionSize();
       document.getElementById("inp-amount").addEventListener("input", updatePositionSize);
       document.getElementById("inp-leverage").addEventListener("input", updatePositionSize);
@@ -595,9 +600,10 @@
     function confirmOpenTrade() {
       const alert = loadedAlerts.find(a => a.id === pendingAlertId);
       if (!alert) return;
-      const entry    = parseFloat(document.getElementById("inp-entry").value);
-      const amount   = parseFloat(document.getElementById("inp-amount").value);
-      const leverage = parseFloat(document.getElementById("inp-leverage").value) || 1;
+      const entry      = parseFloat(document.getElementById("inp-entry").value);
+      const amount     = parseFloat(document.getElementById("inp-amount").value);
+      const leverage   = parseFloat(document.getElementById("inp-leverage").value) || 1;
+      const commission = parseFloat(document.getElementById("inp-commission").value) || 0;
       if (!entry || !amount) return;
 
       const entries = journalLoad();
@@ -611,6 +617,7 @@
         entry_price: entry,
         amount: amount,
         leverage: leverage,
+        commission: commission,
         entry_time: new Date().toISOString(),
         status: "open",
         exit_price: null,
@@ -645,10 +652,11 @@
       const trade = entries.find(t => t.id === pendingTradeId);
       if (!trade) return;
 
-      const dir = trade.signal === "бычий" ? 1 : -1;
-      const leverage = trade.leverage || 1;
-      const pnl_pct = ((exit - trade.entry_price) / trade.entry_price) * 100 * dir;
-      const pnl = (trade.amount * leverage * pnl_pct) / 100;
+      const dir        = trade.signal === "бычий" ? 1 : -1;
+      const leverage   = trade.leverage || 1;
+      const commission = trade.commission || 0;
+      const pnl_pct    = ((exit - trade.entry_price) / trade.entry_price) * 100 * dir;
+      const pnl        = (trade.amount * leverage * pnl_pct) / 100 - commission;
 
       trade.exit_price = exit;
       trade.exit_time  = new Date().toISOString();
@@ -815,6 +823,7 @@
             <span>Депозит: <b>€${t.amount}</b></span>
             <span>Плечо: <b>×${leverage}</b></span>
             <span>Позиция: <b>€${position}</b></span>
+            ${t.commission ? `<span>Комиссия: <b>-€${t.commission}</b></span>` : ""}
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
@@ -865,7 +874,7 @@
 
       for (const t of entries) {
         txt += `[${new Date(t.entry_time).toLocaleString("ru")}] ${t.instrument_name} — ${t.signal}\n`;
-        txt += `Вход: ${t.entry_price} | Сумма: €${t.amount}\n`;
+        txt += `Вход: ${t.entry_price} | Сумма: €${t.amount}${t.commission ? ` | Комиссия: €${t.commission}` : ""}\n`;
         if (t.status === "closed") {
           txt += `Выход: ${t.exit_price} | P&L: ${t.pnl >= 0 ? "+" : ""}€${t.pnl} (${t.pnl_pct >= 0 ? "+" : ""}${t.pnl_pct}%) | ${t.result === "profit" ? "ПРИБЫЛЬ" : "УБЫТОК"}\n`;
         } else {
