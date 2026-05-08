@@ -46,12 +46,17 @@ class TvDatafeed:
 
     def __auth(self, username, password):
         if username is None or password is None:
+            print("tvDatafeed auth: credentials not provided")
             return None
         data = {"username": username, "password": password, "remember": "on"}
         try:
             response = requests.post(self.__sign_in_url, data=data, headers=self.__signin_headers)
-            return response.json()["user"]["auth_token"]
-        except Exception:
+            token = response.json()["user"]["auth_token"]
+            print(f"tvDatafeed auth: OK (token length={len(token)})")
+            return token
+        except Exception as e:
+            print(f"tvDatafeed auth: FAILED — {e}")
+            print(f"tvDatafeed auth response: {response.text[:300]}")
             return None
 
     def __create_connection(self):
