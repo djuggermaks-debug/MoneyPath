@@ -5,6 +5,7 @@ import logging
 import random
 import re
 import string
+import time
 import pandas as pd
 from websocket import create_connection
 import requests
@@ -32,7 +33,7 @@ class TvDatafeed:
     __sign_in_url  = "https://www.tradingview.com/accounts/signin/"
     __ws_headers   = json.dumps({"Origin": "https://data.tradingview.com"})
     __signin_headers = {"Referer": "https://www.tradingview.com"}
-    __ws_timeout   = 30
+    __ws_timeout   = 10
 
     def __init__(self, username=None, password=None):
         self.ws_debug = False
@@ -145,7 +146,8 @@ class TvDatafeed:
 
         raw_data = ""
         completed = False
-        while True:
+        deadline = time.time() + 25  # максимум 25 секунд на весь запрос
+        while time.time() < deadline:
             try:
                 result = self.ws.recv()
                 raw_data += result + "\n"
@@ -158,6 +160,6 @@ class TvDatafeed:
 
         print(f"tvDatafeed series_completed={completed}, raw_data len={len(raw_data)}")
         if not completed:
-            print(f"tvDatafeed raw_data sample: {raw_data[:300]}")
+            print(f"tvDatafeed raw_data sample: {raw_data[:400]}")
 
         return self.__create_df(raw_data, symbol)
