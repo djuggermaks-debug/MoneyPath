@@ -1,29 +1,34 @@
 import requests
 import csv
 import io
-from datetime import datetime, timezone, timedelta
-
+from datetime import datetime, timezone
 
 SYMBOLS = {
-    "OIL":  "cb.f",    # Brent crude (Stooq)
-    "GAS":  "ng.f",    # Natural Gas
-    "GOLD": "gc.f",    # Gold
-    "BTC":  "btc.v",   # Bitcoin
+    "OIL":  "cb.f",
+    "GAS":  "ng.f",
+    "GOLD": "gc.f",
+    "BTC":  "btc.v",
+}
+
+TV_SYMBOLS = {
+    "OIL":  ("UKOIL",  "OANDA"),
+    "GAS":  ("NGAS",   "OANDA"),
+    "GOLD": ("XAUUSD", "OANDA"),
+    "BTC":  ("BTCUSD", "BINANCE"),
 }
 
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
-STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=d&d1={from_date}"  # daily history
 
 
 def get_market_data(instrument_key):
     symbol = SYMBOLS.get(instrument_key, "cb.f")
 
-    price = _get_price(symbol)
-    candles = _get_candles(symbol)
+    price    = _get_price(symbol)
+    candles  = _get_candles_tv(instrument_key)
     indicators = _calculate_indicators(candles)
 
     print(f"Stooq цена: {price}")
-    print(f"Stooq свечей: {len(candles)}")
+    print(f"Свечей (TradingView): {len(candles)}")
 
     return {
         "price": price,
@@ -41,40 +46,37 @@ def _get_price(symbol):
     if close == "N/D" or not close:
         return {"symbol": symbol, "mid": None, "change_pct": None}
 
-    open_price = float(row.get("Open", close))
+    open_price  = float(row.get("Open", close))
     close_price = float(close)
-    change_pct = round((close_price - open_price) / open_price * 100, 2) if open_price else 0
+    change_pct  = round((close_price - open_price) / open_price * 100, 2) if open_price else 0
 
     return {
-        "symbol": symbol,
-        "mid": round(close_price, 3),
+        "symbol":     symbol,
+        "mid":        round(close_price, 3),
         "change_pct": change_pct,
     }
 
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-}
-
-
-def _get_candles(symbol):
-    from_date = (datetime.now(timezone.utc) - timedelta(days=180)).strftime("%Y%m%d")
-    url = STOOQ_HIST.format(symbol=symbol, from_date=from_date)
-    resp = requests.get(url, headers=HEADERS, timeout=10)
-    print(f"Stooq hist ({symbol}): {repr(resp.text[:300])}")
-    reader = csv.DictReader(io.StringIO(resp.text))
-    candles = []
-    for row in reader:
-        try:
+def _get_candles_tv(instrument_key):
+    try:
+        from tvDatafeed import TvDatafeed, Interval
+        tv_symbol, exchange = TV_SYMBOLS.get(instrument_key, ("UKOIL", "OANDA"))
+        tv = TvDatafeed()
+        df = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_daily, n_bars=100)
+        if df is None or df.empty:
+            return []
+        candles = []
+        for _, row in df.iterrows():
             candles.append({
-                "open":  float(row["Open"]),
-                "high":  float(row["High"]),
-                "low":   float(row["Low"]),
-                "close": float(row["Close"]),
+                "open":  float(row["open"]),
+                "high":  float(row["high"]),
+                "low":   float(row["low"]),
+                "close": float(row["close"]),
             })
-        except (ValueError, KeyError):
-            continue
-    return candles
+        return candles
+    except Exception as e:
+        print(f"tvDatafeed ошибка: {e}")
+        return []
 
 
 def _calculate_indicators(candles):
