@@ -27,7 +27,7 @@ jobs:
       - run: |
           git config user.name "MoneyPath Bot"
           git config user.email "bot@moneypath"
-          git add data/
+          git add docs/data/
           git diff --staged --quiet || git commit -m "digest: update $(date -u +%Y-%m-%dT%H:%M)"
           git pull --no-rebase origin main
           git push

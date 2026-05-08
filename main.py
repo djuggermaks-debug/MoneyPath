@@ -107,8 +107,8 @@ def run_trading(config):
 
 
 def save_digest(analysis, news_articles):
-    path = "data/digest.json"
-    os.makedirs("data", exist_ok=True)
+    path = "docs/data/digest.json"
+    os.makedirs("docs/data", exist_ok=True)
 
     digest = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -127,13 +127,16 @@ def save_digest(analysis, news_articles):
 
 
 def save_alert(instrument_name, instrument_key, analysis, market_data, news_articles):
-    path = "data/alerts.json"
-    os.makedirs("data", exist_ok=True)
+    path = "docs/data/alerts.json"
+    os.makedirs("docs/data", exist_ok=True)
 
     alerts = []
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as f:
-            alerts = json.load(f)
+            try:
+                alerts = json.load(f)
+            except Exception:
+                alerts = []
 
     price = market_data.get("price", {})
     indicators = market_data.get("indicators", {})
