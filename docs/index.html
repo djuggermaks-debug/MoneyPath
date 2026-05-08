@@ -322,6 +322,11 @@
         <label>Сумма (€)</label>
         <input type="number" id="inp-amount" step="1" placeholder="например 50">
       </div>
+      <div class="modal-field">
+        <label>Плечо</label>
+        <input type="number" id="inp-leverage" step="1" value="10" min="1">
+      </div>
+      <div class="modal-info" id="modal-position-size" style="margin-top:-6px"></div>
       <div class="modal-btns">
         <button class="modal-btn cancel" onclick="closeModal('modal-open')">Отмена</button>
         <button class="modal-btn confirm" onclick="confirmOpenTrade()">Открыл</button>
@@ -523,14 +528,31 @@
         `<b>${alert.instrument_name}</b> — сигнал: ${alert.signal}<br>Направление: ${dir}<br>Цена по сигналу: ${alert.price || "—"}`;
       document.getElementById("inp-entry").value = alert.price || "";
       document.getElementById("inp-amount").value = "";
+      document.getElementById("inp-leverage").value = "10";
+      updatePositionSize();
+      document.getElementById("inp-amount").addEventListener("input", updatePositionSize);
+      document.getElementById("inp-leverage").addEventListener("input", updatePositionSize);
       document.getElementById("modal-open").classList.add("show");
+    }
+
+    function updatePositionSize() {
+      const amount   = parseFloat(document.getElementById("inp-amount").value) || 0;
+      const leverage = parseFloat(document.getElementById("inp-leverage").value) || 1;
+      const pos = amount * leverage;
+      const el = document.getElementById("modal-position-size");
+      if (amount > 0) {
+        el.innerHTML = `Размер позиции: <b>€${pos.toFixed(0)}</b> (€${amount} × ${leverage})`;
+      } else {
+        el.innerHTML = "";
+      }
     }
 
     function confirmOpenTrade() {
       const alert = loadedAlerts.find(a => a.id === pendingAlertId);
       if (!alert) return;
-      const entry = parseFloat(document.getElementById("inp-entry").value);
-      const amount = parseFloat(document.getElementById("inp-amount").value);
+      const entry    = parseFloat(document.getElementById("inp-entry").value);
+      const amount   = parseFloat(document.getElementById("inp-amount").value);
+      const leverage = parseFloat(document.getElementById("inp-leverage").value) || 1;
       if (!entry || !amount) return;
 
       const entries = journalLoad();
@@ -543,6 +565,7 @@
         signal_price: alert.price,
         entry_price: entry,
         amount: amount,
+        leverage: leverage,
         entry_time: new Date().toISOString(),
         status: "open",
         exit_price: null,
@@ -578,8 +601,9 @@
       if (!trade) return;
 
       const dir = trade.signal === "бычий" ? 1 : -1;
+      const leverage = trade.leverage || 1;
       const pnl_pct = ((exit - trade.entry_price) / trade.entry_price) * 100 * dir;
-      const pnl = (trade.amount * pnl_pct) / 100;
+      const pnl = (trade.amount * leverage * pnl_pct) / 100;
 
       trade.exit_price = exit;
       trade.exit_time  = new Date().toISOString();
@@ -680,7 +704,9 @@
     function renderJournalCard(t) {
       const cls = t.status === "open" ? "open" : t.result;
       const badge = t.status === "open" ? "Открыта" : t.result === "profit" ? "Прибыль" : "Убыток";
-      const dir = t.signal === "бычий" ? "📈 Long" : "📉 Short";
+      const dir      = t.signal === "бычий" ? "📈 Long" : "📉 Short";
+      const leverage = t.leverage || 1;
+      const position = t.amount * leverage;
       const entryTime = new Date(t.entry_time).toLocaleString("ru");
 
       const pnlHtml = t.status === "closed"
@@ -700,7 +726,9 @@
           <div class="jcard-row">
             <span>Вход: <b>${t.entry_price}</b></span>
             ${t.exit_price ? `<span>Выход: <b>${t.exit_price}</b></span>` : ""}
-            <span>Сумма: <b>€${t.amount}</b></span>
+            <span>Депозит: <b>€${t.amount}</b></span>
+            <span>Плечо: <b>×${leverage}</b></span>
+            <span>Позиция: <b>€${position}</b></span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
