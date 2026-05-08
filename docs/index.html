@@ -798,12 +798,26 @@
       return Math.floor((target - now) / 1000);
     }
 
+    // Расписание запусков нефти в минутах от полуночи UTC (пн-пт)
+    const OIL_RUNS = [420,450,480,510,540,600,660,720,780,810,840,870,900,930,960,1020,1080,1140,1200,1260];
+
     function getNextOilUpdate() {
       const now = new Date();
-      const day = now.getUTCDay(), h = now.getUTCHours(), m = now.getUTCMinutes(), s = now.getUTCSeconds();
-      if (day === 0 || day === 6 || h < 7 || h >= 20) return { active: false };
-      const nextM = m < 30 ? 30 : 60;
-      return { active: true, secs: (nextM - m) * 60 - s };
+      const day = now.getUTCDay();
+      const cur = now.getUTCHours() * 60 + now.getUTCMinutes();
+      const s   = now.getUTCSeconds();
+
+      // ищем следующий запуск сегодня (пн-пт)
+      if (day >= 1 && day <= 5) {
+        const next = OIL_RUNS.find(t => t > cur);
+        if (next !== undefined) return { secs: (next - cur) * 60 - s };
+      }
+
+      // следующий понедельник или следующий день
+      let target = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 7, 0, 0));
+      target.setUTCDate(target.getUTCDate() + 1);
+      while (target.getUTCDay() === 0 || target.getUTCDay() === 6) target.setUTCDate(target.getUTCDate() + 1);
+      return { secs: Math.floor((target - now) / 1000) };
     }
 
     function fmt(secs) {
@@ -833,15 +847,9 @@
       } else if (active === "OIL" || active === "ALL") {
         timerEl.style.display = "flex";
         const info = getNextOilUpdate();
-        if (info.active) {
-          dot.className = "timer-dot active";
-          text.textContent = "🛢️ Нефть — обновление через";
-          count.textContent = fmt(info.secs);
-        } else {
-          dot.className = "timer-dot closed";
-          text.textContent = "🛢️ Нефть — торги закрыты";
-          count.textContent = "(07:00–20:00 UTC пн–пт)";
-        }
+        dot.className = "timer-dot active";
+        text.textContent = "🛢️ Следующий анализ через";
+        count.textContent = fmtLong(info.secs);
       } else {
         timerEl.style.display = "none";
       }
