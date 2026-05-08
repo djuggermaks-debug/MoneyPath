@@ -73,7 +73,8 @@ def run_trading(config):
 
     print(f"[{datetime.now(timezone.utc).strftime('%H:%M UTC')}] Режим: trading | Инструмент: {instrument['name']}")
 
-    if not is_trading_hours(config):
+    manual = os.environ.get("EVENT_NAME") == "workflow_dispatch"
+    if not manual and not is_trading_hours(config):
         print("Вне торговых часов. Пропускаем.")
         sys.exit(0)
 
