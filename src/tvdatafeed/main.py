@@ -144,13 +144,20 @@ class TvDatafeed:
         self.__send_message("switch_timezone", [self.chart_session, "exchange"])
 
         raw_data = ""
+        completed = False
         while True:
             try:
                 result = self.ws.recv()
                 raw_data += result + "\n"
-            except Exception:
+            except Exception as e:
+                print(f"tvDatafeed recv exception: {type(e).__name__}: {e}")
                 break
             if "series_completed" in result:
+                completed = True
                 break
+
+        print(f"tvDatafeed series_completed={completed}, raw_data len={len(raw_data)}")
+        if not completed:
+            print(f"tvDatafeed raw_data sample: {raw_data[:300]}")
 
         return self.__create_df(raw_data, symbol)
