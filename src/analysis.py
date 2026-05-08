@@ -75,10 +75,10 @@ def _trading_prompt(instrument_name, price, indicators, position_text, news_text
 РЫНОЧНЫЕ ДАННЫЕ:
 - Текущая цена: {price.get('mid')}
 - Изменение за день: {price.get('change_pct')}%
-- RSI (15m): {indicators.get('rsi')}
-- Поддержка: {indicators.get('support')}
-- Сопротивление: {indicators.get('resistance')}
-- Пивот: {indicators.get('pivot')}
+- RSI (14, дневной): {indicators.get('rsi')}
+- Поддержка (мин. 20 дней): {indicators.get('support')}
+- Сопротивление (макс. 20 дней): {indicators.get('resistance')}
+- Пивот (вчерашний): {indicators.get('pivot')}
 
 ПОЗИЦИЯ ТРЕЙДЕРА:
 {position_text}

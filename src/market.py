@@ -12,7 +12,7 @@ SYMBOLS = {
 }
 
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
-STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=15"  # 15-min history
+STOOQ_HIST = "https://stooq.com/q/d/l/?s={symbol}&i=d"  # daily history
 
 
 def get_market_data(instrument_key):
@@ -78,8 +78,8 @@ def _calculate_indicators(candles):
     lows   = [c["low"]   for c in candles]
 
     rsi        = _rsi(closes, 14)
-    support    = min(lows[-50:])
-    resistance = max(highs[-50:])
+    support    = min(lows[-20:])
+    resistance = max(highs[-20:])
     pivot      = _pivot(candles)
 
     return {
