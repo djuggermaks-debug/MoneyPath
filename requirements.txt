@@ -1,4 +1,4 @@
 feedparser==6.0.11
 requests==2.31.0
 pyyaml==6.0.1
-tvDatafeed
+git+https://github.com/StreamAlpha/tvDatafeed.git
