@@ -756,6 +756,7 @@
             ⬆ Загрузить TXT
             <input type="file" accept=".txt,.json" style="display:none" onchange="importJournal(event)">
           </label>
+          <button class="action-btn" style="color:#f44336;border-color:#f44336" onclick="clearJournal()">🗑 Очистить всё</button>
         </div>`;
 
       const openHtml = open.length
@@ -852,6 +853,15 @@
         bearishTotal: bearish.length,
         bearishWin:   bearish.filter(t => t.result === "profit").length,
       };
+    }
+
+    // ─── Очистка ──────────────────────────────────────────────────────
+
+    function clearJournal() {
+      if (!confirm("Удалить все сделки и сбросить баланс? Это нельзя отменить.")) return;
+      localStorage.removeItem(JOURNAL_KEY);
+      localStorage.removeItem(BALANCE_KEY);
+      renderJournal();
     }
 
     // ─── Экспорт / Импорт ────────────────────────────────────────────
