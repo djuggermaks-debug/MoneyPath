@@ -20,17 +20,18 @@ STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
 
 
 def get_market_data(instrument_key):
-    candles_d = _get_candles_av(instrument_key)
-    price     = _price_from_candles(candles_d, instrument_key)
+    av_candles = _get_candles_av(instrument_key)
+    stooq_price = _get_stooq_price(STOOQ_SYMBOLS.get(instrument_key, "cb.f"))
+    candles_d = _scale_candles(av_candles, stooq_price.get("mid"))
     indicators = _calculate_indicators(candles_d, [])
 
-    print(f"Цена: {price}")
-    print(f"Свечей дневных (Alpha Vantage): {len(candles_d)}")
+    print(f"Цена (Stooq): {stooq_price}")
+    print(f"Свечей (AV→масштаб): {len(candles_d)}")
     if indicators.get("tech_bias"):
         print(f"Технический перевес: {indicators['tech_bias']} (score {indicators.get('tech_score', 0):+d})")
 
     return {
-        "price":      price,
+        "price":      stooq_price,
         "indicators": indicators,
         "position":   None,
     }
@@ -64,6 +65,21 @@ def _get_candles_av(instrument_key):
     except Exception as e:
         print(f"Alpha Vantage ошибка: {e}")
         return []
+
+
+def _scale_candles(candles, current_price):
+    if not candles or not current_price:
+        return candles
+    av_last = candles[-1]["close"]
+    if av_last <= 0:
+        return candles
+    scale = current_price / av_last
+    return [{
+        "open":  round(c["open"]  * scale, 3),
+        "high":  round(c["high"]  * scale, 3),
+        "low":   round(c["low"]   * scale, 3),
+        "close": round(c["close"] * scale, 3),
+    } for c in candles]
 
 
 def _price_from_candles(candles_d, instrument_key):
