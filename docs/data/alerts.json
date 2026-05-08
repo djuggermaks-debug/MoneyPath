@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": "20260508080505",
+    "timestamp": "2026-05-08T08:05:05.201080+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "нейтральный",
+    "strength": 1,
+    "key_factor": "Полное отсутствие технических сигналов и данных индикаторов делает невозможным формирование направленного торгового сигнала.",
+    "action": "Держаться вне рынка. Отсутствие данных не позволяет определить уровни входа, стопа или цели. Рекомендуется ожидать появления технических сигналов или прояснения фундаментальной картины.",
+    "risk": "Главный риск — высокая волатильность из-за геополитических новостей при отсутствии технических ориентиров, что может привести к резким непредсказуемым движениям цены.",
+    "reasoning": "Технический скор составляет +0, что указывает на нейтральный перевес рынка и отсутствие какого-либо направленного сигнала от индикаторов. Все основные технические индикаторы (RSI, EMA, MACD, Боллинджер, уровни поддержки/сопротивления) не предоставили данных, что делает полноценный технический анализ невозможным. Новости указывают на эскалацию конфликта между США и Ираном, что традиционно рассматривается как бычий фактор для цен на нефть из-за рисков поставок, однако текущая цена снизилась на 1.46%. Это расхождение между потенциальным фундаментальным влиянием и фактическим движением цены при полном отсутствии технического подтверждения создает высокую неопределенность и препятствует принятию направленного торгового решения.",
+    "price": 101.04,
+    "change_pct": -1.46,
+    "rsi": null,
+    "support": null,
+    "resistance": null,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin falls to $79.6k as US-Iran escalation dents risk; set for 6th weekly gain",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-796k-as-usiran-escalation-dents-risk-set-for-6th-weekly-gain-4671088"
+      },
+      {
+        "title": "Toyota expects $4.3 billion hit from Iran war fallout",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/toyota-sees-20-drop-in-annual-profit-as-iran-war-weighs-4671053"
+      },
+      {
+        "title": "FTSE 100 today: Stocks slide as U.S.-Iran Strait clashes spook markets",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slide-as-usiran-strait-clashes-spook-markets-4671171"
+      }
+    ]
+  }
+]
