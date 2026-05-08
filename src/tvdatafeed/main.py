@@ -32,7 +32,7 @@ class TvDatafeed:
     __sign_in_url  = "https://www.tradingview.com/accounts/signin/"
     __ws_headers   = json.dumps({"Origin": "https://data.tradingview.com"})
     __signin_headers = {"Referer": "https://www.tradingview.com"}
-    __ws_timeout   = 5
+    __ws_timeout   = 30
 
     def __init__(self, username=None, password=None):
         self.ws_debug = False
@@ -121,6 +121,10 @@ class TvDatafeed:
             interval = Interval.in_daily
         symbol = self.__format_symbol(symbol=symbol, exchange=exchange, contract=fut_contract)
         interval = interval.value
+
+        # Новые сессии при каждом вызове — иначе повторный вызов на том же объекте конфликтует
+        self.session = self.__generate_session()
+        self.chart_session = self.__generate_chart_session()
 
         self.__create_connection()
         self.__send_message("set_auth_token", [self.token])

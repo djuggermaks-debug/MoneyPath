@@ -20,13 +20,11 @@ STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
 
 
 def get_market_data(instrument_key):
-    symbol = SYMBOLS.get(instrument_key, "cb.f")
-
-    price      = _get_price(symbol)
     candles_d, candles_4h = _get_candles_tv(instrument_key)
+    price      = _price_from_candles(candles_d, instrument_key)
     indicators = _calculate_indicators(candles_d, candles_4h)
 
-    print(f"Stooq цена: {price}")
+    print(f"TradingView цена: {price}")
     print(f"Свечей дневных: {len(candles_d)} | 4H: {len(candles_4h)}")
     if indicators.get("tech_bias"):
         print(f"Технический перевес: {indicators['tech_bias']} (score {indicators.get('tech_score', 0):+d})")
@@ -38,7 +36,19 @@ def get_market_data(instrument_key):
     }
 
 
-def _get_price(symbol):
+def _price_from_candles(candles_d, instrument_key):
+    if candles_d:
+        last = candles_d[-1]
+        prev = candles_d[-2] if len(candles_d) > 1 else last
+        close = last["close"]
+        change_pct = round((last["close"] - prev["close"]) / prev["close"] * 100, 2) if prev["close"] else 0
+        return {"symbol": instrument_key, "mid": round(close, 3), "change_pct": change_pct}
+    # Запасной вариант если TradingView недоступен
+    symbol = SYMBOLS.get(instrument_key, "cb.f")
+    return _get_stooq_price(symbol)
+
+
+def _get_stooq_price(symbol):
     resp = requests.get(STOOQ_URL.format(symbol=symbol), timeout=10)
     reader = csv.DictReader(io.StringIO(resp.text))
     row = next(reader, {})
