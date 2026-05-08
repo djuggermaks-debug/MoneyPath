@@ -3,30 +3,29 @@ import requests
 import csv
 import io
 
-SYMBOLS = {
+STOOQ_SYMBOLS = {
     "OIL":  "cb.f",
     "GAS":  "ng.f",
     "GOLD": "gc.f",
     "BTC":  "btc.v",
 }
 
-TV_SYMBOLS = {
-    "OIL":  ("UKOIL",  "OANDA"),
-    "GAS":  ("NGAS",   "OANDA"),
-    "GOLD": ("XAUUSD", "OANDA"),
-    "BTC":  ("BTCUSD", "BINANCE"),
+AV_URL = "https://www.alphavantage.co/query"
+AV_COMMODITY = {
+    "OIL": "BRENT",
+    "GAS": "NATURAL_GAS",
 }
 
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}&f=sd2t2ohlcv&h&e=csv"
 
 
 def get_market_data(instrument_key):
-    candles_d, candles_4h = _get_candles_tv(instrument_key)
-    price      = _price_from_candles(candles_d, instrument_key)
-    indicators = _calculate_indicators(candles_d, candles_4h)
+    candles_d = _get_candles_av(instrument_key)
+    price     = _price_from_candles(candles_d, instrument_key)
+    indicators = _calculate_indicators(candles_d, [])
 
-    print(f"TradingView цена: {price}")
-    print(f"Свечей дневных: {len(candles_d)} | 4H: {len(candles_4h)}")
+    print(f"Цена: {price}")
+    print(f"Свечей дневных (Alpha Vantage): {len(candles_d)}")
     if indicators.get("tech_bias"):
         print(f"Технический перевес: {indicators['tech_bias']} (score {indicators.get('tech_score', 0):+d})")
 
@@ -37,6 +36,36 @@ def get_market_data(instrument_key):
     }
 
 
+def _get_candles_av(instrument_key):
+    api_key = os.environ.get("ALPHA_VANTAGE_KEY")
+    if not api_key:
+        print("Alpha Vantage: ключ не найден")
+        return []
+    try:
+        func = AV_COMMODITY.get(instrument_key)
+        if func:
+            resp = requests.get(AV_URL, params={
+                "function": func, "interval": "daily", "apikey": api_key
+            }, timeout=15)
+            items = resp.json().get("data", [])
+            items = sorted(items, key=lambda x: x["date"])
+            candles = []
+            for item in items:
+                try:
+                    p = float(item["value"])
+                    candles.append({"open": p, "high": p, "low": p, "close": p})
+                except (ValueError, KeyError):
+                    continue
+            print(f"Alpha Vantage {func}: получено {len(candles)} дней")
+            return candles[-100:]
+        else:
+            print(f"Alpha Vantage: инструмент {instrument_key} не настроен")
+            return []
+    except Exception as e:
+        print(f"Alpha Vantage ошибка: {e}")
+        return []
+
+
 def _price_from_candles(candles_d, instrument_key):
     if candles_d:
         last = candles_d[-1]
@@ -44,8 +73,7 @@ def _price_from_candles(candles_d, instrument_key):
         close = last["close"]
         change_pct = round((last["close"] - prev["close"]) / prev["close"] * 100, 2) if prev["close"] else 0
         return {"symbol": instrument_key, "mid": round(close, 3), "change_pct": change_pct}
-    # Запасной вариант если TradingView недоступен
-    symbol = SYMBOLS.get(instrument_key, "cb.f")
+    symbol = STOOQ_SYMBOLS.get(instrument_key, "cb.f")
     return _get_stooq_price(symbol)
 
 
