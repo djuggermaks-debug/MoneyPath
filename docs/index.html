@@ -190,6 +190,50 @@
     }
     .close-btn:hover { border-color: #f44336; color: #f44336; }
 
+    .balance-card {
+      background: #1e2130;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .balance-left { display: flex; flex-direction: column; gap: 4px; }
+    .balance-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #555; }
+    .balance-value { font-size: 28px; font-weight: 700; }
+    .balance-value.up { color: #4CAF50; }
+    .balance-value.down { color: #f44336; }
+    .balance-value.flat { color: #e0e0e0; }
+    .balance-change { font-size: 13px; color: #555; }
+    .balance-change.up { color: #4CAF50; }
+    .balance-change.down { color: #f44336; }
+    .balance-edit { display: flex; align-items: center; gap: 8px; }
+    .balance-input {
+      background: #0f1117;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 15px;
+      padding: 8px 12px;
+      width: 110px;
+      outline: none;
+    }
+    .balance-input:focus { border-color: #4a90d9; }
+    .balance-set-btn {
+      background: #4a90d9;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .balance-set-btn:hover { background: #3a7bc8; }
+
     .journal-actions { display: flex; gap: 10px; margin-bottom: 20px; }
     .action-btn {
       background: #1e2130;
@@ -354,7 +398,8 @@
     const REPO       = "djuggermaks-debug/MoneyPath";
     const ALERTS_URL = `https://raw.githubusercontent.com/${REPO}/main/data/alerts.json`;
     const DIGEST_URL = `https://raw.githubusercontent.com/${REPO}/main/data/digest.json`;
-    const JOURNAL_KEY = "moneypath_journal";
+    const JOURNAL_KEY  = "moneypath_journal";
+    const BALANCE_KEY  = "moneypath_balance";
 
     const SIGNAL_EMOJI = { "бычий": "📈", "медвежий": "📉", "нейтральный": "➡️" };
     const SIGNAL_EN    = { "бычий": "bullish", "медвежий": "bearish", "нейтральный": "neutral" };
@@ -623,6 +668,47 @@
 
     // ─── Журнал: рендер ──────────────────────────────────────────────
 
+    function balanceLoad() {
+      return parseFloat(localStorage.getItem(BALANCE_KEY) || "0");
+    }
+
+    function balanceSave(val) {
+      localStorage.setItem(BALANCE_KEY, val);
+    }
+
+    function setBalance() {
+      const val = parseFloat(document.getElementById("bal-input").value);
+      if (!val || val <= 0) return;
+      balanceSave(val);
+      renderJournal();
+    }
+
+    function renderBalanceCard(entries) {
+      const base = balanceLoad();
+      const totalPnl = entries
+        .filter(t => t.status === "closed")
+        .reduce((s, t) => s + (t.pnl || 0), 0);
+      const current = base + totalPnl;
+      const pnlRound = Math.round(totalPnl * 100) / 100;
+      const curRound  = Math.round(current * 100) / 100;
+      const cls = totalPnl > 0 ? "up" : totalPnl < 0 ? "down" : "flat";
+      const sign = totalPnl > 0 ? "+" : "";
+
+      return `
+        <div class="balance-card">
+          <div class="balance-left">
+            <div class="balance-label">Текущий баланс</div>
+            <div class="balance-value ${cls}">€${curRound}</div>
+            ${base > 0 ? `<div class="balance-change ${cls}">${sign}€${pnlRound} от стартового €${base}</div>` : ""}
+          </div>
+          <div class="balance-edit">
+            <input class="balance-input" id="bal-input" type="number" step="1" min="1"
+              placeholder="€ старт" value="${base > 0 ? base : ""}">
+            <button class="balance-set-btn" onclick="setBalance()">Установить</button>
+          </div>
+        </div>`;
+    }
+
     function renderJournal() {
       const container = document.getElementById("alerts-container");
       const entries = journalLoad();
@@ -676,7 +762,7 @@
         ? '<div class="empty">Сделок пока нет. Нажми "📝 Открыл сделку" на любом алерте.</div>'
         : "";
 
-      container.innerHTML = statsHtml + actionsHtml + openHtml + closedHtml + emptyHtml;
+      container.innerHTML = renderBalanceCard(entries) + statsHtml + actionsHtml + openHtml + closedHtml + emptyHtml;
     }
 
     function renderAccuracy(stats) {
