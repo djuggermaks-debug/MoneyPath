@@ -59,7 +59,7 @@ def _get_price(symbol):
 
 def _get_candles_tv(instrument_key):
     try:
-        from tvDatafeed import TvDatafeed, Interval
+        from src.tvdatafeed import TvDatafeed, Interval
         tv_symbol, exchange = TV_SYMBOLS.get(instrument_key, ("UKOIL", "OANDA"))
         tv = TvDatafeed()
         df = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_daily, n_bars=100)
