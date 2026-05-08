@@ -1,3 +1,4 @@
+import os
 import requests
 import csv
 import io
@@ -72,7 +73,9 @@ def _get_candles_tv(instrument_key):
     try:
         from src.tvdatafeed import TvDatafeed, Interval
         tv_symbol, exchange = TV_SYMBOLS.get(instrument_key, ("UKOIL", "OANDA"))
-        tv = TvDatafeed()
+        username = os.environ.get("TV_USERNAME")
+        password = os.environ.get("TV_PASSWORD")
+        tv = TvDatafeed(username=username, password=password)
         df_d  = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_daily,  n_bars=100)
         df_4h = tv.get_hist(symbol=tv_symbol, exchange=exchange, interval=Interval.in_4_hour, n_bars=60)
         return _parse_df(df_d), _parse_df(df_4h)
