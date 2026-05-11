@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260511151944",
+    "timestamp": "2026-05-11T15:19:44.991596+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Формирование 'Медвежьей свечи' после значительного дневного роста и медвежий импульс по MACD указывают на потенциальный откат.",
+    "action": "Продажа (Short) при текущих уровнях около 103.70 - 103.50. Стоп-лосс установить выше 104.80. Первая цель на уровне 102.00, вторая цель — EMA20 на 101.16.",
+    "risk": "Основной риск заключается в том, что доминирующий восходящий тренд, подтвержденный расположением цены выше EMA20 и EMA50, быстро восстановится, игнорируя краткосрочный медвежий сигнал свечи.",
+    "reasoning": "Технический скор показывает слабый бычий перевес из-за цены, удерживающейся выше EMA20 и EMA50, что указывает на сохранение восходящего тренда. Однако формирование 'Медвежьей свечи' после существенного дневного роста на +2.41% и медвежий импульс MACD (MACD ниже сигнальной линии) дают противоречивый краткосрочный сигнал к потенциальному откату. Цена находится в середине полос Боллинджера, что оставляет пространство для движения вниз. Новости относительно 'Iran setback' могут добавить легкий медвежий оттенок, хотя 'Iran tensions' обычно бычьи для нефти, поэтому новостной фон в целом нейтрален и не сильно меняет техническую картину.",
+    "price": 103.73,
+    "change_pct": 2.41,
+    "rsi": 46.0,
+    "support": 86.51,
+    "resistance": 121.23,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin flat at $81k with Iran tensions, US regulations in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-near-81k-with-iran-tensions-us-regulations-in-focus-4675014"
+      },
+      {
+        "title": "Stocks tick up amid small moves as traders digest Iran setback, eye inflation data",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-dip-as-trump-rejects-iran-response-to-peace-proposal-4674875"
+      }
+    ]
+  },
+  {
     "id": "20260511115957",
     "timestamp": "2026-05-11T11:59:57.468147+00:00",
     "instrument": "OIL",
