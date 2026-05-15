@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260515165501",
+    "timestamp": "2026-05-15T16:55:01.702799+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Цена уверенно торгуется ниже EMA20, а MACD подтверждает сильный медвежий импульс.",
+    "action": "Рекомендуется открывать короткие позиции по Нефти Brent (продажа) на текущих уровнях (около 109.25), со стоп-лоссом выше EMA20 на 115.50 и первой целью на уровне вчерашнего пивота 106.54, далее к поддержке на 101.55.",
+    "risk": "Основной риск — возможный отскок от нижней зоны полос Боллинджера или неожиданные позитивные новости, напрямую влияющие на предложение или спрос на нефть, которые могут вызвать краткосрочную коррекцию вверх.",
+    "reasoning": "Технический анализ указывает на выраженный медвежий перевес: цена пробила EMA20 сверху и сейчас торгуется значительно ниже этого уровня, сигнализируя о возможном развороте тренда вниз. Индикатор MACD подтверждает этот импульс, показывая медвежье пересечение и отрицательную гистограмму. Хотя цена находится в нижней зоне полос Боллинджера, что иногда предвещает отскок, RSI (52.7) пока нейтрален, указывая на потенциал для дальнейшего снижения. Медвежья свеча также усиливает негативный настрой. Макроэкономические новости не противоречат медвежьему сценарию, так как общая рыночная неопределенность и снижение фондовых рынков могут косвенно давить на спрос.",
+    "price": 109.25,
+    "change_pct": 3.34,
+    "rsi": 52.7,
+    "support": 101.55,
+    "resistance": 127.92,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin slips to $79k as China, Iran uncertainty weighs; Senate clears Clarity Act",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-past-80k-on-us-regulatory-progress-china-iran-uncertainty-weighs-4691146"
+      },
+      {
+        "title": "European stocks decline as UK political turmoil weighs; Trump wraps Beijing summit",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-stocks-fall-as-uk-political-turmoil-weighs-trump-wraps-beijing-summit-4691199"
+      },
+      {
+        "title": "FTSE 100 today: Stocks fall on Labour turmoil; Trump departs China on upbeat note",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-fall-on-labour-turmoil-trump-departs-china-on-upbeat-note-4691213"
+      }
+    ]
+  },
+  {
     "id": "20260515151357",
     "timestamp": "2026-05-15T15:13:57.859145+00:00",
     "instrument": "OIL",
