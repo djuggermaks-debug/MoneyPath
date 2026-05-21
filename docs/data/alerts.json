@@ -1,5 +1,45 @@
 [
   {
+    "id": "20260521173243",
+    "timestamp": "2026-05-21T17:32:43.954219+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Ключевым фактором является формирование медвежьей свечи на дневном графике, подтверждающее краткосрочное ослабление, несмотря на базовый восходящий тренд.",
+    "action": "Продать Нефть Brent по рынку (104.07). Установить стоп-лосс на уровне 105.50. Цель 1: 100.00 (зона EMA20/Bollinger Mid).",
+    "risk": "Основной риск заключается в том, что базовый восходящий тренд (цена выше EMA20 и EMA50) окажется сильнее краткосрочного медвежьего импульса, что приведет к возобновлению роста цены. Этот риск усилится при пробое цены выше 105.50 или появлении новостей о сокращении предложения нефти.",
+    "reasoning": "Технический анализ показывает смешанную картину: сильный восходящий тренд подтверждается положением цены выше EMA20 и EMA50. Однако индикатор MACD демонстрирует медвежий импульс с пересечением MACD ниже сигнальной линии и отрицательной гистограммой. Этот краткосрочный медвежий настрой усиливается за счет формирования медвежьей свечи. Цена находится в верхней части полосы Боллинджера, что может указывать на перекупленность или консолидацию. Новости, связанные с ситуацией вокруг Ирана, создают геополитический фон, который традиционно поддерживает цены на нефть, ослабляя текущий медвежий сигнал. Общая картина указывает на краткосрочную слабость внутри более широкого бычьего тренда.",
+    "price": 104.07,
+    "change_pct": -0.9,
+    "rsi": 52.8,
+    "support": 90.78,
+    "resistance": 110.77,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin muted at $77k with Nvidia earnings, Iran peace prospects in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-near-78k-with-nvidia-earnings-iran-peace-prospects-in-focus-4703052"
+      },
+      {
+        "title": "S&P 500, Nasdaq slip amid rising yields, oil prices; IBM surge caps losses in Dow",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-slip-after-nvidia-earnings-beat-walmart-results-on-tap-4702843"
+      },
+      {
+        "title": "European stocks lower as bond yields gain, Iran uranium demands dent peace hopes",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-stocks-subdued-amid-nvidia-results-iran-war-developments-4703068"
+      },
+      {
+        "title": "FTSE 100 today: Stocks edge higher despite weak PMI data and Iran nuclear snag",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-stocks-edge-lower-as-iran-uncertainty-offsets-oil-retreat-4703070"
+      }
+    ]
+  },
+  {
     "id": "20260521161613",
     "timestamp": "2026-05-21T16:16:13.683042+00:00",
     "instrument": "OIL",
@@ -1167,36 +1207,6 @@
     "rsi": 46.0,
     "support": 86.81,
     "resistance": 121.65,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin flat at $81k with Iran tensions, US regulations in focus",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-near-81k-with-iran-tensions-us-regulations-in-focus-4675014"
-      },
-      {
-        "title": "Stocks tick up amid small moves as traders digest Iran setback, eye inflation data",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-dip-as-trump-rejects-iran-response-to-peace-proposal-4674875"
-      }
-    ]
-  },
-  {
-    "id": "20260511151944",
-    "timestamp": "2026-05-11T15:19:44.991596+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Формирование 'Медвежьей свечи' после значительного дневного роста и медвежий импульс по MACD указывают на потенциальный откат.",
-    "action": "Продажа (Short) при текущих уровнях около 103.70 - 103.50. Стоп-лосс установить выше 104.80. Первая цель на уровне 102.00, вторая цель — EMA20 на 101.16.",
-    "risk": "Основной риск заключается в том, что доминирующий восходящий тренд, подтвержденный расположением цены выше EMA20 и EMA50, быстро восстановится, игнорируя краткосрочный медвежий сигнал свечи.",
-    "reasoning": "Технический скор показывает слабый бычий перевес из-за цены, удерживающейся выше EMA20 и EMA50, что указывает на сохранение восходящего тренда. Однако формирование 'Медвежьей свечи' после существенного дневного роста на +2.41% и медвежий импульс MACD (MACD ниже сигнальной линии) дают противоречивый краткосрочный сигнал к потенциальному откату. Цена находится в середине полос Боллинджера, что оставляет пространство для движения вниз. Новости относительно 'Iran setback' могут добавить легкий медвежий оттенок, хотя 'Iran tensions' обычно бычьи для нефти, поэтому новостной фон в целом нейтрален и не сильно меняет техническую картину.",
-    "price": 103.73,
-    "change_pct": 2.41,
-    "rsi": 46.0,
-    "support": 86.51,
-    "resistance": 121.23,
     "position": null,
     "top_news": [
       {
