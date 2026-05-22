@@ -1,5 +1,45 @@
 [
   {
+    "id": "20260522113936",
+    "timestamp": "2026-05-22T11:39:36.729334+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Формирование медвежьей свечи после значительного роста, указывающее на потенциальное ослабление восходящего импульса на текущих уровнях.",
+    "action": "Рекомендуется рассмотреть продажу (Short) Нефти Brent около текущей цены 105.55. Установить стоп-лосс (Stop-loss) на уровне 106.80, чтобы ограничить риски, если восходящий тренд возобновится. Первая цель для фиксации прибыли (Take-profit 1) - вчерашний Пивот 103.05, вторая цель (Take-profit 2) - EMA20 на 101.34.",
+    "risk": "Главный риск заключается в сильном дневном восходящем тренде, подтвержденном расположением цены выше EMA20 и EMA50, что может быстро поглотить краткосрочную медвежью коррекцию, если покупатели вновь проявят активность.",
+    "reasoning": "Несмотря на выраженный восходящий тренд, демонстрируемый расположением цены выше EMA20 и EMA50, мы видим замедление импульса. Индикатор MACD показывает медвежий перевес, так как линия MACD находится ниже сигнальной линии, что является предупреждением о потенциальной слабости. Цена находится в верхней зоне полос Боллинджера после значительного дневного роста (+2.9%), что часто предшествует фазе консолидации или коррекции. Самым важным фактором является формирование медвежьей свечи на текущих уровнях, что сигнализирует о давлении продавцов и возможном развороте или глубокой коррекции. Новости об американско-иранских мирных переговорах создают неопределенность, но потенциальное ослабление геополитической напряженности может косвенно влиять на цены на нефть в сторону снижения.",
+    "price": 105.55,
+    "change_pct": 2.9,
+    "rsi": 52.8,
+    "support": 92.07,
+    "resistance": 112.34,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin ticks down near $77k, set for weekly loss amid Iran peace uncertainty",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-ticks-down-near-77k-set-for-weekly-loss-amid-iran-peace-uncertainty-4705862"
+      },
+      {
+        "title": "Wall St futures edge higher as investors monitor US-Iran peace talks",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-rise-as-markets-monitor-usiran-peace-talks-4705988"
+      },
+      {
+        "title": "Wall St futures inch higher as mixed messaging clouds U.S.-Iran peace talks",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-gain-after-record-dow-close-us-iran-remain-divided-on-key-issues-4705671"
+      },
+      {
+        "title": "Barclays sees sharp Europe relief rally if Iran conflict eases quickly",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/barclays-sees-sharp-europe-relief-rally-if-iran-conflict-eases-quickly-4706358"
+      }
+    ]
+  },
+  {
     "id": "20260522101846",
     "timestamp": "2026-05-22T10:18:46.401531+00:00",
     "instrument": "OIL",
@@ -1188,36 +1228,6 @@
         "title": "Bitcoin flat at $81k with Iran tensions, US regulations in focus",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-near-81k-with-iran-tensions-us-regulations-in-focus-4675014"
-      }
-    ]
-  },
-  {
-    "id": "20260511164731",
-    "timestamp": "2026-05-11T16:47:31.373865+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Медвежья свеча указывает на потенциальное снижение, подкрепленное медвежьим импульсом MACD.",
-    "action": "Продажа (Short) рекомендуется при пробое поддержки 103.89 (средняя линия Боллинджера). Установите стоп-лосс выше вчерашнего пивота на уровне 110.11. Цели: 102.21 (EMA20) и далее 93.36 (EMA50).",
-    "risk": "Главный риск заключается в том, что сильный восходящий тренд (подтвержденный EMA) и потенциально бычьи новости по Ирану могут быстро нивелировать медвежий свечной паттерн, если цена найдет поддержку на EMA20 и отскочит вверх.",
-    "reasoning": "Технический скор (+1) указывает на нейтральную ситуацию, но наличие выраженной медвежьей свечи является ключевым паттерном для потенциального снижения, как предписывают правила. MACD также подтверждает медвежий импульс, находясь ниже своей сигнальной линии, что усиливает краткосрочные медвежьи настроения. Однако, восходящий тренд по EMA20 и EMA50 сохраняется (цена > EMA20 > EMA50), и это является сильным контраргументом. Новости о застопорившихся дипломатических усилиях с Ираном обычно воспринимаются как бычий фактор для нефти, что противоречит нашему медвежьему сигналу и значительно ослабляет его силу.",
-    "price": 104.81,
-    "change_pct": 3.48,
-    "rsi": 46.0,
-    "support": 87.41,
-    "resistance": 122.49,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin flat at $81k with Iran tensions, US regulations in focus",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-near-81k-with-iran-tensions-us-regulations-in-focus-4675014"
-      },
-      {
-        "title": "TSX edges higher as U.S.-Iran diplomacy efforts stall",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/tsx-futures-inch-muted-as-usiran-diplomacy-efforts-stall-4676669"
       }
     ]
   }
