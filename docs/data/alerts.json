@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260528164855",
+    "timestamp": "2026-05-28T16:48:55.801679+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Формирование медвежьей свечи на фоне слабо бычьего тренда указывает на потенциальную коррекцию, несмотря на восходящее движение по EMA.",
+    "action": "Продажа (SHORT) в диапазоне 92.40 - 92.50. Стоп-лосс установить на уровне 93.50. Цели по прибыли: TP1 на 90.25 (Пивот), TP2 на 88.75 (EMA20).",
+    "risk": "Главный риск заключается в том, что фундаментальные бычьи факторы, такие как усиление геополитической напряженности на Ближнем Востоке, могут быстро нивелировать технический медвежий сигнал свечи, приводя к возобновлению роста цен на нефть.",
+    "reasoning": "Технический анализ показывает слабо бычий тренд, так как цена находится выше EMA20 и EMA50, подтверждая общую восходящую динамику. Однако, MACD уже указывает на медвежий импульс, а появление Медвежьей свечи сигнализирует о возможном краткосрочном развороте или коррекции. Цена находится в верхней зоне полос Боллинджера, что может дополнительно указывать на краткосрочную перекупленность. Новости о геополитической напряженности в регионе (например, 'Iran-Kuwait missile strike') традиционно являются бычьим фактором для нефти, что создает противоречие с текущим техническим медвежьим сигналом свечи и ослабляет его силу.",
+    "price": 92.44,
+    "change_pct": 0.21,
+    "rsi": 52.8,
+    "support": 80.63,
+    "resistance": 98.39,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin slumps to six-week low despite report of U.S. and Iran reaching deal",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-tumbles-past-73k-to-6wk-low-after-fresh-us-strikes-on-iran-4713662"
+      },
+      {
+        "title": "TSX trades higher despite fresh U.S.-Iran hostilities; U.S. inflation data",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/tsx-futures-edge-lower-amid-fresh-usiran-hostilities-us-inflation-data-4714478"
+      },
+      {
+        "title": "FTSE 100 today: Stocks slide as Iran-Kuwait missile strike deepens ceasefire fears",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slide-as-usiran-strike-exchange-shatters-ceasefire-hopes-4713676"
+      }
+    ]
+  },
+  {
     "id": "20260528122105",
     "timestamp": "2026-05-28T12:21:05.552176+00:00",
     "instrument": "OIL",
@@ -1226,30 +1261,5 @@
     "resistance": 126.5,
     "position": null,
     "top_news": []
-  },
-  {
-    "id": "20260515111454",
-    "timestamp": "2026-05-15T11:14:54.963688+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Цена пробила EMA20 сверху вниз, подтверждая медвежий импульс индикатором MACD.",
-    "action": "Открыть короткую позицию по текущей цене 107.76. Стоп-лосс установить на 113.50 (чуть выше EMA20). Цель 1: 105.09 (вчерашний пивот). Цель 2: 100.16 (20-дневная поддержка).",
-    "risk": "Основной риск — неожиданный позитивный катализатор для нефти или отскок от зоны EMA50/нижней полосы Боллинджера, что приведет к ложному пробою EMA20 и быстрому возвращению цены выше 113.00.",
-    "reasoning": "Технический анализ однозначно указывает на медвежий перевес: цена пробила EMA20 сверху вниз, и MACD подтверждает сильный медвежий импульс. Это сигнализирует о возможном развороте тренда вниз. Несмотря на то, что цена находится в нижней зоне полос Боллинджера, что иногда предвещает отскок, консолидация других индикаторов, включая медвежий свечной паттерн, усиливает ожидание дальнейшего снижения. Новости не оказывают существенного влияния на текущий технический сигнал, оставляя его неизменным.",
-    "price": 107.76,
-    "change_pct": 1.93,
-    "rsi": 52.7,
-    "support": 100.16,
-    "resistance": 126.17,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Exxon Mobil not liable to investors over Canadian oil sands, gas assets, jury says",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/exxon-mobil-not-liable-to-investors-over-canadian-oil-sands-gas-assets-jury-says-4691039"
-      }
-    ]
   }
 ]
