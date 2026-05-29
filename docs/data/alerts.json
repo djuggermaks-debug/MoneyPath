@@ -1,5 +1,30 @@
 [
   {
+    "id": "20260529103943",
+    "timestamp": "2026-05-29T10:39:43.654217+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Устойчивое снижение цены ниже ключевых скользящих средних EMA20 и EMA50, сопровождаемое сильным медвежьим импульсом по MACD.",
+    "action": "Рекомендуется открыть короткую позицию (шорт) по Нефти Brent по текущей цене 91.33. Цель установить на 87.50 (нижняя граница полосы Боллинджера), стоп-лосс на 93.50 (выше локального сопротивления и предыдущей медвежьей свечи).",
+    "risk": "Основной риск заключается в возможном отскоке от уровня поддержки 90.50 или нижней границы полосы Боллинджера, а также развороте из зоны перепроданности (RSI 37.2).",
+    "reasoning": "Технический скор -2 и медвежий перевес однозначно указывают на нисходящее движение. Цена находится значительно ниже ключевых скользящих средних EMA20 и EMA50, что подтверждает устойчивый даунтренд. MACD демонстрирует сильный медвежий импульс, а текущая дневная свеча также является медвежьей. Новости о возможном соглашении между США и Ираном усиливают фундаментальный медвежий фактор, предполагая увеличение предложения нефти. Несмотря на приближение RSI к зоне перепроданности (37.2), общая совокупность индикаторов свидетельствует о дальнейшем давлении вниз к уровням поддержки.",
+    "price": 91.33,
+    "change_pct": -1.48,
+    "rsi": 37.2,
+    "support": 90.5,
+    "resistance": 110.43,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Barclays: US-Iran Deal Progress Could Broaden Global Equity Performance",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/barclays-usiran-deal-progress-could-broaden-global-equity-performance-93CH-4716178"
+      }
+    ]
+  },
+  {
     "id": "20260528181608",
     "timestamp": "2026-05-28T18:16:08.257101+00:00",
     "instrument": "OIL",
@@ -1220,41 +1245,6 @@
         "title": "STOXX 600 logs weekly losses on Iran war-linked inflation woes",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/european-shares-slip-as-inflation-worries-keep-investors-on-edge-4691222"
-      },
-      {
-        "title": "European stocks decline as UK political turmoil weighs; Trump wraps Beijing summit",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-stocks-fall-as-uk-political-turmoil-weighs-trump-wraps-beijing-summit-4691199"
-      },
-      {
-        "title": "FTSE 100 today: Stocks fall on Labour turmoil; Trump departs China on upbeat note",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-fall-on-labour-turmoil-trump-departs-china-on-upbeat-note-4691213"
-      }
-    ]
-  },
-  {
-    "id": "20260515165501",
-    "timestamp": "2026-05-15T16:55:01.702799+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Цена уверенно торгуется ниже EMA20, а MACD подтверждает сильный медвежий импульс.",
-    "action": "Рекомендуется открывать короткие позиции по Нефти Brent (продажа) на текущих уровнях (около 109.25), со стоп-лоссом выше EMA20 на 115.50 и первой целью на уровне вчерашнего пивота 106.54, далее к поддержке на 101.55.",
-    "risk": "Основной риск — возможный отскок от нижней зоны полос Боллинджера или неожиданные позитивные новости, напрямую влияющие на предложение или спрос на нефть, которые могут вызвать краткосрочную коррекцию вверх.",
-    "reasoning": "Технический анализ указывает на выраженный медвежий перевес: цена пробила EMA20 сверху и сейчас торгуется значительно ниже этого уровня, сигнализируя о возможном развороте тренда вниз. Индикатор MACD подтверждает этот импульс, показывая медвежье пересечение и отрицательную гистограмму. Хотя цена находится в нижней зоне полос Боллинджера, что иногда предвещает отскок, RSI (52.7) пока нейтрален, указывая на потенциал для дальнейшего снижения. Медвежья свеча также усиливает негативный настрой. Макроэкономические новости не противоречат медвежьему сценарию, так как общая рыночная неопределенность и снижение фондовых рынков могут косвенно давить на спрос.",
-    "price": 109.25,
-    "change_pct": 3.34,
-    "rsi": 52.7,
-    "support": 101.55,
-    "resistance": 127.92,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slips to $79k as China, Iran uncertainty weighs; Senate clears Clarity Act",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-past-80k-on-us-regulatory-progress-china-iran-uncertainty-weighs-4691146"
       },
       {
         "title": "European stocks decline as UK political turmoil weighs; Trump wraps Beijing summit",
