@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260601123057",
+    "timestamp": "2026-06-01T12:30:57.416105+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Цена Нефти Brent торгуется значительно ниже ключевых EMA и MACD демонстрирует сильный медвежий импульс.",
+    "action": "Короткая позиция по текущей цене 93.6, стоп-лосс на 97.5, цель на 89.7.",
+    "risk": "Главный риск — резкий разворот наверх из-за обострения геополитической напряженности вокруг Ирана, что может поддержать цены на нефть, особенно если поддержка 92.75 удержится.",
+    "reasoning": "Цена Нефти Brent демонстрирует выраженный медвежий тренд, торгуясь значительно ниже ключевых скользящих средних EMA20 (100.38) и EMA50 (97.19). Индикатор MACD подтверждает сильный медвежий импульс, что указывает на продолжающееся давление продавцов. RSI находится на уровне 37.2, свидетельствуя о слабости, но оставляя потенциал для дальнейшего снижения до перепроданности. Несмотря на то что цена находится в нижней зоне полос Боллинджера и торгуется вблизи поддержки 92.75, общий технический перевес остается медвежьим, усиленный формированием медвежьей свечи. Новости о геополитических рисках вокруг Ирана, указывающие на возможное удорожание топлива, в данном случае ослабляют уверенность в нисходящем движении, но не меняют основного технического сигнала.",
+    "price": 93.6,
+    "change_pct": 2.72,
+    "rsi": 37.2,
+    "support": 92.75,
+    "resistance": 113.18,
+    "position": null,
+    "top_news": [
+      {
+        "title": "JetBlue flags higher fuel costs as disruptions from Iran conflict linger",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/jetblue-raises-secondquarter-fuel-cost-forecast-4718826"
+      },
+      {
+        "title": "U.S. stock futures edge higher as Iran military flare-up offset by Nvidia cheer",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-with-focus-on-iran-peace-deal-payrolls-4717974"
+      }
+    ]
+  },
+  {
     "id": "20260529181444",
     "timestamp": "2026-05-29T18:14:44.229810+00:00",
     "instrument": "OIL",
@@ -1222,36 +1252,6 @@
         "title": "Bitcoin slides to $77k as oil surge, rising yields hit risk appetite",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-77k-as-oil-surge-rising-yields-hit-risk-appetite-4694637"
-      }
-    ]
-  },
-  {
-    "id": "20260518161935",
-    "timestamp": "2026-05-18T16:19:35.043845+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Медвежий импульс MACD и цена, уверенно торгующаяся ниже EMA20, указывают на преобладание продавцов на рынке.",
-    "action": "Продажа (Short) при пробое уровня EMA50 (110.3) с подтверждением ниже вчерашнего пивота 108.29. Стоп-лосс установить выше EMA20 (116.68). Цель — уровень поддержки 103.21, с потенциалом до нижней границы Боллинджера (101.77).",
-    "risk": "Главный риск заключается в том, что цена находится в нижней зоне Боллинджера, что может привести к краткосрочному отскоку вверх, особенно если дипломатические переговоры по Ирану не принесут ожидаемых результатов или появятся другие позитивные новости по спросу.",
-    "reasoning": "Технический анализ формирует медвежий сигнал с учетом того, что цена находится значительно ниже EMA20 и MACD демонстрирует четкий медвежий импульс. Наблюдается медвежья свеча, усиливающая негативный настрой. Цена находится в нижней зоне полос Боллинджера, но RSI не указывает на перепроданность, оставляя потенциал для дальнейшего снижения. Новости о возможной дипломатии между США и Ираном добавляют медвежий фон, так как это может увеличить предложение нефти, однако упоминание о 'нефтяном всплеске' в другом заголовке требует внимательности.",
-    "price": 111.04,
-    "change_pct": 1.63,
-    "rsi": 52.7,
-    "support": 103.21,
-    "resistance": 130.01,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slides to $77k as oil surge, rising yields hit risk appetite",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-77k-as-oil-surge-rising-yields-hit-risk-appetite-4694637"
-      },
-      {
-        "title": "FTSE 100 today: Stocks pare losses as U.S.-Iran diplomacy signals",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-drop-as-iran-tensions-uae-attack-rattles-markets-4694714"
       }
     ]
   }
