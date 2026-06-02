@@ -798,6 +798,15 @@
     "strength": 1,
     "price_at_signal": 94.92,
     "key_factor": "Полное отсутствие технических сигналов и уровней для анализа.",
+    "price_change_4h": "-1.30%"
+  },
+  {
+    "instrument": "OIL",
+    "date": "2026-06-02 11:14",
+    "signal": "нейтральный",
+    "strength": 1,
+    "price_at_signal": 93.69,
+    "key_factor": "Полное отсутствие технических данных и индикаторов для анализа.",
     "price_change_4h": null
   }
 ]
