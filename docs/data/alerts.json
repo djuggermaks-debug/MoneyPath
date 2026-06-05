@@ -1,5 +1,24 @@
 [
   {
+    "id": "20260605155441",
+    "timestamp": "2026-06-05T15:54:41.043223+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Устойчивое снижение цены ниже EMA20 в сочетании с медвежьим импульсом MACD.",
+    "action": "Открыть короткую позицию по текущей цене 93.31, стоп-лосс на 95.00, цель на 88.20.",
+    "risk": "Отскок от нижней границы Боллинджера или сильная коррекция вверх, если рынок посчитает текущую цену локально перепроданной. Этот риск реализуется, если цена неожиданно начнет расти на фоне закрытия коротких позиций или появления позитивных новостей, которых пока нет.",
+    "reasoning": "Технический скор -2 чётко указывает на медвежий перевес. Цена уверенно держится ниже EMA20 (100.15), что является сильным сигналом нисходящего тренда, подкрепленным медвежьим пересечением MACD, указывающим на негативный импульс. Медвежья свеча за сегодняшний день дополнительно подтверждает слабость покупателей. Несмотря на то, что цена находится в нижней зоне Боллинджера, RSI 41.1 пока не сигнализирует о глубокой перепроданности, оставляя пространство для дальнейшего снижения к поддержке 88.17. Отсутствие новостного фона означает, что технические факторы остаются доминирующими.",
+    "price": 93.31,
+    "change_pct": -1.81,
+    "rsi": 41.1,
+    "support": 88.17,
+    "resistance": 112.27,
+    "position": null,
+    "top_news": []
+  },
+  {
     "id": "20260605144328",
     "timestamp": "2026-06-05T14:43:28.132451+00:00",
     "instrument": "OIL",
@@ -1177,46 +1196,6 @@
         "title": "U.S. Treasury yields decline as Iran reviews peace proposal",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/us-treasury-yields-decline-as-iran-reviews-peace-proposal-93CH-4706888"
-      }
-    ]
-  },
-  {
-    "id": "20260522113936",
-    "timestamp": "2026-05-22T11:39:36.729334+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Формирование медвежьей свечи после значительного роста, указывающее на потенциальное ослабление восходящего импульса на текущих уровнях.",
-    "action": "Рекомендуется рассмотреть продажу (Short) Нефти Brent около текущей цены 105.55. Установить стоп-лосс (Stop-loss) на уровне 106.80, чтобы ограничить риски, если восходящий тренд возобновится. Первая цель для фиксации прибыли (Take-profit 1) - вчерашний Пивот 103.05, вторая цель (Take-profit 2) - EMA20 на 101.34.",
-    "risk": "Главный риск заключается в сильном дневном восходящем тренде, подтвержденном расположением цены выше EMA20 и EMA50, что может быстро поглотить краткосрочную медвежью коррекцию, если покупатели вновь проявят активность.",
-    "reasoning": "Несмотря на выраженный восходящий тренд, демонстрируемый расположением цены выше EMA20 и EMA50, мы видим замедление импульса. Индикатор MACD показывает медвежий перевес, так как линия MACD находится ниже сигнальной линии, что является предупреждением о потенциальной слабости. Цена находится в верхней зоне полос Боллинджера после значительного дневного роста (+2.9%), что часто предшествует фазе консолидации или коррекции. Самым важным фактором является формирование медвежьей свечи на текущих уровнях, что сигнализирует о давлении продавцов и возможном развороте или глубокой коррекции. Новости об американско-иранских мирных переговорах создают неопределенность, но потенциальное ослабление геополитической напряженности может косвенно влиять на цены на нефть в сторону снижения.",
-    "price": 105.55,
-    "change_pct": 2.9,
-    "rsi": 52.8,
-    "support": 92.07,
-    "resistance": 112.34,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin ticks down near $77k, set for weekly loss amid Iran peace uncertainty",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-ticks-down-near-77k-set-for-weekly-loss-amid-iran-peace-uncertainty-4705862"
-      },
-      {
-        "title": "Wall St futures edge higher as investors monitor US-Iran peace talks",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-rise-as-markets-monitor-usiran-peace-talks-4705988"
-      },
-      {
-        "title": "Wall St futures inch higher as mixed messaging clouds U.S.-Iran peace talks",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-gain-after-record-dow-close-us-iran-remain-divided-on-key-issues-4705671"
-      },
-      {
-        "title": "Barclays sees sharp Europe relief rally if Iran conflict eases quickly",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/barclays-sees-sharp-europe-relief-rally-if-iran-conflict-eases-quickly-4706358"
       }
     ]
   }
