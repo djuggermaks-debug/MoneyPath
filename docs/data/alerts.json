@@ -1,5 +1,45 @@
 [
   {
+    "id": "20260611182124",
+    "timestamp": "2026-06-11T18:21:24.863705+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Стойкий нисходящий тренд (цена ниже EMA20 и EMA50) и сильный медвежий импульс MACD превалируют, несмотря на перепроданность RSI.",
+    "action": "Продажа Нефти Brent. Вход: 90.75 - 91.00 (при текущей цене или небольшом отскоке). Стоп-лосс: 92.50 (выше ближайшего сопротивления). Цель 1: 86.50 (поддержка 20 дней). Цель 2: 84.10 (нижняя граница Боллинджера).",
+    "risk": "Основной риск — краткосрочный технический отскок из-за сильной перепроданности по RSI (25.5), который может быть вызван фиксацией прибыли или закрытием коротких позиций на уровнях поддержки.",
+    "reasoning": "Технический перевес (-2) указывает на медвежий сигнал. Цена устойчиво находится ниже EMA20 и EMA50, подтверждая нисходящий тренд, а MACD демонстрирует сильный медвежий импульс. RSI на отметке 25.5 находится в зоне перепроданности, что может сигнализировать о возможном краткосрочном отскоке, но пока не меняет основного направления. Цена также находится в нижней зоне полос Боллинджера. Новости о деэскалации конфликта на Ближнем Востоке (отмена ударов по Ирану) снимают геополитическую премию с нефти, усиливая медвежий фундаментальный фон. В целом, доминирующий нисходящий тренд подтверждается большинством индикаторов и усиливается внешними факторами.",
+    "price": 90.75,
+    "change_pct": -2.52,
+    "rsi": 25.5,
+    "support": 86.48,
+    "resistance": 108.69,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Stocks sharply extend gains after Trump calls off attacks against Iran",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-dip-on-iran-escalation-oracle-losses-4736424"
+      },
+      {
+        "title": "U.S. gold and silver miners rise after Trump cancels Iran strikes",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-gold-and-silver-miners-rise-after-trump-cancels-iran-strikes-93CH-4738117"
+      },
+      {
+        "title": "Cruise stocks rise after Trump cancels Iran strikes",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/cruise-stocks-rise-after-trump-cancels-iran-strikes-93CH-4738111"
+      },
+      {
+        "title": "Major U.S. airline stocks rise after Iran strikes cancelled",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/major-us-airline-stocks-rise-after-iran-strikes-cancelled-93CH-4738108"
+      }
+    ]
+  },
+  {
     "id": "20260611165518",
     "timestamp": "2026-06-11T16:55:18.136502+00:00",
     "instrument": "OIL",
@@ -1175,41 +1215,6 @@
         "title": "TSX trades higher despite fresh U.S.-Iran hostilities; U.S. inflation data",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/tsx-futures-edge-lower-amid-fresh-usiran-hostilities-us-inflation-data-4714478"
-      }
-    ]
-  },
-  {
-    "id": "20260528164855",
-    "timestamp": "2026-05-28T16:48:55.801679+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Формирование медвежьей свечи на фоне слабо бычьего тренда указывает на потенциальную коррекцию, несмотря на восходящее движение по EMA.",
-    "action": "Продажа (SHORT) в диапазоне 92.40 - 92.50. Стоп-лосс установить на уровне 93.50. Цели по прибыли: TP1 на 90.25 (Пивот), TP2 на 88.75 (EMA20).",
-    "risk": "Главный риск заключается в том, что фундаментальные бычьи факторы, такие как усиление геополитической напряженности на Ближнем Востоке, могут быстро нивелировать технический медвежий сигнал свечи, приводя к возобновлению роста цен на нефть.",
-    "reasoning": "Технический анализ показывает слабо бычий тренд, так как цена находится выше EMA20 и EMA50, подтверждая общую восходящую динамику. Однако, MACD уже указывает на медвежий импульс, а появление Медвежьей свечи сигнализирует о возможном краткосрочном развороте или коррекции. Цена находится в верхней зоне полос Боллинджера, что может дополнительно указывать на краткосрочную перекупленность. Новости о геополитической напряженности в регионе (например, 'Iran-Kuwait missile strike') традиционно являются бычьим фактором для нефти, что создает противоречие с текущим техническим медвежьим сигналом свечи и ослабляет его силу.",
-    "price": 92.44,
-    "change_pct": 0.21,
-    "rsi": 52.8,
-    "support": 80.63,
-    "resistance": 98.39,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slumps to six-week low despite report of U.S. and Iran reaching deal",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-tumbles-past-73k-to-6wk-low-after-fresh-us-strikes-on-iran-4713662"
-      },
-      {
-        "title": "TSX trades higher despite fresh U.S.-Iran hostilities; U.S. inflation data",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/tsx-futures-edge-lower-amid-fresh-usiran-hostilities-us-inflation-data-4714478"
-      },
-      {
-        "title": "FTSE 100 today: Stocks slide as Iran-Kuwait missile strike deepens ceasefire fears",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slide-as-usiran-strike-exchange-shatters-ceasefire-hopes-4713676"
       }
     ]
   }
