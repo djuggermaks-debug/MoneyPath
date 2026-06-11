@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260611164531",
+    "timestamp": "2026-06-11T16:45:31.535884+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Выраженный нисходящий тренд, подтвержденный положением цены ниже EMA20 и EMA50, а также медвежьим импульсом MACD.",
+    "action": "Продажа (SHORT) при пробое 93.50. Стоп-лосс на 94.80. Цель по прибыли на 89.50.",
+    "risk": "Главный риск связан с крайне перепроданным состоянием RSI (25.5), что может привести к краткосрочному отскоку или коррекции вверх. Этот сценарий может реализоваться при отсутствии новых негативных катализаторов или фиксации прибыли продавцами.",
+    "reasoning": "Технический анализ указывает на выраженный медвежий тренд: цена находится значительно ниже EMA20 и EMA50, а MACD также демонстрирует медвежий импульс. Это формирует первичный медвежий сигнал. Однако, RSI на уровне 25.5 находится в зоне перепроданности, что часто предшествует коррекционному росту или консолидации, ослабляя непосредственный нисходящий импульс. Цена находится в нижней зоне полос Боллинджера, что также говорит о потенциальной перепроданности. Новости о напряженности между США и Ираном традиционно являются бычьим фактором для нефти, так как увеличивают риски поставок, что дополнительно снижает силу медвежьего технического сигнала.",
+    "price": 93.74,
+    "change_pct": 0.69,
+    "rsi": 25.5,
+    "support": 89.33,
+    "resistance": 112.27,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin climbs near $63k; Iran tensions, ETF outflows in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-above-62k-iran-tensions-etf-outflows-in-focus-4736515"
+      },
+      {
+        "title": "TSX trades higher amid gold price rise; U.S.-Iran tensions in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/tsx-futures-point-higher-amid-gold-price-rise-usiran-tensions-in-focus-4737154"
+      },
+      {
+        "title": "FTSE 100 today: Stocks climb despite escalating U.S.-Iran conflict, ECB rate hike",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-tick-up-despite-iranus-strikes-as-ecb-decision-looms-4736569"
+      }
+    ]
+  },
+  {
     "id": "20260611123816",
     "timestamp": "2026-06-11T12:38:16.749198+00:00",
     "instrument": "OIL",
@@ -1170,31 +1205,6 @@
         "title": "FTSE 100 today: Stocks fall as Iran-Kuwait missile strike deepens ceasefire fears",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slide-as-usiran-strike-exchange-shatters-ceasefire-hopes-4713676"
-      }
-    ]
-  },
-  {
-    "id": "20260528104654",
-    "timestamp": "2026-05-28T10:46:54.602723+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Медвежий свечной паттерн, указывающий на возможное истощение покупателей после сильного роста, в сочетании с медвежьим импульсом MACD.",
-    "action": "Продажа (Sell) по рыночной цене около 94.20, Стоп-лосс (SL) на уровне 96.00, Тейк-профит (TP) на уровне 92.00.",
-    "risk": "Основной риск — сохранение или усиление восходящего тренда, подтвержденного EMA, или эскалация геополитической напряженности, которая может спровоцировать дальнейший рост цен на нефть.",
-    "reasoning": "Технический анализ показывает слабо бычий перевес (+1), в основном из-за подтвержденного восходящего тренда по EMA (цена > EMA20 > EMA50). Однако, наличие медвежьего свечного паттерна и медвежий импульс по MACD (MACD < сигнальной линии) дают четкий краткосрочный сигнал к снижению. Цена находится в верхней зоне полос Боллинджера, что может указывать на краткосрочную перекупленность. Хотя новости о геополитической напряженности (ударах по Ирану) обычно бычьи для нефти, текущие технические индикаторы на краткосрочную перспективу указывают на потенциальную коррекцию, а сила сигнала снижена из-за фундаментальных противоречий.",
-    "price": 94.25,
-    "change_pct": 2.17,
-    "rsi": 52.8,
-    "support": 82.21,
-    "resistance": 100.31,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin tumbles past $73k to 6-wk low after fresh US strikes on Iran",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-tumbles-past-73k-to-6wk-low-after-fresh-us-strikes-on-iran-4713662"
       }
     ]
   }
