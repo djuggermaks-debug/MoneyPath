@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260612105734",
+    "timestamp": "2026-06-12T10:57:34.816895+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Стойкий нисходящий тренд подтверждается положением цены относительно EMA и медвежьим MACD, несмотря на перепроданность RSI.",
+    "action": "Продажа по текущей цене 87.33. Стоп-лосс на 90.00 (выше ближайшего локального сопротивления). Цель 1: 83.23 (20-дневная поддержка). Цель 2: 80.91 (нижняя граница Боллинджера).",
+    "risk": "Краткосрочный отскок из-за сильной перепроданности RSI и нахождения цены у нижней границы Боллинджера, что может привести к активации стоп-лосса.",
+    "reasoning": "Инструмент находится в четком нисходящем тренде, с ценой значительно ниже EMA20 и EMA50, подтверждая медвежий перевес. Индикатор MACD усиливает этот сигнал, демонстрируя медвежий импульс. Однако RSI находится глубоко в зоне перепроданности (25.5), а цена приближается к нижней границе полос Боллинджера, что может указывать на потенциальное замедление падения или краткосрочный отскок. Новости об «иранских мирных надеждах» являются фундаментальным медвежьим фактором для нефти, так как подразумевают увеличение предложения или снижение геополитической премии, усиливая общий медвежий настрой рынка.",
+    "price": 87.33,
+    "change_pct": -3.37,
+    "rsi": 25.5,
+    "support": 83.23,
+    "resistance": 104.6,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Europe stocks on course to recover war-led losses on U.S.-Iran peace hopes",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-stocks-jump-to-twoweek-highs-as-iranus-peace-hopes-lift-sentiment-4738936"
+      },
+      {
+        "title": "Wall St futures gain amid Iran peace hopes, blockbuster SpaceX debut",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-as-trump-touts-iran-peace-deal-spacex-trading-debut-on-tap-4738715"
+      }
+    ]
+  },
+  {
     "id": "20260611182124",
     "timestamp": "2026-06-11T18:21:24.863705+00:00",
     "instrument": "OIL",
@@ -1185,36 +1215,6 @@
         "title": "Bitcoin slumps to six-week low despite report of U.S. and Iran reaching deal",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-tumbles-past-73k-to-6wk-low-after-fresh-us-strikes-on-iran-4713662"
-      }
-    ]
-  },
-  {
-    "id": "20260528165432",
-    "timestamp": "2026-05-28T16:54:32.272154+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Формирование медвежьей свечи в верхней зоне Боллинджера при медвежьем импульсе MACD указывает на потенциальный откат в восходящем тренде.",
-    "action": "Рекомендуется открыть короткую позицию при пробое уровня 92.00 с целью на 90.04 (пивот) и далее на 88.50 (EMA20/середина Боллинджера). Стоп-лосс разместить выше 93.20.",
-    "risk": "Главный риск состоит в силе основного восходящего тренда, который подтверждается EMA, что может привести к быстрому восстановлению цены и пробою стоп-лосса, особенно если медвежий паттерн не получит подтверждения.",
-    "reasoning": "Цена нефти Brent находится выше EMA20 и EMA50, что подтверждает текущий восходящий тренд. Однако, индикатор MACD показывает медвежий импульс, а формирование медвежьей свечи в верхней зоне полос Боллинджера сигнализирует о возможной локальной перекупленности и потенциальном оттоке покупателей. Позиция в верхней зоне Боллинджера также указывает на вероятность коррекции. Несмотря на слабый бычий технический перевес по скору, наличие медвежьего паттерна и расхождения с MACD предполагает краткосрочный откат. Новости содержат противоречивые сигналы по влиянию на цену нефти (возможная сделка США-Иран против обострения конфликта), поэтому их влияние на силу сигнала на данный момент нивелируется.",
-    "price": 92.23,
-    "change_pct": -0.02,
-    "rsi": 52.8,
-    "support": 80.45,
-    "resistance": 98.16,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slumps to six-week low despite report of U.S. and Iran reaching deal",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-tumbles-past-73k-to-6wk-low-after-fresh-us-strikes-on-iran-4713662"
-      },
-      {
-        "title": "TSX trades higher despite fresh U.S.-Iran hostilities; U.S. inflation data",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/tsx-futures-edge-lower-amid-fresh-usiran-hostilities-us-inflation-data-4714478"
       }
     ]
   }
