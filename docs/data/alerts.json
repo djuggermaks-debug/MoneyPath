@@ -1,5 +1,50 @@
 [
   {
+    "id": "20260615175852",
+    "timestamp": "2026-06-15T17:58:52.628221+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Сильный нисходящий тренд, подтвержденный расположением цены относительно EMA и медвежьим импульсом MACD.",
+    "action": "Продавать (SELL) на текущих уровнях 83.00-83.20. Стоп-лосс установить на 84.50. Цель 1: 79.20 (20-дневная поддержка), Цель 2: 77.00 (нижняя граница Боллинджера).",
+    "risk": "Основной риск — отскок вверх из-за сильной перепроданности RSI (25.5), который может реализоваться при отсутствии дальнейших негативных новостей или краткосрочной фиксации прибыли.",
+    "reasoning": "Технический анализ указывает на сильный медвежий тренд с техническим скором -2. Цена значительно ниже EMA20 и EMA50, что подтверждает нисходящее движение. Медвежий импульс MACD усиливает этот сигнал, а позиция цены в нижней части полос Боллинджера подчеркивает текущее давление продаж. Несмотря на то, что RSI находится в зоне перепроданности (25.5), что потенциально может предвещать отскок, фундаментальные новости о мирном соглашении между США и Ираном оказывают сильное давление на цены на нефть, нивелируя этот фактор. Это согласуется с текущей медвежьей свечой и подтверждает продолжение снижения. Сочетание сильных технических сигналов и фундаментальных новостей приводит к формированию четкого медвежьего сигнала.",
+    "price": 83.11,
+    "change_pct": -4.83,
+    "rsi": 25.5,
+    "support": 79.2,
+    "resistance": 99.54,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin jumps above $66k on optimism over US-Iran peace deal",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rebounds-to-near-66k-on-optimism-over-usiran-peace-deal-4741196"
+      },
+      {
+        "title": "S&P 500 surges, Nasdaq jumps 3% on U.S.-Iran interim peace deal",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-surge-on-usiran-peace-deal-fed-in-focus-4741124"
+      },
+      {
+        "title": "Witness in Halkbank Iran sanctions case set for sentencing",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/witness-in-halkbank-iran-sanctions-case-set-for-sentencing-93CH-4742839"
+      },
+      {
+        "title": "LatAm airline shares jump as US-Iran pact knocks oil lower, easing fuel-cost pressure",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/latam-airline-shares-jump-as-usiran-pact-knocks-oil-lower-easing-fuelcost-pressure-4742826"
+      },
+      {
+        "title": "Latin American airline stocks rise as oil prices drop",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/latin-american-airline-stocks-rise-as-oil-prices-drop-93CH-4742824"
+      }
+    ]
+  },
+  {
     "id": "20260615145859",
     "timestamp": "2026-06-15T14:58:59.711463+00:00",
     "instrument": "OIL",
@@ -1196,36 +1241,6 @@
         "title": "Euro area bond yields rise as U.S.-Iran deal hopes fade",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/euro-area-bond-yields-rise-as-usiran-deal-hopes-fade-93CH-4719646"
-      }
-    ]
-  },
-  {
-    "id": "20260601123057",
-    "timestamp": "2026-06-01T12:30:57.416105+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Цена Нефти Brent торгуется значительно ниже ключевых EMA и MACD демонстрирует сильный медвежий импульс.",
-    "action": "Короткая позиция по текущей цене 93.6, стоп-лосс на 97.5, цель на 89.7.",
-    "risk": "Главный риск — резкий разворот наверх из-за обострения геополитической напряженности вокруг Ирана, что может поддержать цены на нефть, особенно если поддержка 92.75 удержится.",
-    "reasoning": "Цена Нефти Brent демонстрирует выраженный медвежий тренд, торгуясь значительно ниже ключевых скользящих средних EMA20 (100.38) и EMA50 (97.19). Индикатор MACD подтверждает сильный медвежий импульс, что указывает на продолжающееся давление продавцов. RSI находится на уровне 37.2, свидетельствуя о слабости, но оставляя потенциал для дальнейшего снижения до перепроданности. Несмотря на то что цена находится в нижней зоне полос Боллинджера и торгуется вблизи поддержки 92.75, общий технический перевес остается медвежьим, усиленный формированием медвежьей свечи. Новости о геополитических рисках вокруг Ирана, указывающие на возможное удорожание топлива, в данном случае ослабляют уверенность в нисходящем движении, но не меняют основного технического сигнала.",
-    "price": 93.6,
-    "change_pct": 2.72,
-    "rsi": 37.2,
-    "support": 92.75,
-    "resistance": 113.18,
-    "position": null,
-    "top_news": [
-      {
-        "title": "JetBlue flags higher fuel costs as disruptions from Iran conflict linger",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/jetblue-raises-secondquarter-fuel-cost-forecast-4718826"
-      },
-      {
-        "title": "U.S. stock futures edge higher as Iran military flare-up offset by Nvidia cheer",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-rise-with-focus-on-iran-peace-deal-payrolls-4717974"
       }
     ]
   }
