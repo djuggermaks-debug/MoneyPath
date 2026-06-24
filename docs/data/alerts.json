@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260624170951",
+    "timestamp": "2026-06-24T17:09:51.751111+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "нейтральный",
+    "strength": 2,
+    "key_factor": "Нефть Brent находится в сильном нисходящем тренде, но достигла зоны крайней перепроданности, что указывает на возможное отскок.",
+    "action": "Рекомендуется воздержаться от открытия новых позиций, ожидая подтверждения направления движения. В случае отскока, сопротивление находится на уровне вчерашнего пивота 77.88. Пробой поддержки 74.12 может привести к дальнейшему снижению.",
+    "risk": "Главный риск заключается в продолжении медвежьего импульса, несмотря на сильную перепроданность, что может привести к пробою текущей поддержки 74.12 и дальнейшему падению.",
+    "reasoning": "Дневной тренд по EMA20 и EMA50 является нисходящим, а MACD подтверждает медвежий импульс. Однако, индекс RSI 26.7 и позиция цены у нижней полосы Боллинджера указывают на сильную перепроданность инструмента, создавая предпосылки для отскока. Медвежья свеча дня подтверждает текущее падение. Новости лишь усиливают контекст снижения цен на нефть, но не дают нового сильного направления на текущих уровнях, что делает рынок крайне противоречивым.",
+    "price": 74.12,
+    "change_pct": -3.84,
+    "rsi": 26.7,
+    "support": 74.12,
+    "resistance": 102.56,
+    "position": null,
+    "top_news": [
+      {
+        "title": "US airline stocks rise as oil retreats to pre-Iran war levels",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-airline-stocks-rise-as-oil-retreats-to-preiran-war-levels-4758693"
+      },
+      {
+        "title": "European shares tread water as Iran uncertainty weighs, Rheinmetall slumps",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-shares-tread-water-as-iran-uncertainty-weighs-rheinmetall-slumps-4758708"
+      },
+      {
+        "title": "Tech selloff and falling oil drag TSX lower; BoC speaker in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/tech-selloff-and-falling-oil-drag-tsx-futures-lower-boc-speaker-in-focus-4757856"
+      }
+    ]
+  },
+  {
     "id": "20260624141057",
     "timestamp": "2026-06-24T14:10:57.042019+00:00",
     "instrument": "OIL",
@@ -1268,24 +1303,5 @@
         "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-fall-amid-more-iran-strikes-tech-weakness-cpi-data-awaited-4734248"
       }
     ]
-  },
-  {
-    "id": "20260610105012",
-    "timestamp": "2026-06-10T10:50:12.783904+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Цена находится значительно ниже EMA20, подтверждая сильный нисходящий тренд.",
-    "action": "Продавать (Short) по текущей цене 91.12. Установить Stop-Loss на уровне 95.00. Цель (Take-Profit) установить на уровне 86.00.",
-    "risk": "Главный риск заключается в том, что цена находится в нижней зоне полос Боллинджера и вблизи сильного уровня поддержки 86.11, что может спровоцировать краткосрочный отскок вверх.",
-    "reasoning": "Технический скор составляет -2, что формирует четкий медвежий сигнал. Цена Нефти Brent торгуется значительно ниже ключевой EMA20 (97.8), что является сильным показателем нисходящего тренда. Индикатор MACD подтверждает медвежий импульс, находясь ниже своей сигнальной линии. Дополнительно, формируется медвежья свеча, усиливая текущее давление продавцов. Хотя RSI еще не находится в зоне перепроданности, цена уже достигла нижней зоны Боллинджера и приближается к поддержке 86.11, что может вызвать временную коррекцию.",
-    "price": 91.12,
-    "change_pct": -0.36,
-    "rsi": 41.1,
-    "support": 86.11,
-    "resistance": 109.63,
-    "position": null,
-    "top_news": []
   }
 ]
