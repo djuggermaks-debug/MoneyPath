@@ -1,5 +1,24 @@
 [
   {
+    "id": "20260706161325",
+    "timestamp": "2026-07-06T16:13:25.860597+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "нейтральный",
+    "strength": 1,
+    "key_factor": "Полное отсутствие технических данных не позволяет сформировать какого-либо направленного сигнала, что вынуждает оставаться вне рынка.",
+    "action": "Воздерживаться от открытия новых позиций по Нефти Brent. Рекомендуется ожидать появления достаточного объема технических данных или значимых новостей для формирования четкого торгового сигнала.",
+    "risk": "Основной риск заключается в принятии необоснованных решений из-за отсутствия индикаторов, что может привести к значительным потерям. Без поддержки и сопротивления нет возможности адекватно оценить риск/вознаграждение.",
+    "reasoning": "Текущий технический скор составляет +0, что соответствует нейтральному перевесу. Все ключевые индикаторы, такие как RSI, EMA, MACD, а также данные по линиям Боллинджера, уровням поддержки и сопротивления, и свечным паттернам, отсутствуют. В такой ситуации невозможно провести полноценный технический анализ и определить доминирующее настроение рынка или потенциальные точки входа/выхода. Новости также отсутствуют, что лишает нас какого-либо фундаментального контекста. Поэтому, единственно верным решением является нейтральная позиция и ожидание появления релевантной информации.",
+    "price": 72.2,
+    "change_pct": 0.56,
+    "rsi": null,
+    "support": null,
+    "resistance": null,
+    "position": null,
+    "top_news": []
+  },
+  {
     "id": "20260706123853",
     "timestamp": "2026-07-06T12:38:53.853868+00:00",
     "instrument": "OIL",
@@ -995,46 +1014,6 @@
         "title": "European shares close higher on US-Iran talks; UK’s Starmer resigns",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/european-shares-muted-as-investors-weigh-usiran-talks-4751824"
-      }
-    ]
-  },
-  {
-    "id": "20260622142954",
-    "timestamp": "2026-06-22T14:29:54.138133+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "нейтральный",
-    "strength": 2,
-    "key_factor": "Ключевой фактор — сильная перепроданность по RSI и Боллинджеру в условиях устойчивого нисходящего тренда, создающая конфликт сигналов.",
-    "action": "Рекомендуется наблюдать за реакцией цены на нижней границе полос Боллинджера (77.25) и текущей поддержке (77.83). При формировании бычьего разворотного паттерна, возможен краткосрочный спекулятивный лонг с уровнем входа выше 78.00, стоп-лоссом ниже 77.00 и первой целью на пивоте 81.78.",
-    "risk": "Основной риск заключается в том, что сильный нисходящий тренд продолжится, игнорируя перепроданность, что приведет к пробою поддержки 77.25 и дальнейшему падению ниже текущих минимумов.",
-    "reasoning": "Технический скор -1 и слабый медвежий перевес указывают на нейтральное положение. Цена значительно ниже EMA20 и EMA50, подтверждая сильный нисходящий тренд. MACD также демонстрирует медвежий импульс. Однако, RSI на уровне 26.7 и цена у нижней полосы Боллинджера указывают на крайнюю перепроданность, что часто предшествует коррекционному отскоку. Медвежья свеча поддерживает краткосрочное давление. Новости, включая вызовы спросу на нефть от электромобилей, оказывают общее давление, но не меняют техническую картину сильной перепроданности.",
-    "price": 77.83,
-    "change_pct": -2.53,
-    "rsi": 26.7,
-    "support": 77.83,
-    "resistance": 107.69,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin ticks up to $65k, gains capped amid mixed signals on US-Iran talks",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-stalls-at-64k-amid-mixed-signals-on-usiran-talks-4751794"
-      },
-      {
-        "title": "S&P 500, Dow tick up after Iran touts progress in Switzerland peace talks",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-slide-after-trump-threatens-more-iran-strikes-despite-peace-talks-4751694"
-      },
-      {
-        "title": "Rising electric vehicle sales challenge oil demand outlook, Goldman says",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/rising-electric-vehicle-sales-challenge-oil-demand-outlook-goldman-says-4753086"
-      },
-      {
-        "title": "Wall St subdued at open as investors weigh US-Iran negotiations",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-subdued-at-open-as-investors-weigh-usiran-negotiations-4753004"
       }
     ]
   }
