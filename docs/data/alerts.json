@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260708121555",
+    "timestamp": "2026-07-08T12:15:55.098013+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Стойкий нисходящий тренд, подтвержденный положением цены относительно EMA20 и EMA50, является ключевым фактором.",
+    "action": "Открыть короткую позицию при пробое поддержки 76.67. Вход: 76.50. Стоп-лосс: 78.50. Цель: 70.62.",
+    "risk": "Основной риск — экстремально перепроданное состояние по RSI (16.9), которое может привести к резкому отскоку цены вверх, особенно от уровня поддержки 76.67.",
+    "reasoning": "Технический анализ показывает сильный медвежий перевес (-2), подтвержденный нисходящим трендом EMA20 < EMA50 и медвежьим импульсом MACD. Цена находится значительно ниже скользящих средних, что указывает на доминирование продавцов. Однако RSI на уровне 16.9 сигнализирует о глубокой перепроданности актива, что часто предшествует коррекционным отскокам. Цена находится в нижней полосе Боллинджера и вблизи сильной поддержки 76.67. Новость о предложении Chevron для увеличения добычи сланцевой нефти является медвежьим фактором, усиливающим опасения о переизбытке предложения, что подкрепляет основной медвежий сигнал, несмотря на признаки возможного краткосрочного отскока.",
+    "price": 78.23,
+    "change_pct": 5.49,
+    "rsi": 16.9,
+    "support": 76.67,
+    "resistance": 111.12,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin drops to $62k after Trump declares Iran ceasefire ’over’",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-63k-as-fresh-usiran-tensions-dampen-risk-appetite-4780732"
+      },
+      {
+        "title": "Chevron offers rival drillers its chemical technology to boost shale oil output",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/chevron-offers-rival-drillers-its-chemical-technology-to-boost-shale-oil-output-4781512"
+      }
+    ]
+  },
+  {
     "id": "20260708105546",
     "timestamp": "2026-07-08T10:55:46.259720+00:00",
     "instrument": "OIL",
@@ -1014,41 +1044,6 @@
         "title": "US air fares rose 4.7% in early 2026 as oil prices spiked",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/us-air-fares-rose-47-in-early-2026-as-oil-prices-spiked-4758793"
-      }
-    ]
-  },
-  {
-    "id": "20260624170951",
-    "timestamp": "2026-06-24T17:09:51.751111+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "нейтральный",
-    "strength": 2,
-    "key_factor": "Нефть Brent находится в сильном нисходящем тренде, но достигла зоны крайней перепроданности, что указывает на возможное отскок.",
-    "action": "Рекомендуется воздержаться от открытия новых позиций, ожидая подтверждения направления движения. В случае отскока, сопротивление находится на уровне вчерашнего пивота 77.88. Пробой поддержки 74.12 может привести к дальнейшему снижению.",
-    "risk": "Главный риск заключается в продолжении медвежьего импульса, несмотря на сильную перепроданность, что может привести к пробою текущей поддержки 74.12 и дальнейшему падению.",
-    "reasoning": "Дневной тренд по EMA20 и EMA50 является нисходящим, а MACD подтверждает медвежий импульс. Однако, индекс RSI 26.7 и позиция цены у нижней полосы Боллинджера указывают на сильную перепроданность инструмента, создавая предпосылки для отскока. Медвежья свеча дня подтверждает текущее падение. Новости лишь усиливают контекст снижения цен на нефть, но не дают нового сильного направления на текущих уровнях, что делает рынок крайне противоречивым.",
-    "price": 74.12,
-    "change_pct": -3.84,
-    "rsi": 26.7,
-    "support": 74.12,
-    "resistance": 102.56,
-    "position": null,
-    "top_news": [
-      {
-        "title": "US airline stocks rise as oil retreats to pre-Iran war levels",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-airline-stocks-rise-as-oil-retreats-to-preiran-war-levels-4758693"
-      },
-      {
-        "title": "European shares tread water as Iran uncertainty weighs, Rheinmetall slumps",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-shares-tread-water-as-iran-uncertainty-weighs-rheinmetall-slumps-4758708"
-      },
-      {
-        "title": "Tech selloff and falling oil drag TSX lower; BoC speaker in focus",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/tech-selloff-and-falling-oil-drag-tsx-futures-lower-boc-speaker-in-focus-4757856"
       }
     ]
   }
