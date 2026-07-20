@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260720165533",
+    "timestamp": "2026-07-20T16:55:33.770015+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Наличие медвежьей свечи на уровне сопротивления у верхней полосы Боллинджера указывает на потенциальный разворот после периода роста.",
+    "action": "Вход: Продажа от текущих уровней 88.47 или с подтверждением сопротивления около 88.50-88.70. Стоп-лосс: 89.90 (чуть выше верхней полосы Боллинджера). Цель 1: 83.65 (уровень EMA20). Цель 2: 80.58 (Пивот).",
+    "risk": "Основной риск связан с эскалацией геополитической напряженности вокруг Ирана, что может привести к росту цен на нефть из-за опасений по поводу поставок, игнорируя технические сигналы на снижение.",
+    "reasoning": "Несмотря на слабо бычий технический скор (+1) и бычий импульс MACD, текущая цена нефти Brent находится у верхней полосы Боллинджера (BB%=0.93), что указывает на перекупленность. Дополнительно, формирование 'медвежьей свечи' точно на уровне сопротивления (88.47) усиливает вероятность коррекции. Новости о напряженности в Иране, хотя обычно и поддерживают цены на нефть, в данном контексте противоречат техническому сигналу на снижение, ослабляя общую силу нашей медвежьей позиции.",
+    "price": 88.47,
+    "change_pct": 0.42,
+    "rsi": 59.6,
+    "support": 74.28,
+    "resistance": 88.47,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin little-changed at $64k with Iran tensions, rate jitters in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-down-slightly-to-64k-with-iran-tensions-rate-jitters-in-focus-4799865"
+      },
+      {
+        "title": "European shares trade mixed as markets weigh Iran diplomatic efforts",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-shares-edge-lower-ahead-of-ecb-meeting-us-tech-earnings-oil-jumps-4799916"
+      },
+      {
+        "title": "FTSE 100 today: Stocks slide on U.S.-Iran tensions; Burnham becomes PM",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-drop-as-usiran-conflict-drives-oil-sharply-higher-4799953"
+      }
+    ]
+  },
+  {
     "id": "20260720163718",
     "timestamp": "2026-07-20T16:37:18.717729+00:00",
     "instrument": "OIL",
@@ -1183,31 +1218,6 @@
         "title": "CFTC set to block CME’s fast-track 24/7 oil futures contract, FT reports",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/cftc-set-to-block-cmes-fasttrack-247-oil-futures-contract-ft-reports-4784392"
-      }
-    ]
-  },
-  {
-    "id": "20260709114805",
-    "timestamp": "2026-07-09T11:48:05.905276+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "нейтральный",
-    "strength": 1,
-    "key_factor": "Противоречие между сигналами глубокой перепроданности (RSI, MACD) и сильным доминирующим нисходящим трендом по EMA.",
-    "action": "Рекомендуется воздержаться от открытия позиций и ждать более четких сигналов. Цена находится у ключевых уровней поддержки (77.42, 77.59), пробой которых может усилить нисходящее движение, а отскок — привести к краткосрочному росту.",
-    "risk": "Основной риск заключается в продолжении сильного нисходящего тренда, что может привести к пробою текущих уровней поддержки (77.42) и дальнейшему падению цены, несмотря на сигналы перепроданности.",
-    "reasoning": "Цена нефти Brent находится в сильном нисходящем тренде, подтвержденном расположением ниже EMA20 и EMA50. Несмотря на это, индикатор RSI на уровне 24.4 сигнализирует о глубокой перепроданности актива, а MACD показывает бычий импульс, намекая на возможное краткосрочное восстановление. Однако текущая медвежья свеча и нахождение цены в нижней части полос Боллинджера указывают на сохранение давления продавцов. Цена в данный момент колеблется вблизи ключевых уровней поддержки и пивота (77.42, 77.59). Общая техническая картина противоречива, что приводит к нейтральному сигналу, так как бычьи и медвежьи факторы уравновешивают друг друга. Геополитические риски, хоть и могут повлиять на нефть, в текущем контексте не дают четкого направленного сигнала.",
-    "price": 78.58,
-    "change_pct": 0.72,
-    "rsi": 24.4,
-    "support": 77.42,
-    "resistance": 108.14,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin muted at $62k as US-Iran conflict re-escalates",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-nurses-losses-near-62k-as-usiran-conflict-reescalates-4782988"
       }
     ]
   }
