@@ -1,5 +1,30 @@
 [
   {
+    "id": "20260720113742",
+    "timestamp": "2026-07-20T11:37:42.983530+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Медвежья свеча сформировалась на уровне сопротивления и в зоне перекупленности Боллинджера, указывая на вероятный краткосрочный разворот.",
+    "action": "Продажа (SELL) в диапазоне 88.20-88.40. Стоп-лосс на 89.80 (выше верхней полосы Боллинджера). Тейк-профит на 83.50 (уровень EMA20).",
+    "risk": "Основной риск заключается в продолжении бычьего импульса, если цена пробьет сопротивление 88.27 и верхнюю полосу Боллинджера, игнорируя медвежий паттерн и признаки перекупленности.",
+    "reasoning": "Текущая цена Нефти Brent находится точно на уровне сопротивления 88.27 и в зоне перекупленности, что подтверждается близостью к верхней полосе Боллинджера (BB%=0.93). Формирование медвежьей свечи в этой области значительно усиливает вероятность краткосрочного отката. Несмотря на слабо бычий технический скор (+1) и бычий импульс MACD, эти факторы могут ослабнуть при давлении перекупленности и сопротивления. Новости о Ryanair указывают на снижение спроса на авиаперевозки, что может косвенно снизить спрос на топливо, но это вторичный фактор.",
+    "price": 88.27,
+    "change_pct": 0.19,
+    "rsi": 59.6,
+    "support": 74.11,
+    "resistance": 88.27,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Ryanair profits slump as Iran war dampens fares, hikes fuel costs",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/ryanair-sees-lower-summer-fares-as-profit-misses-forecasts-4799802"
+      }
+    ]
+  },
+  {
     "id": "20260720095051",
     "timestamp": "2026-07-20T09:50:51.815511+00:00",
     "instrument": "OIL",
@@ -1187,41 +1212,6 @@
         "title": "TSX drops as oil rises, gold falls amid renewed Mideast tensions",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/tsx-futures-drop-as-oil-rises-gold-falls-amid-renewed-mideast-tensions-4781253"
-      }
-    ]
-  },
-  {
-    "id": "20260708164422",
-    "timestamp": "2026-07-08T16:44:22.779905+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Крайняя перепроданность по RSI (16.9) и нахождение цены у сильного уровня поддержки 77.78, что ослабляет медвежий импульс.",
-    "action": "Вход: Продажа (шорт) при пробое уровня поддержки 77.78 (например, на 77.70). Стоп-лосс: 78.50. Цель: 75.00 / 71.64.",
-    "risk": "Главный риск — краткосрочный отскок из-за экстремальной перепроданности (RSI 16.9) и нахождения цены на сильном уровне поддержки, что может привести к ложному пробою и быстрому возврату цены.",
-    "reasoning": "Нефть Brent находится в сильном нисходящем тренде, что подтверждается расположением цены значительно ниже EMA20 и EMA50, а также медвежьим импульсом по MACD. Однако, текущая цена 79.36 является экстремально перепроданной по RSI (16.9) и достигла нижней границы полос Боллинджера, совпадая с уровнем поддержки 77.78. Это создает высокую вероятность краткосрочного отскока, несмотря на общую медвежью динамику. Новости о заявлении Трампа по Ирану, хотя и привели к снижению фондовых рынков, могут добавить геополитический риск-премию к нефти в долгосрочной перспективе, ослабляя сильный медвежий натиск в краткосроке. Поэтому, несмотря на медвежий технический перевес, необходимо проявлять осторожность и ждать подтверждения пробоя.",
-    "price": 79.36,
-    "change_pct": 7.01,
-    "rsi": 16.9,
-    "support": 77.78,
-    "resistance": 112.73,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slips below $62k after Trump declares Iran ceasefire ’over’",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-below-63k-as-fresh-usiran-tensions-dampen-risk-appetite-4780732"
-      },
-      {
-        "title": "FTSE 100 today: Stocks decline after Trump says Iran deal is \"over\"",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slide-as-gulf-conflict-escalates-4780752"
-      },
-      {
-        "title": "European stocks close down losses after Trump casts doubts over U.S.-Iran deal",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/europe-stocks-fall-as-geopolitical-flusion-and-fed-anxiousness-weigh-4780674"
       }
     ]
   }
