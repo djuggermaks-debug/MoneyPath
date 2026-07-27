@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260727170313",
+    "timestamp": "2026-07-27T17:03:13.441300+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Экстремальная перекупленность по RSI (77.9) и Боллинджеру, совпадающая с сопротивлением и крупным дневным падением цены.",
+    "action": "Продажа (Short) по рыночной цене в районе 89.38. Стоп-лосс установить на 90.20. Первая цель для фиксации прибыли на 87.35 (вчерашний пивот), вторая цель на 85.00.",
+    "risk": "Главный риск — возможное быстрое закрытие коротких позиций (short covering rally) после столь значительного дневного падения, что может привести к краткосрочному отскоку вверх. Также, геополитические события могут вызвать резкий рост цен на нефть.",
+    "reasoning": "Цена нефти Brent находится на критическом уровне 89.38, который является сопротивлением, и одновременно касается верхней полосы Боллинджера, сигнализируя об экстремальной перекупленности. Индикатор RSI, со значением 77.9, также подтверждает сильную перекупленность, указывая на высокую вероятность коррекции или разворота вниз. Несмотря на то, что MACD демонстрирует бычий импульс, и цена выше EMA20, эти сигналы могут быть запаздывающими на фоне уже произошедшего падения на -7.65% за день и формирования медвежьей свечи. Совокупность данных факторов, особенно экстремальные показания перекупленности в сочетании с сопротивлением и свечным паттерном, формируют сильный краткосрочный медвежий прогноз.",
+    "price": 89.38,
+    "change_pct": -7.65,
+    "rsi": 77.9,
+    "support": 70.41,
+    "resistance": 89.38,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Baker Hughes flags lower spending by oil and gas producers in 2026",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/baker-hughes-flags-lower-spending-by-oil-and-gas-producers-in-2026-4814791"
+      },
+      {
+        "title": "LVMH sales tick up as US luxury demand offsets hit from Iran war",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/lvmh-sales-rise-as-us-luxury-demand-offsets-hit-from-iran-war-4814718"
+      }
+    ]
+  },
+  {
     "id": "20260727154158",
     "timestamp": "2026-07-27T15:41:58.546529+00:00",
     "instrument": "OIL",
@@ -1258,36 +1288,6 @@
         "title": "Bitcoin dips below $63k as rate jitters, Iran tensions weigh",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-dips-below-63k-as-rate-jitters-iran-tensions-weigh-4797477"
-      }
-    ]
-  },
-  {
-    "id": "20260717090343",
-    "timestamp": "2026-07-17T09:03:43.894788+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Формирование медвежьей свечи на уровне сильного сопротивления 85.0, в условиях перекупленности по Боллинджеру.",
-    "action": "Вход в шорт на текущих уровнях 85.0, стоп-лосс выше 86.50, первая цель 80.37 (EMA20), вторая цель 77.42 (Пивот/Средняя Боллинджера).",
-    "risk": "Главный риск заключается в том, что текущий бычий импульс, поддерживаемый MACD и пробоем EMA20, окажется сильнее, пробьет сопротивление 85.0, и цена продолжит рост, возможно, на фоне эскалации геополитической напряженности.",
-    "reasoning": "Технический анализ показывает слабо бычий перевес, однако ряд критических факторов указывает на краткосрочную медвежью коррекцию. Цена достигла уровня сопротивления 85.0 и находится в зоне перекупленности по Боллинджеру (BB%=0.93), что часто предшествует снижению. Формирование медвежьей свечи на этих уровнях усиливает сигнал на коррекцию, несмотря на то, что MACD демонстрирует бычий импульс, а цена находится выше EMA20. Новости о геополитической напряженности (Иран) носят двойственный характер, но не отменяют текущую техническую слабость в области сопротивления.",
-    "price": 85.0,
-    "change_pct": 0.91,
-    "rsi": 59.6,
-    "support": 71.37,
-    "resistance": 85.0,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin dips below $63k as rate jitters, Iran tensions weigh",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-dips-below-63k-as-rate-jitters-iran-tensions-weigh-4797477"
-      },
-      {
-        "title": "Burberry’s Europe sales hit by Iran war while US and China grow",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/burberry-sales-boosted-by-us-while-iran-war-hits-european-spending-4797428"
       }
     ]
   }
