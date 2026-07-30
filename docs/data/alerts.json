@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260730164021",
+    "timestamp": "2026-07-30T16:40:21.811187+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Формирование медвежьей свечи и нахождение RSI в зоне перекупленности указывают на потенциальный откат, несмотря на общий бычий тренд по EMA и MACD.",
+    "action": "Продажа (шорт) по текущей цене 89.20. Стоп-лосс установить на 90.00. Цель для фиксации прибыли на уровне 86.15 (вблизи EMA50).",
+    "risk": "Основной риск связан с сильным бычьим импульсом по MACD и подтвержденным восходящим трендом по EMA, а также с геополитическими новостями, которые могут спровоцировать резкий рост цен, нивелируя медвежий паттерн.",
+    "reasoning": "Технический скор +1 указывает на слабый бычий перевес, однако доминирующий медвежий свечной паттерн является четким сигналом к потенциальному развороту или коррекции. Индекс RSI на уровне 67.8 подтверждает перекупленность, усиливая вероятность отката. Тем не менее, индикаторы EMA20 и EMA50, а также MACD демонстрируют сильный бычий импульс и восходящий тренд, что создает противоречие. Новости о эскалации конфликта между США и Ираном традиционно являются бычьими для цен на нефть, что выступает контр-фактором для медвежьего сигнала и ослабляет его.",
+    "price": 89.21,
+    "change_pct": -1.69,
+    "rsi": 67.8,
+    "support": 66.58,
+    "resistance": 102.33,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin slightly up near $65k amid rates, Iran jitters; Strategy earnings on tap",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-64k-amid-rates-iran-jitters-strategy-earnings-on-tap-4822491"
+      },
+      {
+        "title": "European stocks react to blockbuster earnings and escalating U.S.-Iran conflict",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-stocks-balance-blockbuster-earnings-against-escalating-usiran-conflict-4822425"
+      }
+    ]
+  },
+  {
     "id": "20260730151015",
     "timestamp": "2026-07-30T15:10:15.950747+00:00",
     "instrument": "OIL",
@@ -1195,41 +1225,6 @@
         "title": "Oil inventories highlight Wednesday’s economic calendar",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/oil-inventories-highlight-wednesdays-economic-calendar-93CH-4803989"
-      }
-    ]
-  },
-  {
-    "id": "20260721165512",
-    "timestamp": "2026-07-21T16:55:12.116733+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Формирование медвежьей свечи прямо на уровне сопротивления 91.31 и у верхней полосы Боллинджера указывает на потенциальный откат.",
-    "action": "Рассматривать короткие позиции при пробое 91.00. Цель 1: 86.33 (EMA20), Цель 2: 83.17 (Пивот). Стоп-лосс установить выше текущего максимума, например, на 91.80.",
-    "risk": "Основной риск связан с сохраняющейся геополитической напряженностью (конфликт с Ираном, угрозы хуситов), которая может резко поддержать цены на нефть, нивелируя технические сигналы к снижению.",
-    "reasoning": "Технический анализ показывает смешанную картину: цена выше EMA20 и MACD демонстрирует бычий импульс, указывая на потенциальный разворот тренда вверх. Однако, текущая цена находится на сильном уровне сопротивления 91.31 и достигла верхней полосы Боллинджера, что сигнализирует о перекупленности. Формирование медвежьей свечи в этой точке является сильным сигналом к коррекции. Новости о геополитических рисках обычно поддерживают цены на нефть, но поскольку наш технический сигнал указывает на снижение, эти новости ослабляют уверенность в медвежьем движении, снижая силу сигнала до 1.",
-    "price": 91.31,
-    "change_pct": 2.34,
-    "rsi": 59.6,
-    "support": 76.67,
-    "resistance": 91.31,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin climbs above $66k as ETF inflows recover; Iran tensions persist",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-to-near-66k-as-etf-inflows-recover-iran-tensions-persist-4801944"
-      },
-      {
-        "title": "European shares gain as tech strength offsets oil jump",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-shares-inch-higher-as-oil-prices-ease-earnings-in-focus-4802002"
-      },
-      {
-        "title": "European shares rise as investors weigh US-Iran diplomacy, Houthi shipping threat",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-shares-cautious-as-new-houthi-shipping-threat-counters-usiran-diplomacy-4801873"
       }
     ]
   }
