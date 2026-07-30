@@ -1,5 +1,30 @@
 [
   {
+    "id": "20260730151015",
+    "timestamp": "2026-07-30T15:10:15.950747+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Несмотря на слабо бычий технический перевес, формирование медвежьей свечи на текущих уровнях и перекупленность по RSI указывают на потенциальное снижение.",
+    "action": "Открыть короткую позицию по текущей цене 89.92. Стоп-лосс установить на уровне 90.50. Цель для фиксации прибыли — 86.82 (дневная EMA50).",
+    "risk": "Основной риск заключается в том, что базовые бычьи факторы (цена выше EMA20, бычий MACD) могут возобладать, приведя к отскоку цены вверх, несмотря на свечной паттерн и RSI. Также, неопределенность вокруг Ирана, упомянутая в новостях, может вызвать всплеск цен на нефть.",
+    "reasoning": "Хотя технический скор указывает на слабо бычий перевес (+1) благодаря цене выше EMA20 и бычьему MACD, текущая дневная свеча является медвежьей, что сигнализирует о давлении продавцов. RSI находится в зоне перекупленности (67.8), что также поддерживает сценарий коррекции вниз. Цена находится в верхней зоне Боллинджера, что может предвещать откат. Новости о напряженности вокруг Ирана являются вторичным фактором, который может оказать некоторую поддержку ценам на нефть, но на данный момент технический анализ доминирует.",
+    "price": 89.92,
+    "change_pct": -0.9,
+    "rsi": 67.8,
+    "support": 67.11,
+    "resistance": 103.14,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin slightly up near $65k amid rates, Iran jitters; Strategy earnings on tap",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-64k-amid-rates-iran-jitters-strategy-earnings-on-tap-4822491"
+      }
+    ]
+  },
+  {
     "id": "20260730150428",
     "timestamp": "2026-07-30T15:04:28.384712+00:00",
     "instrument": "OIL",
@@ -1205,41 +1230,6 @@
         "title": "European shares rise as investors weigh US-Iran diplomacy, Houthi shipping threat",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/european-shares-cautious-as-new-houthi-shipping-threat-counters-usiran-diplomacy-4801873"
-      }
-    ]
-  },
-  {
-    "id": "20260721162646",
-    "timestamp": "2026-07-21T16:26:46.302651+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Цена достигла ключевого сопротивления 91.12 и верхней полосы Боллинджера, сигнализируя о перекупленности и потенциальном развороте, что подтверждается медвежьей свечой.",
-    "action": "Продажа (шорт) по текущей цене 91.12. Стоп-лосс установить на 92.60 (чуть выше верхней полосы Боллинджера). Первая цель — EMA20 на уровне 86.15.",
-    "risk": "Основной риск заключается в дальнейшем усилении геополитической напряженности на Ближнем Востоке, что может спровоцировать пробой уровня сопротивления и привести к быстрому росту цены, а также продолжение бычьего импульса MACD.",
-    "reasoning": "Несмотря на бычий импульс MACD и цену выше EMA20, текущая ситуация указывает на перекупленность и возможное исчерпание восходящего движения. Цена находится точно на сопротивлении 91.12 и вблизи верхней полосы Боллинджера (BB%=0.93), что часто предшествует коррекции. Формирование 'Медвежьей свечи' в этих условиях усиливает сигнал на снижение. Новости о сохраняющейся напряженности в Иране являются фоновым фактором, поддерживающим высокие цены, но они, вероятно, уже учтены рынком и не отменяют краткосрочной технической коррекции.",
-    "price": 91.12,
-    "change_pct": 2.13,
-    "rsi": 59.6,
-    "support": 76.51,
-    "resistance": 91.12,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin climbs above $66k as ETF inflows recover; Iran tensions persist",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rises-to-near-66k-as-etf-inflows-recover-iran-tensions-persist-4801944"
-      },
-      {
-        "title": "European shares rise as investors weigh US-Iran diplomacy, Houthi shipping threat",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-shares-cautious-as-new-houthi-shipping-threat-counters-usiran-diplomacy-4801873"
-      },
-      {
-        "title": "FTSE 100 today: Stocks close up as defense rally offsets Iran tensions",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/ftse-100-today-stocks-slip-as-hormuz-attacks-temper-iran-ceasefire-hopes-4802028"
       }
     ]
   }
