@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260810124943",
+    "timestamp": "2026-08-10T12:49:43.015769+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 2,
+    "key_factor": "Цена пробила EMA20 снизу, что в сочетании с бычьим импульсом MACD указывает на возможное продолжение роста.",
+    "action": "Открыть длинную позицию на откате к уровню EMA20 (84.62). Стоп-лосс установить на 83.90. Первая цель — EMA50 на 85.49, далее 92.70.",
+    "risk": "Главный риск заключается в возможном ложном пробое EMA20, что может привести к быстрому развороту цены вниз, особенно учитывая формирование медвежьей свечи.",
+    "reasoning": "Цена на нефть Brent демонстрирует бычий перевес, подтвержденный пробитием EMA20 снизу и бычьим пересечением MACD, что указывает на восходящий импульс. Индикатор RSI находится в нейтральной зоне (54.0), что оставляет пространство для роста без немедленной перекупленности. Однако, текущая дневная свеча является медвежьей, что может сигнализировать о некоторой неопределенности или временной коррекции перед продолжением движения. Несмотря на это, технический скор +2 подтверждает бычий настрой, а упоминание иранских рисков в новостном фоне потенциально может оказать дополнительную поддержку ценам на нефть.",
+    "price": 85.02,
+    "change_pct": 1.76,
+    "rsi": 54.0,
+    "support": 68.65,
+    "resistance": 100.72,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin steady above $65k with U.S. inflation, Iran risks in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-holds-above-65k-with-us-inflation-iran-risks-in-focus-4847903"
+      },
+      {
+        "title": "Saudi Arabia stocks higher at close of trade; Tadawul All Share up 0.26%",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/saudi-arabia-stocks-higher-at-close-of-trade-tadawul-all-share-up-026-4849253"
+      }
+    ]
+  },
+  {
     "id": "20260810114210",
     "timestamp": "2026-08-10T11:42:10.373452+00:00",
     "instrument": "OIL",
@@ -1079,35 +1109,5 @@
     "resistance": 102.96,
     "position": null,
     "top_news": []
-  },
-  {
-    "id": "20260730170028",
-    "timestamp": "2026-07-30T17:00:28.307688+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "нейтральный",
-    "strength": 3,
-    "key_factor": "Смешанные технические сигналы, где бычий импульс MACD и геополитические риски компенсируются перекупленностью RSI и медвежьей свечой.",
-    "action": "В условиях нейтрального сигнала рекомендуется дождаться подтверждения направления. В случае отката цены к зоне поддержки EMA20 (84.35), рассмотреть длинные позиции с целью 97.60 (вчерашний пивот) и стопом ниже EMA20 на уровне 83.00.",
-    "risk": "Главный риск — деэскалация геополитической напряженности, что нивелирует поддержку нефтяных цен, или более глубокая коррекция из-за перекупленности RSI.",
-    "reasoning": "Технический скор +1 указывает на нейтральный сигнал, что обусловлено смешанными показаниями индикаторов. MACD демонстрирует сильный бычий импульс, а цена уверенно держится выше EMA20, что обычно служит бычьим знаком. Однако, RSI находится в зоне перекупленности, сигнализируя о потенциальной коррекции, что также подтверждается текущей медвежьей свечой и дневным падением цены на -1.54%. Геополитическая напряженность, в частности эскалация конфликта США-Иран, выступает сильным бычьим фактором, поддерживающим цены на нефть и придающим сигналу дополнительную силу.",
-    "price": 89.34,
-    "change_pct": -1.54,
-    "rsi": 67.8,
-    "support": 66.68,
-    "resistance": 102.47,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slightly up near $65k amid rates, Iran jitters; Strategy earnings on tap",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-64k-amid-rates-iran-jitters-strategy-earnings-on-tap-4822491"
-      },
-      {
-        "title": "European stocks react to blockbuster earnings and escalating U.S.-Iran conflict",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-stocks-balance-blockbuster-earnings-against-escalating-usiran-conflict-4822425"
-      }
-    ]
   }
 ]
