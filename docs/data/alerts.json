@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260810100939",
+    "timestamp": "2026-08-10T10:09:39.858199+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 3,
+    "key_factor": "Цена уверенно закрепилась выше EMA20, а MACD демонстрирует бычий кроссовер, сигнализируя об усилении покупательского импульса.",
+    "action": "Вход: Покупка в диапазоне 84.40 - 84.50. Стоп-лосс: 83.70 (ниже EMA20). Цель 1: 85.50 (промежуточное сопротивление), Цель 2: 86.50 (следующий уровень сопротивления).",
+    "risk": "Присутствие медвежьей свечи на дневном графике указывает на возможное краткосрочное давление продавцов и риск коррекции, которая может отменить текущий бычий импульс, особенно при пробое уровня EMA20.",
+    "reasoning": "Цена на нефть Brent демонстрирует уверенный бычий технический перевес с положительным скором +2. Основные факторы — закрепление цены выше EMA20 и бычий кроссовер MACD, что является сильным индикатором для развития восходящего движения. Дополнительную поддержку оказывают геополитические новости о напряженности в Ормузском проливе и риски, связанные с Ираном, которые усиливают базовый бычий сигнал до средней силы 3. Несмотря на недавнюю медвежью свечу, общая картина индикаторов и новостной фон указывают на потенциал роста, а RSI находится в нейтральной зоне, предоставляя пространство для движения вверх.",
+    "price": 84.46,
+    "change_pct": 1.09,
+    "rsi": 54.0,
+    "support": 68.19,
+    "resistance": 100.06,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin steady above $65k with U.S. inflation, Iran risks in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-holds-above-65k-with-us-inflation-iran-risks-in-focus-4847903"
+      },
+      {
+        "title": "Payrolls miss cuts Fed hike odds as Asia rallies and oil firms on Hormuz stalemate",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/payrolls-miss-cuts-fed-hike-odds-as-asia-rallies-and-oil-firms-on-hormuz-stalemate-93CH-4848211"
+      }
+    ]
+  },
+  {
     "id": "20260810095457",
     "timestamp": "2026-08-10T09:54:57.262991+00:00",
     "instrument": "OIL",
@@ -1082,31 +1112,6 @@
         "title": "European stocks react to blockbuster earnings and escalating U.S.-Iran conflict",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/european-stocks-balance-blockbuster-earnings-against-escalating-usiran-conflict-4822425"
-      }
-    ]
-  },
-  {
-    "id": "20260730151015",
-    "timestamp": "2026-07-30T15:10:15.950747+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Несмотря на слабо бычий технический перевес, формирование медвежьей свечи на текущих уровнях и перекупленность по RSI указывают на потенциальное снижение.",
-    "action": "Открыть короткую позицию по текущей цене 89.92. Стоп-лосс установить на уровне 90.50. Цель для фиксации прибыли — 86.82 (дневная EMA50).",
-    "risk": "Основной риск заключается в том, что базовые бычьи факторы (цена выше EMA20, бычий MACD) могут возобладать, приведя к отскоку цены вверх, несмотря на свечной паттерн и RSI. Также, неопределенность вокруг Ирана, упомянутая в новостях, может вызвать всплеск цен на нефть.",
-    "reasoning": "Хотя технический скор указывает на слабо бычий перевес (+1) благодаря цене выше EMA20 и бычьему MACD, текущая дневная свеча является медвежьей, что сигнализирует о давлении продавцов. RSI находится в зоне перекупленности (67.8), что также поддерживает сценарий коррекции вниз. Цена находится в верхней зоне Боллинджера, что может предвещать откат. Новости о напряженности вокруг Ирана являются вторичным фактором, который может оказать некоторую поддержку ценам на нефть, но на данный момент технический анализ доминирует.",
-    "price": 89.92,
-    "change_pct": -0.9,
-    "rsi": 67.8,
-    "support": 67.11,
-    "resistance": 103.14,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin slightly up near $65k amid rates, Iran jitters; Strategy earnings on tap",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-64k-amid-rates-iran-jitters-strategy-earnings-on-tap-4822491"
       }
     ]
   }
