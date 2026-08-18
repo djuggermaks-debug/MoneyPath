@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260818073039",
+    "timestamp": "2026-08-18T07:30:39.048736+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Медвежья свеча на фоне медвежьего импульса MACD и нахождения цены в верхней зоне полос Боллинджера указывает на вероятность краткосрочной коррекции.",
+    "action": "Рассматривать продажи при закреплении цены ниже пивота 90.57 с целью на уровне средней полосы Боллинджера 88.55; стоп-лосс установить выше 91.50.",
+    "risk": "Главный риск заключается в продолжении усиления геополитической напряженности на Ближнем Востоке, что может нивелировать краткосрочные технические сигналы и привести к дальнейшему росту цен на нефть.",
+    "reasoning": "Наличие медвежьей свечи в комбинации с медвежьим импульсом MACD (ниже сигнальной линии) указывает на повышенное давление продавцов и потенциальную краткосрочную коррекцию. Цена находится в верхней зоне полос Боллинджера, что может свидетельствовать о локальной перекупленности и готовности к откату. Однако, цена удерживается выше EMA20, а тренд EMA указывает на возможный разворот вверх, что говорит о сохранении базового бычьего тренда. Новости о геополитических рисках на Ближнем Востоке продолжают поддерживать цены на нефть, создавая противоречивый фон для технического сигнала на снижение. Таким образом, сигнал на продажу носит краткосрочный характер и имеет низкую силу из-за фундаментальной поддержки рынка.",
+    "price": 91.08,
+    "change_pct": 0.23,
+    "rsi": 49.3,
+    "support": 79.33,
+    "resistance": 102.86,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin edges up to $64k; Iran, rate jitters weigh on crypto",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-edges-up-to-64k-iran-rate-jitters-weigh-on-crypto-4864371"
+      },
+      {
+        "title": "European shares slip as oil prices and bond yields surge on Middle East fears",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-shares-slip-as-oil-prices-and-bond-yields-surge-on-middle-east-fears-4864402"
+      },
+      {
+        "title": "Bond yields rise, oil extends gains as US-Iran ceasefire expires",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/oil-prices-climb-bond-yields-rise-as-usiran-ceasefire-expires-4864169"
+      }
+    ]
+  },
+  {
     "id": "20260817193312",
     "timestamp": "2026-08-17T19:33:12.930917+00:00",
     "instrument": "OIL",
@@ -1131,31 +1166,6 @@
         "title": "Saudi Arabia stocks higher at close of trade; Tadawul All Share up 0.10%",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/saudi-arabia-stocks-higher-at-close-of-trade-tadawul-all-share-up-010-4854927"
-      }
-    ]
-  },
-  {
-    "id": "20260812114036",
-    "timestamp": "2026-08-12T11:40:36.728294+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "бычий",
-    "strength": 2,
-    "key_factor": "Бычий импульс по MACD, подтвержденный ценой выше EMA20, является ключевым фактором для текущего бычьего сигнала.",
-    "action": "Buy от текущих уровней (88.94) или на откате к EMA20 (88.53). Стоп-лосс установить на 88.30. Первая цель — пробой EMA50 (89.44), затем движение к 90.00-90.50.",
-    "risk": "Главный риск — формирование медвежьей свечи на текущих уровнях, которая может указывать на продолжение нисходящей коррекции, несмотря на бычий технический перевес.",
-    "reasoning": "Технический анализ по нефти Brent дает бычий сигнал с оценкой +2, что обусловлено нахождением цены выше EMA20 (88.53) и бычьим пересечением MACD, указывающим на рост импульса. Это сигнализирует о возможном развороте вверх. Однако, формирование медвежьей свечи на текущих уровнях представляет собой риск и может указывать на сохранение давления продавцов, что делает сигнал осторожным. Новости не оказывают прямого влияния на котировки нефти, оставляя фокус на технических индикаторах.",
-    "price": 88.94,
-    "change_pct": 0.03,
-    "rsi": 54.0,
-    "support": 71.81,
-    "resistance": 105.37,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin muted at $64k as Iran hopes dither; CPI awaited",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-flat-at-63k-as-iran-hopes-dither-cpi-awaited-4853755"
       }
     ]
   }
