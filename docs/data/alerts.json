@@ -1,5 +1,24 @@
 [
   {
+    "id": "20260820102110",
+    "timestamp": "2026-08-20T10:21:10.624776+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 3,
+    "key_factor": "Основной бычий тренд подтверждается устойчивым расположением цены выше EMA20 и EMA50, а также бычьим пересечением MACD.",
+    "action": "Покупка (LONG) при откате к уровню 92.00-92.50, который ближе к вчерашнему пивоту и середине Bollinger Bands. Стоп-лосс установить ниже EMA20 на 89.00. Целевой уровень - верхняя граница Боллинджера в районе 100.00.",
+    "risk": "Главный риск связан с формированием медвежьей свечи после значительного роста, что может сигнализировать о краткосрочной коррекции или фиксации прибыли, а также о возможном откате от верхней границы Боллинджера.",
+    "reasoning": "Технический анализ показывает сильный бычий тренд: цена уверенно держится выше EMA20 и EMA50, а MACD подтверждает восходящий импульс. Индикатор RSI находится в нейтральной зоне, указывая на отсутствие перекупленности и потенциал для дальнейшего роста. Однако текущая свеча является медвежьей, что, в сочетании с нахождением цены в верхней зоне полос Боллинджера, может указывать на краткосрочную фиксацию прибыли или предстоящую коррекцию перед продолжением восходящего движения. Вход на откате позволит снизить риски.",
+    "price": 93.93,
+    "change_pct": 2.52,
+    "rsi": 55.4,
+    "support": 84.29,
+    "resistance": 103.82,
+    "position": null,
+    "top_news": []
+  },
+  {
     "id": "20260820092517",
     "timestamp": "2026-08-20T09:25:17.229526+00:00",
     "instrument": "OIL",
@@ -1245,46 +1264,6 @@
         "title": "Bitcoin up slightly at $63.4k; Iran tensions, U.S. regulations in focus",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-at-635k-iran-tensions-us-regulations-in-focus-4862213"
-      }
-    ]
-  },
-  {
-    "id": "20260817102351",
-    "timestamp": "2026-08-17T10:23:51.339783+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "нейтральный",
-    "strength": 1,
-    "key_factor": "Смешанные технические сигналы, где цена выше EMA20, но MACD показывает медвежий импульс, приводят к отсутствию четкого торгового направления.",
-    "action": "Отсутствует четкий сигнал для входа в позицию. Рекомендуется воздержаться от торговли. Наблюдайте за ценой: потенциальный бычий импульс может возникнуть при пробое 89.80 с целью 91.00 и стопом 89.00. Медвежий импульс может развиться при пробое 89.05 (пивот) с целью 87.06 (средняя Боллинджера) и стопом 89.80.",
-    "risk": "Основной риск связан с геополитической напряженностью вокруг Ирана, которая упоминается в новостях и может вызвать внезапную высокую волатильность, нарушив текущую техническую неопределенность.",
-    "reasoning": "Технический анализ показывает смешанную картину, что приводит к нейтральному сигналу. Цена находится выше EMA20, указывая на потенциальный восходящий тренд, но при этом MACD демонстрирует медвежий импульс. RSI около 49.3 подтверждает отсутствие сильного направленного движения. Цена находится в верхней части полос Боллинджера, но дневная медвежья свеча указывает на возможное краткосрочное давление вниз. Новости об иранской напряженности создают фоновый геополитический риск, способный вызвать внезапную волатильность, но не дают четкого торгового направления.",
-    "price": 89.55,
-    "change_pct": 1.16,
-    "rsi": 49.3,
-    "support": 78.0,
-    "resistance": 101.13,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin up slightly at $63.4k; Iran tensions, U.S. regulations in focus",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-steadies-at-635k-iran-tensions-us-regulations-in-focus-4862213"
-      },
-      {
-        "title": "Bitcoin coiled at $63,591 with volatility at 6-month lows: Live levels",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-coiled-at-63591-with-volatility-at-6month-lows-live-levels-93CH-4862234"
-      },
-      {
-        "title": "US railroad Union Pacific turned charges meant to cover fuel cost spike from Iran war into profit",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-railroad-union-pacific-turned-charges-meant-to-cover-fuel-cost-spike-from-iran-war-into-profit-4862493"
-      },
-      {
-        "title": "S&P 500 eyes record as retail slump, Iran risk set up pivotal week",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/sp-500-eyes-record-as-retail-slump-iran-risk-set-up-pivotal-week-93CH-4862457"
       }
     ]
   }
