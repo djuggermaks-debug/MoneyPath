@@ -1,5 +1,45 @@
 [
   {
+    "id": "20260909131704",
+    "timestamp": "2026-09-09T13:17:04.679137+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 3,
+    "key_factor": "Медвежья свеча формируется в условиях перекупленности и медвежьего импульса MACD, несмотря на общий восходящий тренд.",
+    "action": "Продажа (Short) по текущей цене около 100.50. Стоп-лосс установить выше сопротивления на уровне 102.10. Первая цель для фиксации прибыли — 96.00 (середина Боллинджера/EMA20/50), вторая цель — 94.00 (вчерашний пивот).",
+    "risk": "Главный риск — продолжение основного восходящего тренда, который подтверждается расположением цены выше EMA20 и EMA50. Если цена пробьет сопротивление 101.47 и удержится выше верхней полосы Боллинджера 101.94, медвежий сценарий будет отменен.",
+    "reasoning": "Несмотря на общий восходящий тренд, о чем свидетельствует расположение цены выше скользящих средних EMA20 и EMA50, текущая ситуация указывает на потенциальный разворот или коррекцию. Цена находится у верхней полосы Боллинджера, сигнализируя о перекупленности, что часто предшествует снижению. Медвежий импульс MACD и формирование медвежьей свечи усиливают этот сигнал. Новости о падении европейских фондовых рынков из-за высоких цен на нефть на уровне $100 дополнительно поддерживают медвежий сценарий, предполагая возможное снижение спроса.",
+    "price": 100.53,
+    "change_pct": 2.67,
+    "rsi": 54.6,
+    "support": 90.53,
+    "resistance": 101.47,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin rebounds to $79.5k on Zcash ETF inflows; Fed, oil pressures limit rise",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-rebounds-above-79k-on-zcash-etf-inflows-fed-oil-pressures-limit-rise-4892730"
+      },
+      {
+        "title": "European stocks slump to multi-month lows with oil at $100 and ECB hike in sight",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-equities-stumble-under-threat-of-middle-east-strikes-ecb-hike-4892721"
+      },
+      {
+        "title": "Kazakhstan suspends enforcement against Kashagan oilfield operator",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/kazakhstan-suspends-enforcement-against-kashagan-oilfield-operator-93CH-4893619"
+      },
+      {
+        "title": "Saudi Arabia stocks lower at close of trade; Tadawul All Share down 0.19%",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/saudi-arabia-stocks-lower-at-close-of-trade-tadawul-all-share-down-019-4893613"
+      }
+    ]
+  },
+  {
     "id": "20260909120423",
     "timestamp": "2026-09-09T12:04:23.285323+00:00",
     "instrument": "OIL",
@@ -1131,30 +1171,5 @@
     "resistance": 97.5,
     "position": null,
     "top_news": []
-  },
-  {
-    "id": "20260825135004",
-    "timestamp": "2026-08-25T13:50:04.932948+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "бычий",
-    "strength": 2,
-    "key_factor": "Восходящий тренд, подтвержденный расположением цены выше EMA20 и EMA50, а также бычий импульс MACD, остаются ключевыми факторами поддержки.",
-    "action": "Рассмотреть покупки на откате к уровню 85.20-85.50 (вчерашний пивот / середина Боллинджера). Установить стоп-лосс ниже EMA50 на 83.00, а цель определить в диапазоне 92.00-93.00.",
-    "risk": "Главный риск — продолжение текущей краткосрочной коррекции, вызванной медвежьей свечой и негативными новостями о падении цен на нефть. Риск реализуется при пробое и закреплении цены ниже EMA50.",
-    "reasoning": "Технический анализ демонстрирует уверенный бычий перевес: цена прочно удерживается выше EMA20 и EMA50, что подтверждает восходящий тренд, а MACD сигнализирует о сохранении бычьего импульса. RSI находится в нейтральной зоне, указывая на отсутствие перекупленности, несмотря на позицию в верхней половине полосы Боллинджера. Однако текущая дневная свеча является медвежьей, и цена значительно снизилась за день (-2.94%). Новости о падении цен на нефть усиливают краткосрочное негативное давление, что объясняет снижение текущей силы сигнала, несмотря на сильные долгосрочные технические бычьи факторы.",
-    "price": 87.88,
-    "change_pct": -2.94,
-    "rsi": 55.4,
-    "support": 78.86,
-    "resistance": 97.13,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Wall Street set for a higher open amid falling oil prices and Treasury yields",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-steady-as-investors-brace-for-nvidia-results-fed-signals-4874359"
-      }
-    ]
   }
 ]
