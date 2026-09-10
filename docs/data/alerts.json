@@ -1,5 +1,35 @@
 [
   {
+    "id": "20260910165434",
+    "timestamp": "2026-09-10T16:54:34.748695+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 2,
+    "key_factor": "Медвежья свеча формируется в условиях перекупленности, когда цена находится у верхней полосы Боллинджера, что указывает на потенциальный откат.",
+    "action": "Продажа (Sell): 106.89 (текущая цена) или при отскоке к 107.50 для лучшего входа. Стоп-лосс (Stop Loss): 108.50. Цель 1 (Take Profit 1): 102.00 (вблизи EMA20 и средней полосы Боллинджера). Цель 2 (Take Profit 2): 96.50 (вблизи поддержки).",
+    "risk": "Основной риск заключается в продолжении доминирующего восходящего тренда. Если цена пробьет уровень сопротивления 107.89 и закрепится выше, это может нивелировать текущий медвежий сигнал и спровоцировать дальнейший рост.",
+    "reasoning": "Несмотря на сильный восходящий тренд, подтвержденный положением цены выше EMA20 и EMA50, краткосрочные индикаторы сигнализируют о возможной коррекции. MACD демонстрирует медвежий импульс (линия MACD ниже сигнальной), а цена достигла верхней полосы Боллинджера, что указывает на состояние перекупленности. Формирование медвежьей свечи в этих условиях усиливает вероятность краткосрочного отката. Хотя недавний рост WTI до $100 показывает силу рынка, новости о падении акций и облигаций из-за роста инфляции и ставок ФРС могут создать негативный фон для рисковых активов, включая нефть.",
+    "price": 106.89,
+    "change_pct": 5.61,
+    "rsi": 54.6,
+    "support": 96.26,
+    "resistance": 107.89,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin drops to $77.1k on Iran jitters, higher yields",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-down-to-783k-on-iran-jitters-higher-yields-4894954"
+      },
+      {
+        "title": "U.S. stocks and bonds fall as PPI boosts Fed rate hike bets, WTI crude tops $100",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-after-wall-st-falls-on-higher-yields-ppi-cpi-awaited-4894822"
+      }
+    ]
+  },
+  {
     "id": "20260910131428",
     "timestamp": "2026-09-10T13:14:28.779413+00:00",
     "instrument": "OIL",
@@ -1157,36 +1187,6 @@
         "title": "GDP, durable goods orders, and crude oil inventories among economic data due Wednesday",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/gdp-durable-goods-orders-and-crude-oil-inventories-among-economic-data-due-wednesday-93CH-4875813"
-      }
-    ]
-  },
-  {
-    "id": "20260825173634",
-    "timestamp": "2026-08-25T17:36:34.445134+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "бычий",
-    "strength": 2,
-    "key_factor": "Устойчивый восходящий тренд, подтвержденный расположением цены относительно EMA20 и EMA50, а также бычьим импульсом MACD.",
-    "action": "Покупать (LONG). Вход: При подтверждении отскока от зоны 84.50 (Пивот/Середина Боллинджера) - 85.00. Стоп-лосс: 82.50 (ниже EMA50). Тейк-профит: 92.00 (вблизи верхней полосы Боллинджера).",
-    "risk": "Основной риск — продолжение текущего внутридневного медвежьего импульса на фоне новостей о смягчении санкций против Ирана и общем падении цен на нефть. Этот сценарий реализуется, если цена пробьет ключевые уровни поддержки EMA20/50 и Пивот.",
-    "reasoning": "Несмотря на существенное внутридневное падение (-3.74%), технический анализ инструмента Нефть Brent остается бычьим с показателем +3. Цена уверенно держится выше ключевых скользящих средних EMA20 и EMA50, что сигнализирует об устойчивом восходящем тренде. Индикатор MACD также подтверждает бычий импульс, указывая на сохранение положительного импульса. Однако, текущая свеча является медвежьей, и новости указывают на давление вниз из-за смягчения санкций против Ирана, что снижает общую силу бычьего сигнала. Рекомендуется осторожный вход после подтверждения отскока от значимого уровня поддержки.",
-    "price": 87.15,
-    "change_pct": -3.74,
-    "rsi": 55.4,
-    "support": 78.2,
-    "resistance": 96.32,
-    "position": null,
-    "top_news": [
-      {
-        "title": "European shares gain on softer US Iran sanctions, falling oil prices",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-shares-climb-on-iran-sanctions-relief-defence-gains-4874569"
-      },
-      {
-        "title": "Wall Street rises amid falling oil prices and Treasury yields",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-steady-as-investors-brace-for-nvidia-results-fed-signals-4874359"
       }
     ]
   }
