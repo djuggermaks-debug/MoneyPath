@@ -1,5 +1,30 @@
 [
   {
+    "id": "20260925122658",
+    "timestamp": "2026-09-25T12:26:58.311819+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 1,
+    "key_factor": "Сильный восходящий тренд, подтвержденный конфигурацией скользящих средних, является основным бычьим фактором.",
+    "action": "Купить при пробое 99.95 (вчерашний пивот) с целью 105.00 и стопом 97.50.",
+    "risk": "Главный риск заключается в глубокой коррекции из-за перекупленности по RSI и негативного свечного паттерна, что может быть усилено общим ослаблением риск-аппетита на рынках.",
+    "reasoning": "Цена Нефти Brent демонстрирует сильный восходящий тренд, так как текущая цена находится выше EMA20 (95.58), которая, в свою очередь, выше EMA50 (87.97). Бычий импульс также подтверждается индикатором MACD, где линия MACD (6.3837) выше сигнальной линии (6.2586). Однако, индикатор RSI (65.7) находится в зоне перекупленности, что указывает на возможное замедление роста или коррекцию в ближайшее время. Дополнительным сигналом к осторожности является сформировавшаяся медвежья свеча и текущее расположение цены ниже вчерашнего пивота 99.95. Несмотря на общий бычий тренд, эти факторы, в сочетании с потенциально настораживающими новостями о фондовых рынках, снижают уверенность в немедленном продолжении роста. Поэтому, несмотря на основной бычий сигнал по техническому скору, рекомендуется действовать с повышенной осторожностью.",
+    "price": 98.87,
+    "change_pct": -1.35,
+    "rsi": 65.7,
+    "support": 75.53,
+    "resistance": 112.56,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Barclays asks if equity markets are nearing the boiling point",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/barclays-asks-if-equity-markets-are-nearing-the-boiling-point-4917346"
+      }
+    ]
+  },
+  {
     "id": "20260924185723",
     "timestamp": "2026-09-24T18:57:23.203172+00:00",
     "instrument": "OIL",
@@ -1146,46 +1171,6 @@
         "title": "ADP employment, energy outlook, and oil inventories due Wednesday",
         "source": "Reuters",
         "link": "https://www.investing.com/news/stock-market-news/adp-employment-energy-outlook-and-oil-inventories-due-wednesday-93CH-4892194"
-      }
-    ]
-  },
-  {
-    "id": "20260908131143",
-    "timestamp": "2026-09-08T13:11:43.818556+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 2,
-    "key_factor": "Цена находится у верхней полосы Боллинджера и сопротивления 98.64, формируя медвежью свечу, что указывает на потенциальную перекупленность и коррекцию.",
-    "action": "Продать Нефть Brent при пробое уровня 97.00 или на подтверждении отката от сопротивления 98.64. Стоп-лосс установить на 99.50. Первая цель для фиксации прибыли на 93.00, вторая на 91.00.",
-    "risk": "Основной риск заключается в продолжении сильного восходящего тренда, что приведет к пробою сопротивления 98.64 и верхней полосы Боллинджера, нивелируя текущие медвежьи сигналы.",
-    "reasoning": "Хотя долгосрочный тренд остается восходящим (цена выше EMA20 и EMA50), краткосрочные индикаторы показывают сигналы к возможному развороту или коррекции. MACD демонстрирует медвежий импульс, а цена приблизилась к верхней полосе Боллинджера, сигнализируя о перекупленности. Медвежья свеча на текущем уровне сопротивления 98.64 усиливает этот краткосрочный медвежий прогноз. Новости указывают на то, что высокие цены на нефть вызывают опасения на рынках и способствуют ужесточению денежно-кредитной политики, что может сдерживать дальнейший рост.",
-    "price": 97.72,
-    "change_pct": 1.5,
-    "rsi": 54.6,
-    "support": 88.0,
-    "resistance": 98.64,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Bitcoin dips toward $78k as as Fed, oil pressures mount",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-toward-78k-as-as-fed-oil-pressures-mount-4890858"
-      },
-      {
-        "title": "Saudi Arabia stocks higher at close of trade; Tadawul All Share up 0.10%",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/saudi-arabia-stocks-higher-at-close-of-trade-tadawul-all-share-up-010-4891685"
-      },
-      {
-        "title": "S&P 500 and Dow futures slip amid elevated Fed rate hike bets, oil prices",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/dow-futures-slip-amid-fed-hike-bets-surging-oil-4890757"
-      },
-      {
-        "title": "European stocks flat as investors weigh imminent ECB hike and oil spike",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/european-stocks-fall-as-crude-extends-advance-following-iranian-threats-4890806"
       }
     ]
   }
