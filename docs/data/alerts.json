@@ -1,5 +1,40 @@
 [
   {
+    "id": "20260928171249",
+    "timestamp": "2026-09-28T17:12:49.646063+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "бычий",
+    "strength": 2,
+    "key_factor": "Сильный восходящий тренд подтверждается положением цены выше ключевых скользящих средних (EMA20 > EMA50) и бычьим импульсом MACD.",
+    "action": "Покупка при откате к зоне 95.00-95.50 (близко к EMA20). Стоп-лосс: 93.50. Цель: 102.00.",
+    "risk": "Основной риск — коррекция из-за перекупленности (RSI 65.7) и недавнего медвежьего свечного паттерна, что может привести к снижению цены к поддержке.",
+    "reasoning": "Нефть Brent находится в сильном восходящем тренде, подтвержденном положением цены выше EMA20 и EMA50, а также бычьим пересечением MACD. Это формирует основной бычий перевес. Однако, RSI на уровне 65.7 сигнализирует о приближении к зоне перекупленности, а текущий свечной паттерн является медвежьим, указывая на возможное краткосрочное замедление или коррекцию. Позиция цены в верхней зоне Боллинджера также усиливает вероятность отката. Новости указывают на рост цен на нефть как на фактор, давящий на акции, что подтверждает текущую силу нефтяного рынка, но предупреждает о потенциальном сопротивлении из-за макроэкономических факторов.",
+    "price": 98.1,
+    "change_pct": 0.68,
+    "rsi": 65.7,
+    "support": 74.94,
+    "resistance": 111.69,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin slips to $83k amid pressure from high yields, Iran tensions",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-to-83k-amid-pressure-from-high-yields-iran-tensions-4919428"
+      },
+      {
+        "title": "Stocks fall, squeezed by rising oil prices and Treasury yields",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/stocks-cautious-in-asia-as-oil-gains-yields-rise-4919224"
+      },
+      {
+        "title": "European shares reverse gains amid oil rebound",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/european-bourses-slip-after-trump-rejects-iran-proposal-tech-stocks-slip-4919474"
+      }
+    ]
+  },
+  {
     "id": "20260928144514",
     "timestamp": "2026-09-28T14:45:14.477577+00:00",
     "instrument": "OIL",
@@ -1103,31 +1138,6 @@
         "title": "Bitcoin slips to $78.2k on Iran jitters, higher yields",
         "source": "Reuters",
         "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-down-to-783k-on-iran-jitters-higher-yields-4894954"
-      }
-    ]
-  },
-  {
-    "id": "20260909182615",
-    "timestamp": "2026-09-09T18:26:15.648541+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 1,
-    "key_factor": "Медвежья свеча у сопротивления 102.36 и верхней полосы Боллинджера указывает на потенциальную коррекцию после сильного роста.",
-    "action": "Рассматриваю краткосрочную продажу (short) нефти Brent. Вход в позицию около 101.00, стоп-лосс устанавливаю на 103.00, а цель для фиксации прибыли — 96.50.",
-    "risk": "Основной риск — продолжение восходящего тренда, если текущая медвежья свеча и перекупленность окажутся лишь кратковременной коррекцией на пути к новым максимумам, особенно учитывая общий бычий фон для нефти.",
-    "reasoning": "Хотя общий тренд по EMA остается восходящим, цена находится у сильного сопротивления 102.36 и верхней полосы Боллинджера, что указывает на перекупленность. Индикатор MACD демонстрирует медвежий импульс (линия MACD ниже сигнальной). Наличие медвежьей свечи на текущих высоких уровнях служит дополнительным подтверждением потенциального разворота или коррекции. Новости о том, что нефть превысила $100, подтверждают текущую высокую оценку, но не дают явных оснований для дальнейшего быстрого роста, усиливая вероятность краткосрочного отката.",
-    "price": 101.41,
-    "change_pct": 3.56,
-    "rsi": 54.6,
-    "support": 91.32,
-    "resistance": 102.36,
-    "position": null,
-    "top_news": [
-      {
-        "title": "U.S. stocks and bonds fall as Treasury buyback update disappoints, oil tops $100",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-muted-as-oil-nears-100-fed-hike-bets-rise-4892640"
       }
     ]
   }
