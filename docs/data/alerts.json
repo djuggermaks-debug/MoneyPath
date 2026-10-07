@@ -1,5 +1,40 @@
 [
   {
+    "id": "20261007140515",
+    "timestamp": "2026-10-07T14:05:15.047458+00:00",
+    "instrument": "OIL",
+    "instrument_name": "Нефть Brent",
+    "signal": "медвежий",
+    "strength": 1,
+    "key_factor": "Появление медвежьей свечи перевесило нейтральный технический скор, указывая на потенциальное краткосрочное снижение.",
+    "action": "Открыть короткую позицию по Brent около 101.90. Установить Stop Loss на 103.50. Первая Цель (Take Profit 1) на 98.00, вторая Цель (Take Profit 2) на 93.80 (EMA50).",
+    "risk": "Основной риск заключается в том, что сильный восходящий тренд по EMA и общий бычий фон новостей могут быстро отменить медвежий импульс, вызвав отскок цены.",
+    "reasoning": "Технический скор в +1 изначально указывает на нейтральный сигнал, однако появление медвежьей свечи, согласно правилам, смещает сигнал в медвежью сторону. Это подкрепляется медвежьим импульсом по MACD, где линия MACD находится ниже сигнальной, подтверждая текущее ослабление. Несмотря на то, что тренд по EMA остается восходящим (цена > EMA20 > EMA50) и RSI нейтрален, эти факторы указывают на возможное краткосрочное снижение. Однако, новости о росте цен на нефть и ее влиянии на мировые рынки говорят о сильном бычьем давлении, что ослабляет наш медвежий сигнал до силы 1.",
+    "price": 101.96,
+    "change_pct": 1.37,
+    "rsi": 53.5,
+    "support": 87.31,
+    "resistance": 117.03,
+    "position": null,
+    "top_news": [
+      {
+        "title": "Bitcoin falls as Iran attacks, oil surge fuel rate fears; crypto stocks slip",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-falls-as-iran-attacks-oil-surge-fuel-rate-fears-crypto-stocks-slip-4936200"
+      },
+      {
+        "title": "Wall St opens lower as bond yields and oil rebound; Fed minutes in focus",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/wall-st-opens-lower-as-bond-yields-and-oil-rebound-fed-minutes-in-focus-4936856"
+      },
+      {
+        "title": "U.S. stocks dip at the open as Treasury yields resume climb, oil prices rise",
+        "source": "Reuters",
+        "link": "https://www.investing.com/news/stock-market-news/us-stock-futures-steady-after-tech-rally-lifts-sp-500-nasdaq-to-records-4935463"
+      }
+    ]
+  },
+  {
     "id": "20261006184823",
     "timestamp": "2026-10-06T18:48:23.313377+00:00",
     "instrument": "OIL",
@@ -1070,30 +1105,5 @@
     "resistance": 104.58,
     "position": null,
     "top_news": []
-  },
-  {
-    "id": "20260917135921",
-    "timestamp": "2026-09-17T13:59:21.308571+00:00",
-    "instrument": "OIL",
-    "instrument_name": "Нефть Brent",
-    "signal": "медвежий",
-    "strength": 3,
-    "key_factor": "Цена находится в экстремальной зоне перекупленности, сформировав медвежью свечу прямо на уровне 20-дневного сопротивления.",
-    "action": "Продать по текущей цене (103.11). Стоп-лосс на 104.50. Цель 1: 95.58 (Пивот). Цель 2: 83.33 (EMA20).",
-    "risk": "Основной риск заключается в сильном восходящем тренде, подтвержденном EMA20 > EMA50 и бычьим MACD. Краткосрочный откат может быть быстро поглощен покупателями, если фундаментальные факторы снова усилятся или цена пробьет стоп-лосс на 104.50.",
-    "reasoning": "Технический анализ показывает сильно перекупленную ситуацию: RSI на уровне 92.4 и цена находится у верхней полосы Боллинджера, что обычно предвещает коррекцию. Несмотря на восходящий тренд по EMA и бычий импульс MACD, текущая цена 103.11 совпадает с 20-дневным сопротивлением, и на этом уровне сформировалась медвежья свеча. Эта медвежья свеча на сопротивлении при экстремальной перекупленности сигнализирует о возможном коррекционном движении вниз. Новости о снижении цен на нефть как факторе облегчения для ФРС усиливают медвежий сентимент, указывая на то, что рынок благоприятно воспримет дальнейшее падение цен. Таким образом, хотя основной тренд бычий, краткосрочные сигналы указывают на высокую вероятность отката.",
-    "price": 103.11,
-    "change_pct": -2.57,
-    "rsi": 92.4,
-    "support": 69.19,
-    "resistance": 103.11,
-    "position": null,
-    "top_news": [
-      {
-        "title": "Wall St opens higher as easing oil prices boost Fed hike relief",
-        "source": "Reuters",
-        "link": "https://www.investing.com/news/stock-market-news/wall-st-opens-higher-as-easing-oil-prices-boost-fed-hike-relief-4905872"
-      }
-    ]
   }
 ]
